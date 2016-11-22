@@ -10,7 +10,7 @@
     <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>e8bc8e78-032d-465c-826d-9ec0c1a4a013</PackageIdentityName>
     <PackageIdentityPublisher>CN=MSFT</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\obj\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\obj\ARM\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -25,16 +25,16 @@
     <JitOptimizationSuppressed>False</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\bin\ARM\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-10T00:36:41.799</Modified>
+      <Modified>2016-11-10T01:44:17.706</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\bin\ARM\Debug\IoTBrowser.exe">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\bin\ARM\Debug\IoTBrowser.exe">
       <PackagePath>entrypoint\IoTBrowser.exe</PackagePath>
-      <Modified>2016-11-10T00:36:40.854</Modified>
+      <Modified>2016-11-10T01:44:16.946</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -448,60 +448,60 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-23T06:11:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\Properties\Default.rd.xml">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2016-11-05T21:12:51.329</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2016-11-05T21:12:51.236</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-05T21:12:51.236</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-05T21:12:51.251</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-05T21:12:51.267</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-05T21:12:51.267</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-05T21:12:51.283</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-11-05T21:12:51.298</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\bin\ARM\Debug\IoTBrowser.xr.xml">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\bin\ARM\Debug\IoTBrowser.xr.xml">
       <PackagePath>IoTBrowser.xr.xml</PackagePath>
-      <Modified>2016-11-10T00:36:40.690</Modified>
+      <Modified>2016-11-10T01:09:33.893</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2016-10-14T01:57:10.095</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\bin\ARM\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-10T00:36:41.516</Modified>
+      <Modified>2016-11-10T01:44:17.518</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Downloads\IoTBrowser\IoTBrowser\bin\ARM\Debug\Core\IoTBrowser.exe">
+    <AppxPackagedFile Include="C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\bin\ARM\Debug\Core\IoTBrowser.exe">
       <PackagePath>IoTBrowser.exe</PackagePath>
-      <Modified>2016-11-10T00:36:41.792</Modified>
+      <Modified>2016-11-10T01:44:17.702</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -17,6 +17,7 @@ namespace IoTBrowser
         public MainPage()
         {
             this.InitializeComponent();
+            DoWebNavigate();
         }
 
         private void Go_Web_Click(object sender, RoutedEventArgs e)
@@ -52,24 +53,6 @@ namespace IoTBrowser
             {
                 DisplayMessage("Error: " + e.Message);
             }
-        }
-
-        private void Go_WOD_Click(object sender, RoutedEventArgs e)
-        {
-            Web_Address.Text = "https://www.windowsondevices.com";
-            DoWebNavigate();
-        }
-
-        private void Go_Hackster_Click(object sender, RoutedEventArgs e)
-        {
-            Web_Address.Text = "https://www.hackster.io/windowsiot";
-            DoWebNavigate();
-        }
-
-        private void Go_GitHub_Click(object sender, RoutedEventArgs e)
-        {
-            Web_Address.Text = "https://github.com/ms-iot";
-            DoWebNavigate();
         }
 
         private void DisplayMessage(String message)

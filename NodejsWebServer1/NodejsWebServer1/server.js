@@ -46,8 +46,10 @@ fs.exists(fileName, function (exists) {
                 http.createServer(function (req, res) {
 
                     // Parsing JSON requests
-                    //// parses the request url
-                    //var theUrl = url.parse(req.url);
+                    // parses the request url
+                    var theUrl = url.parse(req.url);
+
+                    console.log(theUrl);
 
                     //// gets the query part of the URL and parses it creating an object
                     //var queryObj = queryString.parse(theUrl.query);
@@ -61,34 +63,34 @@ fs.exists(fileName, function (exists) {
                     //console.log(obj.foo);
 
 
-                    //// Reading values from HTML form GET request
-                    //console.dir(req.param);
+                    // Reading values from HTML form GET request
+                    console.dir(req.param);
 
-                    //if (req.method == 'POST') {
-                    //    console.log("POST");
-                    //    var body = '';
-                    //    req.on('data', function (data) {
-                    //        body += data;
-                    //        console.log("Partial body: " + body);
-                    //    });
-                    //    req.on('end', function () {
-                    //        console.log("Body: " + body);
-                    //    });
-                    //    res.writeHead(200, { 'Content-Type': 'text/html' });
-                    //    res.end('post received');
-                    //}
-                    //else {
-                    //    console.log("GET");
-                    //    //var html = '<html><body><form method="post" action="http://localhost:3000">Name: <input type="text" name="name" /><input type="submit" value="Submit" /></form></body>';
-                    //    var html = fs.readFileSync('index.html');
-                    //    res.writeHead(200, { 'Content-Type': 'text/html' });
-                    //    res.end(html);
-                    //}
+                    if (req.method == 'POST') {
+                        console.log("POST");
+                        //var body = '';
+                        //req.on('data', function (data) {
+                        //    body += data;
+                        //    console.log("Partial body: " + body);
+                        //});
+                        //req.on('end', function () {
+                        //    console.log("Body: " + body);
+                        //});
+                        //res.writeHead(200, { 'Content-Type': 'text/html' });
+                        //res.end('post received');
+                    }
+                    else {
+                        // This is what gets called when you click the "Go" button.
+                        console.log("GET");
+                        var html = fs.readFileSync('Loominosity.html');
+                        res.writeHead(200, { 'Content-Type': 'text/html' });
+                        res.end(html);
+                    }
 
 
-                    res.writeHead(200, { 'Content-Type': 'text/html' });
-                    res.write(html);
-                    res.end();
+                    //res.writeHead(200, { 'Content-Type': 'text/html' });
+                    //res.write(html);
+                    //res.end();
                 }).listen(port);
             }); 
         });

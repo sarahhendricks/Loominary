@@ -1,4 +1,4 @@
-// Cannot see this from laptop!
+// Cannot see this from laptop! Make sure to set Loominosity.html to "require in project"
 var http = require('http'),
     fs = require('fs');
 var port = process.env.port || 1337;
@@ -46,8 +46,10 @@ fs.exists(fileName, function (exists) {
                 http.createServer(function (req, res) {
 
                     // Parsing JSON requests
-                    //// parses the request url
-                    //var theUrl = url.parse(req.url);
+                    // parses the request url
+                    var theUrl = url.parse(req.url);
+
+                    console.log(theUrl);
 
                     //// gets the query part of the URL and parses it creating an object
                     //var queryObj = queryString.parse(theUrl.query);
@@ -60,9 +62,35 @@ fs.exists(fileName, function (exists) {
                     //// as the object is created, the live below will print "bar"
                     //console.log(obj.foo);
 
-                    res.writeHead(200, { 'Content-Type': 'text/html' });
-                    res.write(html);
-                    res.end();
+
+                    // Reading values from HTML form GET request
+                    console.dir(req.param);
+
+                    if (req.method == 'POST') {
+                        console.log("POST");
+                        //var body = '';
+                        //req.on('data', function (data) {
+                        //    body += data;
+                        //    console.log("Partial body: " + body);
+                        //});
+                        //req.on('end', function () {
+                        //    console.log("Body: " + body);
+                        //});
+                        //res.writeHead(200, { 'Content-Type': 'text/html' });
+                        //res.end('post received');
+                    }
+                    else {
+                        // This is what gets called when you click the "Go" button.
+                        console.log("GET");
+                        var html = fs.readFileSync('Loominosity.html');
+                        res.writeHead(200, { 'Content-Type': 'text/html' });
+                        res.end(html);
+                    }
+
+
+                    //res.writeHead(200, { 'Content-Type': 'text/html' });
+                    //res.write(html);
+                    //res.end();
                 }).listen(port);
             }); 
         });
@@ -71,3 +99,39 @@ fs.exists(fileName, function (exists) {
         console.log("Does not exist");
     }
 });
+
+//<html>
+//    <body>
+//        <form method="post" action="http://localhost:3000">
+//            Name: <input type="text" name="name" />
+//            <input type="submit" value="Submit" />
+//        </form>
+
+//        <script type="text/JavaScript">
+//            console.log('begin');
+//            var http = new XMLHttpRequest();
+//            var params = "text=stuff";
+//            http.open("POST", "http://localhost:3000", true);
+
+//            http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//            //http.setRequestHeader("Content-length", params.length);
+//            //http.setRequestHeader("Connection", "close");
+
+//            http.onreadystatechange = function() {
+//                console.log('onreadystatechange');
+//            if (http.readyState == 4 && http.status == 200) {
+//                alert(http.responseText);
+//            }
+//            else {
+//                console.log('readyState=' + http.readyState + ', status: ' + http.status);
+//            }
+//            }
+
+//            console.log('sending...')
+//            http.send(params);
+//            console.log('end');
+
+//        </script>
+
+//    </body>
+//</html>
