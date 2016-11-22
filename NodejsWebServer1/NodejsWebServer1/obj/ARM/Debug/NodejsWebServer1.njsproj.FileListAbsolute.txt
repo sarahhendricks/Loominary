@@ -15,3 +15,20 @@ c:\users\sarah\documents\visual studio 2015\Projects\NodejsWebServer1\NodejsWebS
 c:\users\sarah\documents\visual studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\qualifiers.txt.intermediate
 c:\users\sarah\documents\visual studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
 c:\users\sarah\documents\visual studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\resources.pri
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppxManifest.xml
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\NodejsWebServer1.build.appxrecipe
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\ResourceHandlingTask.state
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\NodejsWebServer1.njsproj.GenerateResource.Cache
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\priconfig.xml
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\priconfig.xml.intermediate
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\layout.resfiles
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\layout.resfiles.intermediate
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\resources.resfiles
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\resources.resfiles.intermediate
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\pri.resfiles
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\pri.resfiles.intermediate
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\qualifiers.txt
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\qualifiers.txt.intermediate
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\ProjectArchitectures.txt

@@ -10,7 +10,7 @@
     <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>b73c481d-c8be-46ba-a717-944e64c0d1d9</PackageIdentityName>
     <PackageIdentityPublisher>CN=Sarah</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\obj\ARM\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -25,54 +25,58 @@
     <JitOptimizationSuppressed>False</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-21T19:08:43.326</Modified>
+      <Modified>2016-11-22T01:40:56.253</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\package.json">
-      <PackagePath>package.json</PackagePath>
-      <Modified>2016-11-21T19:12:05.349</Modified>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Loominosity.html">
+      <PackagePath>Loominosity.html</PackagePath>
+      <Modified>2016-11-08T20:25:49.240</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\package.json">
+      <PackagePath>package.json</PackagePath>
+      <Modified>2016-11-22T01:53:28.791</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\server.js">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\server.js">
       <PackagePath>server.js</PackagePath>
-      <Modified>2016-11-21T19:08:38.840</Modified>
+      <Modified>2016-11-22T01:51:57.972</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\NodejsUWP\ARM\node.dll">
       <PackagePath>node.dll</PackagePath>
@@ -82,31 +86,39 @@
       <PackagePath>nodeuwp.dll</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\node_modules.zip">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\node_modules.zip">
       <PackagePath>node_modules.zip</PackagePath>
       <Modified>2016-11-08T20:47:45.853</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\node_modules.hash">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\node_modules.hash">
       <PackagePath>node_modules.hash</PackagePath>
       <Modified>2016-11-08T20:47:45.846</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+      <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
+      <Modified>2016-10-20T18:28:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+      <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
+      <Modified>2016-10-20T18:28:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\node_modules\uwp.node">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\node_modules\uwp.node">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\node_modules\uwp.node">
       <PackagePath>node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
@@ -114,10 +126,10 @@
       <PackagePath>ucrtbased.dll</PackagePath>
       <Modified>2016-07-28T19:43:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\Documents\Visual Studio 2015\Projects\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-21T19:08:43.168</Modified>
+      <Modified>2016-11-22T01:40:56.148</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
