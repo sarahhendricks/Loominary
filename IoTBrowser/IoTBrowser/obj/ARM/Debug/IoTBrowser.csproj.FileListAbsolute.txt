@@ -382,3 +382,16 @@ C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\obj\ARM\Debug\qualifiers.txt
 C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\obj\ARM\Debug\qualifiers.txt.intermediate
 C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\obj\ARM\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Sarah\Desktop\IoTBrowser\IoTBrowser\obj\ARM\Debug\ProjectArchitectures.txt
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\IoTBrowser.csprojResolveAssemblyReference.cache
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\App.g.i.cs
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\App.g.cs
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\MainPage.g.i.cs
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\MainPage.g.cs
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\XamlTypeInfo.g.cs
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\App.xaml
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\MainPage.xaml
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\App.xbf
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\MainPage.xbf
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\XamlSaveStateFile.xml
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\IoTBrowser.exe
+C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\obj\ARM\Debug\IoTBrowser.pdb

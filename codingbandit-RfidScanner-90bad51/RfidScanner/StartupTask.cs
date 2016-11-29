@@ -9,6 +9,9 @@ using Windows.Devices.SerialCommunication;
 using Windows.Devices.Enumeration;
 using Windows.Networking.Connectivity;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
+using System.IO;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
@@ -61,23 +64,34 @@ namespace RfidScanner
                         readings.Add(reading);
                     }
 
-                    // Debugging
-                    foreach (var reading in readings)
-                    {
-                        // Debug to make sure we're getting all the readings here.
-                        System.Diagnostics.Debug.WriteLine(reading.TagId);
-                    }
-                    System.Diagnostics.Debug.WriteLine("");
+                    //// Debugging
+                    //foreach (var reading in readings)
+                    //{
+                    //    // Debug to make sure we're getting all the readings here.
+                    //    System.Diagnostics.Debug.WriteLine(reading.TagId);
+                    //}
+                    //System.Diagnostics.Debug.WriteLine("");
 
+                    string output = JsonConvert.SerializeObject(readings);
                     //send reading data to the web server
                     using (var client = new HttpClient())
                     {
-                        // TODO: find & set the URL for the server
-                        client.BaseAddress = new Uri("localhost:1337");
                         client.DefaultRequestHeaders.Accept.Clear();
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        var response = await client.PostAsJsonAsync("api/reading/add-multi-readings", readings);
+                        var response = await client.PostAsync("http://localhost:1338", new StringContent(output.ToString(), Encoding.UTF8, "application/json"));
                     }
+
+                    
+                    //var httpWebRequest = (HttpWebRequest)WebRequest.Create("http://localhost:1338");
+                    //httpWebRequest.ContentType = "application/json";
+                    //httpWebRequest.Method = "POST";
+                    //Stream stream = httpWebRequest.GetRequestStream();
+
+                    //using (var streamWriter = new StreamWriter(stream))
+                    //{
+                    //    System.Diagnostics.Debug.Write(output);
+                    //    streamWriter.Write(output);
+                    //}
                 }
             }
             catch (Exception ex)

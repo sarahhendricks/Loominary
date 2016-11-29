@@ -44,15 +44,22 @@ fs.exists(fileName, function (exists) {
                 if (err)
                     console.log(err);
                 http.createServer(function (req, res) {
+                    res.writeHead(200, { 'Content-Type': 'text/html' });
+                    res.write(html);
+                    res.end();
+                }).listen(port);
+                http.createServer(function (req, res) {
 
-                    // Parsing JSON requests
-                    // parses the request url
-                    var theUrl = url.parse(req.url);
+                    //console.log(req.url);
+                    //// Parsing JSON requests
+                    //// parses the request url
+                    //var theUrl = url.parse(req.url);
 
-                    console.log(theUrl);
+                    //console.log(theUrl);
 
                     //// gets the query part of the URL and parses it creating an object
                     //var queryObj = queryString.parse(theUrl.query);
+                    //console.log(queryObj);
 
                     //// queryObj will contain the data of the query as an object
                     //// and jsonData will be a property of it
@@ -60,7 +67,7 @@ fs.exists(fileName, function (exists) {
                     //var obj = JSON.parse(queryObj.jsonData);
 
                     //// as the object is created, the live below will print "bar"
-                    //console.log(obj.foo);
+                    //console.log(obj);
 
 
                     // Reading values from HTML form GET request
@@ -68,30 +75,21 @@ fs.exists(fileName, function (exists) {
 
                     if (req.method == 'POST') {
                         console.log("POST");
-                        //var body = '';
-                        //req.on('data', function (data) {
-                        //    body += data;
-                        //    console.log("Partial body: " + body);
-                        //});
-                        //req.on('end', function () {
-                        //    console.log("Body: " + body);
-                        //});
-                        //res.writeHead(200, { 'Content-Type': 'text/html' });
-                        //res.end('post received');
+                        var body = '';
+                        req.on('data', function (data) {
+                            body += data;
+                            console.log("Partial body: " + body);
+                        });
+                        req.on('end', function () {
+                            console.log("Body: " + body);
+                        });
+                        res.writeHead(200, { 'Content-Type': 'text/html' });
+                        res.end('post received');
                     }
                     else {
-                        // This is what gets called when you click the "Go" button.
                         console.log("GET");
-                        var html = fs.readFileSync('Loominosity.html');
-                        res.writeHead(200, { 'Content-Type': 'text/html' });
-                        res.end(html);
                     }
-
-
-                    //res.writeHead(200, { 'Content-Type': 'text/html' });
-                    //res.write(html);
-                    //res.end();
-                }).listen(port);
+                }).listen(process.env.port || 1338);
             }); 
         });
     }

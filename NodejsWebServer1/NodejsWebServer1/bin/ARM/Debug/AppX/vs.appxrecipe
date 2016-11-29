@@ -28,7 +28,7 @@
     <AppXManifest Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-22T01:40:56.253</Modified>
+      <Modified>2016-11-29T21:17:39.030</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -38,7 +38,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\package.json">
       <PackagePath>package.json</PackagePath>
-      <Modified>2016-11-22T02:22:09.006</Modified>
+      <Modified>2016-11-29T23:32:45.252</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -76,7 +76,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\server.js">
       <PackagePath>server.js</PackagePath>
-      <Modified>2016-11-22T02:21:11.469</Modified>
+      <Modified>2016-11-29T23:32:32.853</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\NodejsUWP\ARM\node.dll">
       <PackagePath>node.dll</PackagePath>
@@ -93,6 +93,10 @@
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\node_modules.hash">
       <PackagePath>node_modules.hash</PackagePath>
       <Modified>2016-11-08T20:47:45.846</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+      <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
+      <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
@@ -129,7 +133,7 @@
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-22T01:40:56.148</Modified>
+      <Modified>2016-11-29T21:17:38.941</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

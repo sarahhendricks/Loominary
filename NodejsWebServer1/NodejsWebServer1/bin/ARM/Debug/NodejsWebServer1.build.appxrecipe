@@ -70,6 +70,9 @@
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\node_modules.hash">
       <PackagePath>node_modules.hash</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+      <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\NodejsWebServer1\NodejsWebServer1\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
     </AppxPackagedFile>
