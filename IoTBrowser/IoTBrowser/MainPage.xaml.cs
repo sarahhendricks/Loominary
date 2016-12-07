@@ -25,53 +25,16 @@ namespace IoTBrowser
             DoWebNavigate();
         }
 
-
-        private void Web_Address_KeyUp(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                DoWebNavigate();
-            }
-        }
-
         private void DoWebNavigate()
         {
-            DismissMessage();
-
             try
             {
-                if (Web_Address.Text.Length > 0)
-                {
-                    webView.Navigate(new Uri(Web_Address.Text));
-                }
-                else
-                {
-                    DisplayMessage("You need to enter a web address.");
-                }
+                webView.Navigate(new Uri("http://localhost:1337"));
             }
             catch (Exception e)
             {
-                DisplayMessage("Error: " + e.Message);
+                System.Diagnostics.Debug.WriteLine("Error: " + e.Message);
             }
-        }
-
-        private void DisplayMessage(String message)
-        {
-            Message.Text = message;
-            MessageStackPanel.Visibility = Visibility.Visible;
-            webView.Visibility = Visibility.Collapsed;
-
-        }
-
-        private void OnMessageDismiss_Click(object sender, RoutedEventArgs e)
-        {
-            DismissMessage();
-        }
-
-        private void DismissMessage()
-        {
-            webView.Visibility = Visibility.Visible;
-            MessageStackPanel.Visibility = Visibility.Collapsed;
         }
     }
 }

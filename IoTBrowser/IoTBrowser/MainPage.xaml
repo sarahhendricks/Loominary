@@ -30,27 +30,13 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="65"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-
-        <!--Address bar-->
-        <ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility ="Auto" VerticalScrollBarVisibility="Auto">
-            <Grid >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"></ColumnDefinition>
-                    <ColumnDefinition Width="10"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" x:Name="Web_Address" FontSize="24" TextWrapping="Wrap" Text="http://localhost:1337" VerticalAlignment="Center" VerticalContentAlignment="Center" KeyUp="Web_Address_KeyUp"/>
-            </Grid>
-        </ScrollViewer>
 
         <!--Web view control-->
         <WebView x:Name="webView" Grid.Row="1"/>
 
-        <StackPanel x:Name="MessageStackPanel" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" >
-            <TextBlock x:Name="Message" FontSize="30" Text="Display message here"/>
-            <Button x:Name="MessageDismiss" Content="Ok" HorizontalAlignment="Center" Click="OnMessageDismiss_Click"/>
+        <StackPanel x:Name="MessageStackPanel" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Height="0" Margin="960,541,960,539" Width="0" >
         </StackPanel>
     </Grid>
 </Page>
