@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -20,13 +20,24 @@ Loominosity Tutorial
 
 
 
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
-    $(document).on('hidepassage', function() {
-        $('#passage').addClass('passage-in');
+$(document).on('hidepassage', function() {
+	$('#passage').addClass('passage-in');
+});
+$(document).on('showpassage:after', function() {
+	$('#passage').removeClass('passage-in');
+});
+
+
+$(function () {
+    $.getScript("http://twinerocks.com/js/typed.js", function (data, textStatus, jqxhr) {
+        
     });
-    $(document).on('showpassage:after', function() {
-        $('#passage').removeClass('passage-in');
-    });
+});
+											
 
 </script><tw-passagedata pid="1" name="Begin" tags="" position="0,0">A white fog swirls about you...
 

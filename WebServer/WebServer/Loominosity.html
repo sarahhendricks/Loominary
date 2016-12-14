@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -22,6 +22,7 @@ Loominosity Tutorial
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
 $(document).on('hidepassage', function() {
 	$('#passage').addClass('passage-in');
@@ -33,21 +34,11 @@ $(document).on('showpassage:after', function() {
 
 $(function () {
     $.getScript("http://twinerocks.com/js/typed.js", function (data, textStatus, jqxhr) {
-        $('.title').typed({
-            strings: [’This sentence will be typed.'],
-                typeSpeed: 0
-        });
+        
     });
 });
 											
-<script src="/socket.io/socket.io.js"></script>
-<script>
-  var socket = io('http://localhost');
-  socket.on('news', function (data) {
-    console.log(data);
-    socket.emit('my other event', { my: 'data' });
-  });
-</script>
+
 </script><tw-passagedata pid="1" name="Begin" tags="" position="0,0">A white fog swirls about you...
 
 In the distance, you hear a trickle of water...
