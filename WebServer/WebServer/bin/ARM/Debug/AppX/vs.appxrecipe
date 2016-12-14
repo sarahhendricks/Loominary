@@ -10,7 +10,7 @@
     <PackageArchitecture>arm</PackageArchitecture>
     <PackageIdentityName>f0eec999-3a15-45eb-ba95-771509919c1c</PackageIdentityName>
     <PackageIdentityPublisher>CN=Sarah</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\obj\ARM\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\obj\ARM\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -25,58 +25,58 @@
     <JitOptimizationSuppressed>False</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\bin\ARM\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-08T01:34:52.981</Modified>
+      <Modified>2016-12-14T04:44:25.889</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\Loominosity.html">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Loominosity.html">
       <PackagePath>Loominosity.html</PackagePath>
       <Modified>2016-12-09T22:40:47.119</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\package.json">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\package.json">
       <PackagePath>package.json</PackagePath>
-      <Modified>2016-12-09T22:42:42.493</Modified>
+      <Modified>2016-12-14T05:00:58.188</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2016-08-31T00:56:34.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\server.js">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\server.js">
       <PackagePath>server.js</PackagePath>
-      <Modified>2016-12-09T22:37:56.748</Modified>
+      <Modified>2016-12-14T05:00:30.356</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\NodejsUWP\ARM\node.dll">
       <PackagePath>node.dll</PackagePath>
@@ -86,23 +86,31 @@
       <PackagePath>nodeuwp.dll</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\node_modules.zip">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\node_modules.zip">
       <PackagePath>node_modules.zip</PackagePath>
-      <Modified>2016-12-07T02:33:55.359</Modified>
+      <Modified>2016-12-14T04:44:25.686</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\node_modules.hash">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\node_modules.hash">
       <PackagePath>node_modules.hash</PackagePath>
-      <Modified>2016-12-07T02:33:55.341</Modified>
+      <Modified>2016-12-14T04:44:25.537</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+      <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
+      <Modified>2016-10-20T18:28:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+      <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
+      <Modified>2016-10-20T18:28:10.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\bin\ARM\Debug\AppX\node_modules\uwp.node">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\node_modules\uwp.node">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\node_modules\uwp.node">
       <PackagePath>node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
     </AppxPackagedFile>
@@ -110,10 +118,10 @@
       <PackagePath>ucrtbased.dll</PackagePath>
       <Modified>2016-07-28T19:43:46.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Sarah\documents\visual studio 2015\Projects\WebServer\WebServer\bin\ARM\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-09T21:15:37.455</Modified>
+      <Modified>2016-12-14T04:44:25.780</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
