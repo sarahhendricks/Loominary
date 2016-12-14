@@ -1,11 +1,14 @@
 // Cannot see this from laptop! Make sure to set Loominosity.html to "require in project"
 var http = require('http'),
     fs = require('fs'),
-    qs = require('querystring'),
-    io = require('socket.io')(app);
+    qs = require('querystring');
+//var io = require('socket.io')(http.createServer(handler));
 
 var fileName = "Loominosity.html";
 var redThread = "";
+function handler(req, res) {
+    console.log("Inside handler function,");
+}
 fs.exists(fileName, function (exists) {
     if (exists) {
         fs.stat(fileName, function (error, stats) {
@@ -14,11 +17,11 @@ fs.exists(fileName, function (exists) {
                     console.log(err);
                 // This handles the initial GET request from the browser application. It will display the
                 // story as a webpage.
-                http.createServer(function (req, res) {
+                var io = require("socket.io")(http.createServer(function (req, res) {
                     res.writeHead(200, { 'Content-Type': 'text/html' });
                     res.write(html);
                     res.end();
-                }).listen(process.env.port || 1337);
+                }).listen(process.env.port || 1337));
                 // This handles the POST requests from the RFID hardware. 
                 http.createServer(function (req, res) {
                     // Reading values from HTML form GET request
