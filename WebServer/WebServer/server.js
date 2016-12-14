@@ -22,6 +22,9 @@ fs.exists(fileName, function (exists) {
                     res.write(html);
                     res.end();
                 }).listen(process.env.port || 1337));
+                io.on('connection', function (socket) {
+                    console.log("inside io.on");
+                });
                 // This handles the POST requests from the RFID hardware. 
                 http.createServer(function (req, res) {
                     // Reading values from HTML form GET request
