@@ -26,27 +26,26 @@ Loominosity Tutorial
 
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
-$(document).on('hidepassage', function() {
-    $('#passage').addClass('passage-in');
-});
-$(document).on('showpassage:after', function() {
-    $('#passage').removeClass('passage-in');
-});
-
-var socket;
-var numberConnections = 0;
-$(function () {
-    socket = io.connect('http://localhost:1337');
-    numberConnections++;
-});
-
-$(function () {
-    socket.on('choice', function (data) {
-        console.log(numberConnections);
-	    $('span[style="color:red"]').click();
-        socket.emit('response', {my: numberConnections});
+    $(document).on('hidepassage', function() {
+        $('#passage').addClass('passage-in');
     });
-});
+    $(document).on('showpassage:after', function() {
+        $('#passage').removeClass('passage-in');
+    });
+
+    var socket;
+    $(function () {
+        socket = io.connect('http://localhost:1337');
+    });
+
+    $(function () {
+        socket.on('choice', function (data) {
+            $('span[style="color:red;"]').click();
+            socket.emit('response', {my: 'data'});
+        });
+    });
+
+
 
 
 </script><tw-passagedata pid="1" name="Begin" tags="" position="0,0">A white fog swirls about you...

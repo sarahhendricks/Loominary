@@ -32,6 +32,10 @@ fs.exists(fileName, function (exists) {
                     // Get here when the IoT browser connects!!
                     console.log("inside io.on");
                     htmlConnection = socket;
+                    htmlConnection.on('response', function (data) {
+                        console.log("data");
+                        console.log(data);
+                    });
                 });
 
                 // This handles the POST requests from the RFID hardware. 
@@ -59,14 +63,8 @@ fs.exists(fileName, function (exists) {
                             if (tagId === "E2-00-40-84-39-04-02-41-14-10-86-46") {
                                 console.log("Red! Click the link with class red!");
                                 // Send message by socket to the story.
-                                // send(redThread);
-
                                 // NOT WORKING
                                 htmlConnection.emit('choice', { color: 'red' });
-                                htmlConnection.on('response', function (data) {
-                                    console.log("data");
-                                    console.log(data);
-                                });
                             }
                         });
                         res.writeHead(200, { 'Content-Type': 'text/html' });
