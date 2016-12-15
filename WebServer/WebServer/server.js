@@ -52,12 +52,16 @@ fs.exists(fileName, function (exists) {
                                 console.log("Red! Click the link with class red!");
                                 // Send message by socket to the story.
                                 // send(redThread);
-                                io.send(redThread);
                                 // This is the function that happens when we get a new connection
                                 console.log("about to try io.on");
                                 io.on('connection', function (socket) {
                                     // Get here when the IoT browser connects!!
                                     console.log("inside io.on");
+                                    socket.emit('choice', { color: 'red' });
+                                    socket.on('response', function (data) {
+                                        console.log("data");
+                                        console.log(data);
+                                    });
                                 });
                             }
                         });

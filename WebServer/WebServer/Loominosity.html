@@ -35,8 +35,9 @@ $(document).on('showpassage:after', function() {
 
 $(function () {
     var socket = io.connect('http://localhost:1337');
-    socket.on('news', function (data) {
+    socket.on('choice', function (data) {
         console.log(data);
+        socket.emit('response', {my: 'data'});
     });
 });
 

@@ -55,8 +55,13 @@ fs.exists(fileName, function (exists) {
                                 // This is the function that happens when we get a new connection
                                 console.log("about to try io.on");
                                 io.on('connection', function (socket) {
-                                    // Not getting here.
+                                    // Get here when the IoT browser connects!!
                                     console.log("inside io.on");
+                                    socket.emit('choice', { color: 'red' });
+                                    socket.on('response', function (data) {
+                                        console.log("data");
+                                        console.log(data);
+                                    });
                                 });
                             }
                         });

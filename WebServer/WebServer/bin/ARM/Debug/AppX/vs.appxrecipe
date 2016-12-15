@@ -34,11 +34,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Loominosity.html">
       <PackagePath>Loominosity.html</PackagePath>
-      <Modified>2016-12-15T00:55:24.385</Modified>
+      <Modified>2016-12-15T01:42:21.652</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\package.json">
       <PackagePath>package.json</PackagePath>
-      <Modified>2016-12-15T01:21:15.897</Modified>
+      <Modified>2016-12-15T01:42:30.842</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -76,7 +76,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\server.js">
       <PackagePath>server.js</PackagePath>
-      <Modified>2016-12-15T00:58:40.357</Modified>
+      <Modified>2016-12-15T01:42:15.256</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\NodejsUWP\ARM\node.dll">
       <PackagePath>node.dll</PackagePath>
