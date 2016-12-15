@@ -24,6 +24,7 @@ Loominosity Tutorial
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
 $(document).on('hidepassage', function() {
     $('#passage').addClass('passage-in');
@@ -37,9 +38,11 @@ $(function () {
     var socket = io.connect('http://localhost:1337');
     socket.on('choice', function (data) {
         console.log(data);
+		$('span[style="color:red"]').click();
         socket.emit('response', {my: 'data'});
     });
 });
+
 
 
 </script><tw-passagedata pid="1" name="Begin" tags="" position="0,0">A white fog swirls about you...
@@ -48,7 +51,7 @@ In the distance, you hear a trickle of water...
 
 You are shapeless... without form...
 
-Before you is a loom, much like your mother had, and her mother before her. The vertical lines of thread, the &lt;b&gt;warp&lt;/b&gt;, are already wound tight. The &lt;b&gt;reed&lt;/b&gt; remains in the middle with the warp running through its bars. To the side is a stick, the &lt;b&gt;shuttle&lt;/b&gt;, with cutouts in the sides. [[You hold the shuttle above the threads of warp -&gt;Observe the shuttle]], contemplating it.</tw-passagedata>
+Before you is a loom, much like your mother had, and her mother before her. The vertical lines of thread, the &lt;b&gt;warp&lt;/b&gt;, are already wound tight. The &lt;b&gt;reed&lt;/b&gt; remains in the middle with the warp running through its bars. To the side is a stick, the &lt;b&gt;shuttle&lt;/b&gt;, with cutouts in the sides. [[&lt;span style=&quot;color:red;&quot;&gt;You hold the shuttle above the threads of warp &lt;/span&gt;-&gt;Observe the shuttle]], contemplating it.</tw-passagedata>
 <tw-passagedata pid="2" name="Approach the fountain." tags="" position="999,581">The fountain overflows with cool, sparkling water. Its splashes help drown out your thoughts, and gentle bubbles of sweet perfume float through the air.
 
 On the ground is the golden cup. Etchings decorate its rim. As you pull it close to you, you can see that they are depictions of the journey you have just returned from. 

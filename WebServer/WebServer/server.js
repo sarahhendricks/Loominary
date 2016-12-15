@@ -4,6 +4,8 @@ var http = require('http'),
     qs = require('querystring');
 //var io = require('socket.io')(http.createServer(handler));
 
+var io;
+var htmlConnection;
 var fileName = "Loominosity.html";
 var redThread = "red";
 function handler(req, res) {
@@ -18,13 +20,19 @@ fs.exists(fileName, function (exists) {
                 }
                 // This handles the initial GET request from the browser application. It will display the
                 // story as a webpage.
-                var io = require("socket.io")(http.createServer(function (req, res) {
+                io = require("socket.io")(http.createServer(function (req, res) {
                     res.writeHead(200, { 'Content-Type': 'text/html' });
                     res.write(html);
                     res.end();
                 }).listen(process.env.port || 1337));
 
-                
+                // This is the function that happens when we get a new connection
+                console.log("about to try io.on");
+                io.on('connection', function (socket) {
+                    // Get here when the IoT browser connects!!
+                    console.log("inside io.on");
+                    htmlConnection = socket;
+                });
 
                 // This handles the POST requests from the RFID hardware. 
                 http.createServer(function (req, res) {
@@ -52,16 +60,12 @@ fs.exists(fileName, function (exists) {
                                 console.log("Red! Click the link with class red!");
                                 // Send message by socket to the story.
                                 // send(redThread);
-                                // This is the function that happens when we get a new connection
-                                console.log("about to try io.on");
-                                io.on('connection', function (socket) {
-                                    // Get here when the IoT browser connects!!
-                                    console.log("inside io.on");
-                                    socket.emit('choice', { color: 'red' });
-                                    socket.on('response', function (data) {
-                                        console.log("data");
-                                        console.log(data);
-                                    });
+
+                                // NOT WORKING
+                                htmlConnection.emit('choice', { color: 'red' });
+                                htmlConnection.on('response', function (data) {
+                                    console.log("data");
+                                    console.log(data);
                                 });
                             }
                         });
