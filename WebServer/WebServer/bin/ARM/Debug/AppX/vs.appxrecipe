@@ -34,11 +34,11 @@
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Loominosity.html">
       <PackagePath>Loominosity.html</PackagePath>
-      <Modified>2016-12-14T21:47:37.666</Modified>
+      <Modified>2016-12-14T23:59:24.796</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\package.json">
       <PackagePath>package.json</PackagePath>
-      <Modified>2016-12-14T21:47:51.916</Modified>
+      <Modified>2016-12-15T00:00:05.887</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -94,6 +94,10 @@
       <PackagePath>node_modules.hash</PackagePath>
       <Modified>2016-12-14T04:44:25.537</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
+      <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
+      <Modified>2016-10-20T18:28:10.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node">
       <PackagePath>bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\bin\ARM\Debug\AppX\node_modules\uwp.node</PackagePath>
       <Modified>2016-10-20T18:28:10.000</Modified>
@@ -125,7 +129,7 @@
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\WebServer\WebServer\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-12-14T21:37:31.731</Modified>
+      <Modified>2016-12-14T23:59:26.060</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
