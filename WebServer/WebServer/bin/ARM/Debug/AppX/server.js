@@ -5,7 +5,7 @@ var http = require('http'),
 //var io = require('socket.io')(http.createServer(handler));
 
 var fileName = "Loominosity.html";
-var redThread = "";
+var redThread = "red";
 function handler(req, res) {
     console.log("Inside handler function,");
 }
@@ -13,8 +13,9 @@ fs.exists(fileName, function (exists) {
     if (exists) {
         fs.stat(fileName, function (error, stats) {
             fs.readFile('Loominosity.html', function (err, html) {
-                if (err)
+                if (err) {
                     console.log(err);
+                }
                 // This handles the initial GET request from the browser application. It will display the
                 // story as a webpage.
                 var io = require("socket.io")(http.createServer(function (req, res) {
@@ -22,22 +23,21 @@ fs.exists(fileName, function (exists) {
                     res.write(html);
                     res.end();
                 }).listen(process.env.port || 1337));
-                io.on('connection', function (socket) {
-                    console.log("inside io.on");
-                });
+
+                
+
                 // This handles the POST requests from the RFID hardware. 
                 http.createServer(function (req, res) {
-                    // Reading values from HTML form GET request
-
-                    if (req.method == 'POST') {
-                        //console.log("POST");
+                    if (req.method === 'POST') {
                         var body = '';
+                        // When we get data, add it to the body.
                         req.on('data', function (data) {
                             body += data;
                             if (body.length > 1e6) {
                                 req.connection.destroy();
                             }
                         });
+                        // When we reach the end of the request, parse the body JSON
                         req.on('end', function () {
                             // This is logging the JSON!
                             //console.log("Body: " + body);
@@ -48,12 +48,17 @@ fs.exists(fileName, function (exists) {
                             //console.log(result[0].TagId);
 
                             // associate with color
-                            if (tagId == "E2-00-40-84-39-04-02-41-14-10-86-46") {
+                            if (tagId === "E2-00-40-84-39-04-02-41-14-10-86-46") {
                                 console.log("Red! Click the link with class red!");
-
+                                // Send message by socket to the story.
+                                // send(redThread);
+                                // This is the function that happens when we get a new connection
+                                console.log("about to try io.on");
+                                io.on('connection', function (socket) {
+                                    // Not getting here.
+                                    console.log("inside io.on");
+                                });
                             }
-
-
                         });
                         res.writeHead(200, { 'Content-Type': 'text/html' });
                         res.end('post received');
