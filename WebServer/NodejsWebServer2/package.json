@@ -1,0 +1,15 @@
+{
+  "name": "nodejs-web-server2",
+  "version": "0.0.0",
+  "description": "NodejsWebServer2",
+  "main": "server.js",
+  "author": {
+    "name": "Sarah",
+    "email": ""
+  },
+  "target_arch": "ARM",
+  "platform": "uwp",
+  "scripts": {
+    "start": "--debug server.js"
+  }
+}
