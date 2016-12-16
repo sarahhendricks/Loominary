@@ -49,19 +49,15 @@ fs.exists(fileName, function (exists) {
                         });
                         // When we reach the end of the request, parse the body JSON
                         req.on('end', function () {
-                            // This is logging the JSON!
-                            //console.log("Body: " + body);
-
                             // get tag id
                             var result = JSON.parse(body);
                             var tagId = result[0].TagId;
-                            //console.log(result[0].TagId);
+
+                            // If we have sent a message recently
 
                             // associate with color
                             if (tagId === "E2-00-40-84-39-04-02-41-14-10-86-46") {
-                                console.log("Red! Click the link with class red!");
                                 // Send message by socket to the story.
-                                // NOT WORKING
                                 htmlConnection.emit('choice', { color: 'red' });
                             }
                         });
@@ -72,6 +68,7 @@ fs.exists(fileName, function (exists) {
                         // Shouldn't be getting anything here, but just in case...
                         console.log("GET");
                     }
+                    // set timer here
                 }).listen(process.env.port || 1338);
             });
         });
