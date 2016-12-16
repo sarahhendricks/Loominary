@@ -8,7 +8,7 @@ var io;
 var htmlConnection;
 var fileName = "Loominosity.html";
 var redThread = "red";
-var timeReceived;
+var lastSent = 0;
 fs.exists(fileName, function (exists) {
     if (exists) {
         fs.stat(fileName, function (error, stats) {
@@ -53,13 +53,20 @@ fs.exists(fileName, function (exists) {
                             var result = JSON.parse(body);
                             var tagId = result[0].TagId;
 
-                            // If we have sent a message recently
-
-                            // associate with color
-                            if (tagId === "E2-00-40-84-39-04-02-41-14-10-86-46") {
-                                // Send message by socket to the story.
-                                htmlConnection.emit('choice', { color: 'red' });
+                            // If we have sent a message recently, wait a few seconds for the user to finish their
+                            // current weave.
+                            var date = new Date();
+                            var timeReceived = Math.round(date.getTime() / 1000);
+                            if (timeReceived - lastSent > 10 || lastSent == 0) {
+                                console.log("Send the message!");
+                                lastSent = timeReceived;
+                                // associate with color
+                                if (tagId === "E2-00-40-84-39-04-02-41-14-10-86-46") {
+                                    // Send message by socket to the story.
+                                    htmlConnection.emit('choice', { color: 'red' });
+                                }
                             }
+                            
                         });
                         res.writeHead(200, { 'Content-Type': 'text/html' });
                         res.end('post received');
