@@ -8,9 +8,7 @@ var io;
 var htmlConnection;
 var fileName = "Loominosity.html";
 var redThread = "red";
-function handler(req, res) {
-    console.log("Inside handler function,");
-}
+var timeReceived;
 fs.exists(fileName, function (exists) {
     if (exists) {
         fs.stat(fileName, function (error, stats) {
@@ -32,9 +30,9 @@ fs.exists(fileName, function (exists) {
                     // Get here when the IoT browser connects!!
                     console.log("inside io.on");
                     htmlConnection = socket;
-                    htmlConnection.on('response', function (data) {
-                        console.log("data");
-                        console.log(data);
+                    htmlConnection.on('response', function (color) {
+                        console.log("color");
+                        console.log(color.color);
                     });
                 });
 

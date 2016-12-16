@@ -25,6 +25,7 @@ Loominosity Tutorial
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
     $(document).on('hidepassage', function() {
         $('#passage').addClass('passage-in');
@@ -40,10 +41,18 @@ Loominosity Tutorial
 
     $(function () {
         socket.on('choice', function (data) {
+            var message = { color: 'green'};
+            if (data.color == 'red') {
+                socket.emit('response', data);
+            }
+            else {
+                socket.emit('response', message);
+            }
             $('span[style="color:red;"]').click();
-            socket.emit('response', {my: 'data'});
+
         });
     });
+
 
 
 
@@ -120,7 +129,7 @@ What will you do?
 
 Such care was taken by your mother to never let the lines tangle.
 
-You take the shuttle of the white thread in your hands, and [[pull it through the gap -&gt;first white line]] made by the reed.</tw-passagedata>
+You take the shuttle of the white thread in your hands, and [[&lt;span style=&quot;color:red;&quot;&gt;pull it through the gap &lt;/span&gt;-&gt;first white line]] made by the reed.</tw-passagedata>
 <tw-passagedata pid="9" name="first white line" tags="" position="250,3">The air begins to sparkle and shimmer around you. A feeling of soothing pleasantness perfumes the air.
 
 You are calm. You are at peace.
@@ -129,7 +138,7 @@ The line of thread lies loosely between the warp, the tail close to you and the 
 
 You lift the reed off its perch and towards yourself, pushing your line of thread as close to you as possible. The thread now lies horizontal. It does not pull the vertical strings tightly towards the center, but it does not lie limply either. The thread is straight and true.
 
-You put the reed on its lower rung, changing the height of the warp threads. [[You pull the shuttle through the gap made by the reed.-&gt;learn tabby weave]]</tw-passagedata>
+You put the reed on its lower rung, changing the height of the warp threads. [[&lt;span style=&quot;color:red;&quot;&gt;You pull the shuttle through the gap made by the reed.&lt;/span&gt;-&gt;learn tabby weave]]</tw-passagedata>
 <tw-passagedata pid="10" name="learn tabby weave" tags="" position="375,1">Again, a sense of peace.
 
 Now the diagonal goes the other way. This is done so that there&#39;s enough thread to go over and under the lines of the weft without pulling the first lines too tightly.
@@ -138,7 +147,7 @@ You lift the reed from its lower position and again pull it towards you, pushing
 
 This, your mother taught you, is the &lt;b&gt;Tabby Weave&lt;/b&gt;, the most basic technique for weaving. 
 
-You lift the reed back to its high position and [[pass the shuttle through again.-&gt;learn about reed]]</tw-passagedata>
+You lift the reed back to its high position and [[&lt;span style=&quot;color:red;&quot;&gt;pass the shuttle through again.&lt;/span&gt;-&gt;learn about reed]]</tw-passagedata>
 <tw-passagedata pid="11" name="learn about reed" tags="" position="500,2">The reed is what changes the over-under pattern of the warp. 
 
 In the high position, every other thread is heald up high, while the other threads are heald down below. It makes a nice, wide space for the shuttle to pass through.
@@ -149,17 +158,17 @@ When you were a child, you had no reed at all. You had to go under and over each
 
 The reed, needless to say, makes things a lot easier.
 
-Again, you change the reed. Before [[passing the shuttle through again-&gt;learn warp overexposure]], you pinch the weft thread on the end to make sure the edge stays nice.</tw-passagedata>
+Again, you change the reed. Before [[&lt;span style=&quot;color:red;&quot;&gt;passing the shuttle through again&lt;/span&gt;-&gt;learn warp overexposure]], you pinch the weft thread on the end to make sure the edge stays nice.</tw-passagedata>
 <tw-passagedata pid="12" name="learn warp overexposure" tags="" position="625,1">The reed also doubles as a beater, helping to keep the horizontal threads nice and close together.
 
 Your early attempts always showed a lot of the warp threads, because you pulled the weft too tightly. You learned over time that keeping your horizontal threads fairly loose would cover most of the warp.
 
 In the short term, you just chose pretty warp threads.
 
-You look up and see the [[fog beginning to clear]], and pull your shuttle through after changing the reed height.</tw-passagedata>
+You look up and see the [[&lt;span style=&quot;color:red;&quot;&gt;fog beginning to clear&lt;/span&gt;-&gt;fog beginning to clear]], and pull your shuttle through after changing the reed height.</tw-passagedata>
 <tw-passagedata pid="13" name="fog beginning to clear" tags="" position="751,1">You can begin to make out the tile floor beneath you, but the fog is still too dense to see farther ahead.
 
-You look to the side, and see another shuttle, this one with yellow thread. You take it up and [[pass it through the gap-&gt;first yellow line]].</tw-passagedata>
+You look to the side, and see another shuttle, this one with yellow thread. You take it up and [[&lt;span style=&quot;color:red;&quot;&gt;pass it through the gap&lt;/span&gt;-&gt;first yellow line]].</tw-passagedata>
 <tw-passagedata pid="14" name="first yellow line" tags="" position="876,2">A sense of joy fills you. The mist begins to turn golden, and the air becomes warm.
 
 The sun begins to [[pierce through the fog]] as you weave with the yellow again.</tw-passagedata>
