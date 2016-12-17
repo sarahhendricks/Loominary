@@ -9,6 +9,13 @@ This semester will focus on defining the project, acquiring the materials, and d
 **Semester 2: Spring 2017**
 This semester will focus on creating the interactive storyline, creating the custom case for the hardware, and testing with users.
 
-
+## Files hand-coded by me
+This project was developed by Windows IoT, which means there are a lot of files that got pushed. Here is a list of the ones that are critical to the project:
+- codingbandit-RfidScanner-90bad51/RfidScanner/StartupTask.cs
+- codingbandit-RfidScanner-90bad51/CottonwoodRfidReader/Cottonwood.cs
+- WebServer/NodejsWebServer2/Loominosity.html
+- WebServer/NodejsWebServer2/server.js
+- IoTBrowser/IoTBrowser/App.xaml.cs
+- IoTBrowser/IoTBrowser/MainPage.xaml.cs
 
 Developed by Sarah Hendricks under the guidance of Joshua McCoy and Anne Sullivan.
