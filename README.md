@@ -1,4 +1,4 @@
-# Loominosity
+# Loominary
 
 This is a senior honors capstone for the Computer Science department at American University. It is a text-based interactive narrative game with a unique controller and tangible story artifacts. 
 
@@ -18,4 +18,4 @@ This project was developed by Windows IoT, which means there are a lot of files 
 - IoTBrowser/IoTBrowser/App.xaml.cs
 - IoTBrowser/IoTBrowser/MainPage.xaml.cs
 
-Developed by Sarah Hendricks under the guidance of Joshua McCoy and Anne Sullivan.
+Developed by Sarah Hendricks and written by Brittany Williams under the guidance of Joshua McCoy and Anne Sullivan.
