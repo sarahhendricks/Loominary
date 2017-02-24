@@ -29,11 +29,29 @@ namespace IoTBrowser
         {
             try
             {
-                webView.Navigate(new Uri("http://localhost:1337"));
+                webView.Navigate(new Uri("http://127.0.0.1:1337"));
+                webView.NavigationCompleted += WebView_NavigationCompleted;
             }
             catch (Exception e)
             {
                 System.Diagnostics.Debug.WriteLine("Error: " + e.Message);
+                System.Diagnostics.Debug.WriteLine("Catching an error");
+            }
+        }
+
+        // If the web browser starts looking for the page before the NodeJS server is up,
+        // have it continue to refresh until we get a hit.
+        private void WebView_NavigationCompleted(WebView sender, WebViewNavigationCompletedEventArgs args)
+        {
+            if (args.IsSuccess == true)
+            {
+                System.Diagnostics.Debug.WriteLine("Navigation to " + args.Uri.ToString() + " completed successfully.");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("Navigation to: " + args.Uri.ToString() +
+                                       " failed with error " + args.WebErrorStatus.ToString());
+                webView.Refresh();
             }
         }
     }

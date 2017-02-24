@@ -92,7 +92,15 @@ namespace IoTBrowser
                 // When the navigation stack isn't restored navigate to the first page,
                 // configuring the new page by passing required information as a navigation
                 // parameter
-                rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                System.Diagnostics.Debug.WriteLine("Trying to ping server again.");
+                //bool flag = rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                //System.Diagnostics.Debug.WriteLine(flag);
+                while (!rootFrame.Navigate(typeof(MainPage), e.Arguments))
+                {
+                    System.Diagnostics.Debug.WriteLine("Trying to ping server again.");
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                }
+                
             }
             // Ensure the current window is active
             Window.Current.Activate();

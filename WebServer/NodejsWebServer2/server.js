@@ -28,6 +28,7 @@ fs.exists(fileName, function (exists) {
                 console.log("about to try io.on");
                 io.on('connection', function (socket) {
                     // Get here when the IoT browser connects!!
+                    // Story only shows up when you get here, not before.
                     console.log("inside io.on");
                     htmlConnection = socket;
                     htmlConnection.on('response', function (color) {

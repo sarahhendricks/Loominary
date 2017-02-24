@@ -334,6 +334,10 @@
     <AppxPackagedFile Include="C:\Users\Sarah\.nuget\packages\System.Xml.XmlSerializer\4.0.10\lib\netcore50\System.Xml.XmlSerializer.dll">
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\Assets\SplashScreen.scale-200.jpg">
+      <PackagePath>Assets\SplashScreen.scale-200.jpg</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
@@ -342,7 +346,6 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
-      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>

@@ -32,8 +32,8 @@ namespace RfidScanner
             //keeps this process alive in the OS
             deferral = taskInstance.GetDeferral();
 
-            if (SetDeviceIpv4Address())
-            {
+//            if (SetDeviceIpv4Address())
+//            {
                 bool isStartedUp = await ConfigureCottonwood();
                 if (isStartedUp)
                 {
@@ -41,7 +41,7 @@ namespace RfidScanner
                     // Reads will occur every 2 seconds.
                     timer = ThreadPoolTimer.CreatePeriodicTimer(Timer_Tick, TimeSpan.FromMilliseconds(2000));
                 }
-            }
+//            }
         }
 
         // Checks individual tags as they pass over
@@ -58,7 +58,7 @@ namespace RfidScanner
                     foreach (var tag in tagInventory)
                     {
                         TrackerReadingModel reading = new TrackerReadingModel();
-                        reading.IpAddress = ipAddress;
+ //                       reading.IpAddress = ipAddress;
                         reading.TagId = BitConverter.ToString(tag);
                         reading.Reading = DateTime.Now;
                         readings.Add(reading);
@@ -78,7 +78,7 @@ namespace RfidScanner
                     {
                         client.DefaultRequestHeaders.Accept.Clear();
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                        var response = await client.PostAsync("http://localhost:1338", new StringContent(output.ToString(), Encoding.UTF8, "application/json"));
+                        var response = await client.PostAsync("http://127.0.0.1:1338", new StringContent(output.ToString(), Encoding.UTF8, "application/json"));
                     }
 
                     
