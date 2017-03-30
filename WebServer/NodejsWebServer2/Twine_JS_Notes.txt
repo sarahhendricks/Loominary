@@ -72,10 +72,51 @@ Code within a template block is executed on load, so these functions are set bef
 Each function sets the pronouns variable to be an array of pronouns, and stores it in the story.state object. Then, the start2 passage is navigated to. Connecting passages using script like that prevents connection lines from being drawn in the editor view.
 */
 
-<% story.state.setHe = function (){ story.state.pronouns = ["he","him","his","his","he's"]; story.state.cPronouns = ["He","Him","His","His","He's"]; story.show('start2'); } story.state.setShe = function (){ story.state.pronouns = ["she","her","her","hers","she's"]; story.state.cPronouns = ["She","Her","Her","Hers","She's"]; story.show('start2'); } story.state.setThey = function (){ story.state.pronouns = ["they","them","their","theirs","they're"]; story.state.cPronouns = ["They","Them","Their","Theirs","They're"]; story.show('start2'); } story.state.setIt = function (){ story.state.pronouns = ["it","it","its","its","it's"]; story.state.cPronouns = ["It","It","Its","Its","It's"]; story.show('start2'); } %>
+<% story.state.setHe = function (){ 
+		story.state.pronouns = ["he","him","his","his","he's"]; 
+		story.state.cPronouns = ["He","Him","His","His","He's"]; 
+		story.show('start2'); 
+	} 
+	story.state.setShe = function (){ 
+		story.state.pronouns = ["she","her","her","hers","she's"]; 
+		story.state.cPronouns = ["She","Her","Her","Hers","She's"];
+		story.show('start2'); 
+	} 
+	story.state.setThey = function (){ 
+		story.state.pronouns = ["they","them","their","theirs","they're"];
+		story.state.cPronouns = ["They","Them","Their","Theirs","They're"];
+		story.show('start2'); 
+	} 
+	story.state.setIt = function (){
+		story.state.pronouns = ["it","it","its","its","it's"]; 
+		story.state.cPronouns = ["It","It","Its","Its","It's"]; 
+		story.show('start2'); 
+	} %>
 
 
 Determine reading speed:
+<% s.wordcount = 62;
+s.timeStart = new Date().getTime();
+s.times = 0;
+s.totalReadSpeed = 0;
+s.avgReadSpeed = 0;
+%>
+<%
+$(function () {
+	'use strict';
+
+	$('#link').one('click', function () {
+		s.timeEnd = new Date().getTime();
+		var total = ((s.timeEnd - s.timeStart) / 1000) / 60;
+		var avg = s.wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times += 1;
+		console.log("Total of reading speeds: ",s.totalReadSpeed,"; Total sum of read speeds taken: ",s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show('first white line');
+	});
+});
+%>
 	
 
 
