@@ -1,4 +1,4 @@
-// Cannot see this from laptop! Make sure to set Loominosity.html to "require in project"
+// Cannot see this from laptop! Make sure to set Loominary.html to "require in project"
 var http = require('http'),
     fs = require('fs'),
     qs = require('querystring');
@@ -12,7 +12,7 @@ var lastSent = 0;
 fs.exists(fileName, function (exists) {
     if (exists) {
         fs.stat(fileName, function (error, stats) {
-            fs.readFile('Loominosity.html', function (err, html) {
+            fs.readFile('Loominary.html', function (err, html) {
                 if (err) {
                     console.log(err);
                 }
@@ -64,7 +64,9 @@ fs.exists(fileName, function (exists) {
                                 // associate with color
                                 if (tagId === "E2-00-40-84-39-04-02-41-14-10-86-46") {
                                     // Send message by socket to the story.
-                                    htmlConnection.emit('choice', { color: 'red' });
+                                    if (htmlConnection) {
+                                        htmlConnection.emit('choice', { color: 'red' });
+                                    }
                                 }
                             }
                             
