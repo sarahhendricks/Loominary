@@ -6,7 +6,7 @@ var http = require('http'),
 
 var io;
 var htmlConnection;
-var fileName = "Loominosity.html";
+var fileName = "Loominary.html";
 var redThread = "red";
 var lastSent = 0;
 fs.exists(fileName, function (exists) {

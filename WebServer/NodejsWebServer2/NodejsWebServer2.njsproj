@@ -47,7 +47,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="server.js" />
-    <Content Include="Loominosity.html" />
+    <Content Include="Loominary.html" />
     <Content Include="package.json" />
   </ItemGroup>
   <ItemGroup>
