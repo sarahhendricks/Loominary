@@ -62,6 +62,7 @@ fs.exists(fileName, function (exists) {
                                 console.log("Send the message!");
                                 lastSent = timeReceived;
                                 // associate with color
+                                console.log(tagId);
                                 if (tagId === "E2-00-40-84-39-04-02-41-14-10-86-46") {
                                     // Send message by socket to the story.
                                     if (htmlConnection) {

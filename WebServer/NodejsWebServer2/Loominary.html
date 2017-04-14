@@ -43,32 +43,42 @@ a {
 
 
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
-$(document).on('hidepassage', function() {
-	$('#passage').addClass('passage-in');
-});
-$(document).on('showpassage:after', function() {
-	$('#passage').removeClass('passage-in');
-});
+    $(document).on('hidepassage', function() {
+        $('#passage').addClass('passage-in');
+    });
+    $(document).on('showpassage:after', function() {
+        $('#passage').removeClass('passage-in');
+    });
 
 
 
-var socket;
-$(function () {
-	socket = io.connect('http://127.0.0.1:1337');
-});
+    var socket;
+    $(function () {
+        socket = io.connect('http://127.0.0.1:1337');
+    });
 
-$(function () {
-	socket.on('choice', function (data) {
-		var message = { color: 'green'};
-		if (data.color == 'red') {
-			socket.emit('response', data);
-		}
-		else {
-			socket.emit('response', message);
-		}
-		$('span[style="color:red;"]').click();
-	});
-});
+    $(function () {
+        socket.on('choice', function (data) {
+            var message = { color: 'green'};
+
+  /*
+            if (data.tag == 'E2-00-40-84-39-04-02-41-14-20-87-1B') {
+                $('span[style="color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;"]').click();
+            }
+            else if (data.tag == 'E2-00-40-84-39-04-02-41-15-90-74-42') {
+                $('span[style="color:#b78497;"]').click();
+            }
+            else if (data.tag == "E2-00-40-84-39-04-02-41-14-10-86-46") {
+                $('span[style="color:#c3c3c3;"]').click();
+            }
+            else if (data.tag == 'E2-00-40-84-39-04-02-41-11-70-A0-F0') {
+                $('span[style="color:#663399;"]').click();
+            }
+    */
+            socket.emit('response', message);
+
+        });
+    });
 
 
 
