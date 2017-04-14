@@ -63,14 +63,11 @@ fs.exists(fileName, function (exists) {
                                 lastSent = timeReceived;
                                 // associate with color
                                 console.log(tagId);
-                                if (tagId === "E2-00-40-84-39-04-02-41-14-10-86-46") {
-                                    // Send message by socket to the story.
-                                    if (htmlConnection) {
-                                        htmlConnection.emit('choice', { color: 'red' });
-                                    }
+                                if (htmlConnection) {
+                                    htmlConnection.emit('choice', { tag: tagId });
                                 }
                             }
-                            
+
                         });
                         res.writeHead(200, { 'Content-Type': 'text/html' });
                         res.end('post received');

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -11,7 +11,7 @@ Loominary
 <body>
 <div id="passage"></div>
 
-<tw-storydata name="Loominary" startnode="39" creator="Twine" creator-version="2.0.11" ifid="B22A7FCF-6CFE-41C4-B0A5-91F32B3FC503" format="Snowman" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
+<tw-storydata name="Loominary" startnode="40" creator="Twine" creator-version="2.0.11" ifid="B22A7FCF-6CFE-41C4-B0A5-91F32B3FC503" format="Snowman" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
 	text-decoration: none;
 }
 
@@ -42,47 +42,41 @@ a {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
-    $(document).on('hidepassage', function() {
-        $('#passage').addClass('passage-in');
-    });
-    $(document).on('showpassage:after', function() {
-        $('#passage').removeClass('passage-in');
-    });
+$(document).on('hidepassage', function() {
+	$('#passage').addClass('passage-in');
+});
+$(document).on('showpassage:after', function() {
+	$('#passage').removeClass('passage-in');
+});
 
 
+var socket;
+$(function () {
+	socket = io.connect('http://127.0.0.1:1337');
+});
 
-    var socket;
-    $(function () {
-        socket = io.connect('http://127.0.0.1:1337');
-    });
-
-    $(function () {
-        socket.on('choice', function (data) {
-            var message = { color: 'green'};
-
-  /*
-            if (data.tag == 'E2-00-40-84-39-04-02-41-14-20-87-1B') {
-                $('span[style="color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;"]').click();
-            }
-            else if (data.tag == 'E2-00-40-84-39-04-02-41-15-90-74-42') {
-                $('span[style="color:#b78497;"]').click();
-            }
-            else if (data.tag == "E2-00-40-84-39-04-02-41-14-10-86-46") {
-                $('span[style="color:#c3c3c3;"]').click();
-            }
-            else if (data.tag == 'E2-00-40-84-39-04-02-41-11-70-A0-F0') {
-                $('span[style="color:#663399;"]').click();
-            }
-    */
-            socket.emit('response', message);
-
-        });
-    });
-
-
-
-
+$(function () {
+	socket.on('choice', function (data) {
+		var message = { tagID: 'Not listed among the colors'};
+		if (data.tag == 'E2-00-40-84-39-04-02-41-14-40-82-9F') 		{
+			$('span[style=""background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;"]').click();
+		}
+		else if (data.tag == 'E2-00-40-84-39-04-02-41-15-90-74-42') 		{
+			$('span[style="background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;"]').click();
+		}
+		else if (data.tag == "E2-00-40-84-39-04-02-41-14-10-86-46") 		{
+			$('span[style="color:#c3c3c3;"]').click();
+		}
+		else if (data.tag == 'E2-00-40-84-39-04-02-41-11-70-A0-F0') 		{
+			$('span[style="color:#8600b3;"]').click();
+		}
+		else {
+			socket.emit('response', message);
+		}
+	});
+});
 
 
 
@@ -393,8 +387,8 @@ On the ground is the golden cup. Etchings decorate its rim. As you pull it close
 
 You smile at the drawing of a figure strangling a snake.
 
-[[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;Dip the cup in the water.&lt;/span&gt;-&gt;Dip the cup in the water.]]
-[[&lt;span style=&quot;color:#663399;&quot;&gt;Dip your fingers in the water.&lt;/span&gt;-&gt;Dip your fingers in the water.]]</tw-passagedata>
+[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Dip the cup in the water.&lt;/span&gt;-&gt;Dip the cup in the water.]]
+[[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Dip your fingers in the water.&lt;/span&gt;-&gt;Dip your fingers in the water.]]</tw-passagedata>
 <tw-passagedata pid="42" name="Gaze upwards to the clouds." tags="" position="1816,1952">Up, up, up go the walls, disappearing into the misty clouds. 
 
 You feal tears begin to prick your eyes. They easily overflow the corners and roll down your face.
@@ -407,14 +401,14 @@ Your face crumples as the sobs overtake you. You sink to your knees. The clouds 
 
 Suddenly, starting anew doesn&#39;t seem so bad.
 
-[[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;Main Menu]]</tw-passagedata>
+[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;Tutorial]]</tw-passagedata>
 <tw-passagedata pid="43" name="Peek outside, through the arches." tags="" position="1499,1980">The water dances around your feet as you peer through the arch. The room you are in is raised above the ground, and the water flows out like a sheet to the land beneath it. 
 
 There is lush greenery as far as the eye can see. A manicured, yet distinctly wild, garden touches the high walls that you stand on. Trees are bright green with a hint of gold. Birds chirp in the distance, and you are overcome with a wave of nostalgia.
 
 It is late summer, and you are nowhere near home.
 
-[[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;Main Menu]]</tw-passagedata>
+[[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;Tutorial]]</tw-passagedata>
 <tw-passagedata pid="44" name="Turn around and walk away." tags="" position="1352,1932">You know this room all too well. It is the Hall of Sacrifice, where you were bequeathed your last, and only, quest.
 
 It is too painful to remain here.
@@ -425,7 +419,7 @@ You grew up in this palace, high among the clouds. Your father, Zeus, has reined
 
 You, on the other hand, have just returned after centuries away, far away, after traveling to more lands than you can remember in pursuit of accomplishing the task you were set out with. A desert, a rainforrest, a tundra. Each sear into your brain with the power of Hephaestus&#39; iron.
 
-[[&lt;span style=&quot;color:#663399;&quot;&gt;Walk out to the balcony. &lt;/span&gt;-&gt;Peek outside, through the arches.]]</tw-passagedata>
+[[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Walk out to the balcony. &lt;/span&gt;-&gt;Peek outside, through the arches.]]</tw-passagedata>
 <tw-passagedata pid="45" name="You are in a room." tags="" position="1548,1809">You are in a room. The tile floor is cool beneath your feet. Tall arches reach above you, disappearing into the misty heavens. A fountain is before you, its clear waters overflowing its basins and flowing out the open arches where sunlight streams in. Beside the fountain, on the ground, is a golden cup.
 
 What will you do?
@@ -433,11 +427,11 @@ What will you do?
 
 [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Approach the fountain.&lt;/span&gt;-&gt;Approach the fountain.]]
 
-[[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;Gaze upwards to the clouds.&lt;/span&gt;-&gt;Gaze upwards to the clouds.]]
+[[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Gaze upwards to the clouds.&lt;/span&gt;-&gt;Gaze upwards to the clouds.]]
 
-[[&lt;span style=&quot;color:#b78497;&quot;&gt;Peek outside, through the arches.&lt;/span&gt;-&gt;Peek outside, through the arches.]]
+[[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Peek outside, through the arches.&lt;/span&gt;-&gt;Peek outside, through the arches.]]
 
-[[&lt;span style=&quot;color:#663399;&quot;&gt;Turn around and walk away.&lt;/span&gt;-&gt;Turn around and walk away.]]</tw-passagedata>
+[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Turn around and walk away.&lt;/span&gt;-&gt;Turn around and walk away.]]</tw-passagedata>
 <tw-passagedata pid="46" name="Observe the shuttle" tags="" position="687,1400">You observe the way the thread has been woven around the shuttle, over and under. To the side, you see more shuttles, each wound with a different color.
 
 Such care was taken by your mother to never let the lines tangle.
@@ -467,7 +461,7 @@ You lift the reed from its lower position and again pull it towards you, pushing
 This, your mother taught you, is the &lt;b&gt;Tabby Weave&lt;/b&gt;, the most basic technique for weaving. 
 
 You lift the reed back to its high position and [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;pass the shuttle through again.&lt;/span&gt;-&gt;learn about reed]]</tw-passagedata>
-<tw-passagedata pid="49" name="learn about reed" tags="" position="1062.0001,1400">The reed is what changes the over-under pattern of the warp. 
+<tw-passagedata pid="49" name="learn about reed" tags="" position="1062,1400">The reed is what changes the over-under pattern of the warp. 
 
 In the high position, every other thread is heald up high, while the other threads are heald down below. It makes a nice, wide space for the shuttle to pass through.
 
@@ -478,50 +472,50 @@ When you were a child, you had no reed at all. You had to go under and over each
 The reed, needless to say, makes things a lot easier.
 
 Again, you change the reed. Before [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;passing the shuttle through again&lt;/span&gt;-&gt;learn warp overexposure]], you pinch the weft thread on the end to make sure the edge stays nice.</tw-passagedata>
-<tw-passagedata pid="50" name="learn warp overexposure" tags="" position="1185.0004999999999,1400">The reed also doubles as a beater, helping to keep the horizontal threads nice and close together.
+<tw-passagedata pid="50" name="learn warp overexposure" tags="" position="1185,1400">The reed also doubles as a beater, helping to keep the horizontal threads nice and close together.
 
 Your early attempts always showed a lot of the warp threads, because you pulled the weft too tightly. You learned over time that keeping your horizontal threads fairly loose would cover most of the warp.
 
 In the short term, you just chose pretty warp threads.
 
 You look up and see the [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;fog beginning to clear&lt;/span&gt;-&gt;fog beginning to clear]], and pull your shuttle through after changing the reed height.</tw-passagedata>
-<tw-passagedata pid="51" name="fog beginning to clear" tags="" position="1310.0004999999999,1400">You can begin to make out the tile floor beneath you, but the fog is still too dense to see farther ahead.
+<tw-passagedata pid="51" name="fog beginning to clear" tags="" position="1310,1400">You can begin to make out the tile floor beneath you, but the fog is still too dense to see farther ahead.
 
-You look to the side, and see another shuttle, this one with white thread laced with gold. You take it up and [[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;pass it through the gap&lt;/span&gt;-&gt;first golden-white line]].</tw-passagedata>
-<tw-passagedata pid="52" name="first golden-white line" tags="" position="1435.0005999999998,1400">A sense of joy fills you. The mist begins to turn golden, and the air becomes warm.
+You look to the side, and see another shuttle, this one with wound with a thread that shifts between pink, purple, and blue. You take it up and [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;pass it through the gap&lt;/span&gt;-&gt;first dawn line]].</tw-passagedata>
+<tw-passagedata pid="52" name="first dawn line" tags="" position="1435,1400">A sense of joy fills you. The mist begins to turn pale purple, and the air becomes warm.
 
-The sun begins to [[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;pierce through the fog,&lt;/span&gt;-&gt;pierce through the fog]] as you weave with the white again.</tw-passagedata>
-<tw-passagedata pid="53" name="pierce through the fog" tags="" position="1560.0004,1404">Four lines of grey, two lines of white.
+The sun begins to pierce [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;through the fog and turn it pink,&lt;/span&gt;-&gt;pierce through the fog]] as you weave with the pink-purple-blue again.</tw-passagedata>
+<tw-passagedata pid="53" name="pierce through the fog" tags="" position="1560,1404">Four lines of grey, two lines of the colors of dawn.
 
 The beginnings of a masterpiece.
 
 But now, what will you choose?
 
-[[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;Weave with the gold-white.&lt;/span&gt;-&gt;Weave with the gold-white.]]
-[[&lt;span style=&quot;color:#c3c3c3&quot;&gt;Weave with the grey.&lt;/span&gt;-&gt;Weave with the grey.]]</tw-passagedata>
+[[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Weave with the dawn colors.&lt;/span&gt;-&gt;Weave with the dawn.]]
+[[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Weave with the grey.&lt;/span&gt;-&gt;Weave with the grey.]]</tw-passagedata>
 <tw-passagedata pid="54" name="Weave with the grey." tags="" position="1488,1559">More peace. 
 
 You have not been at peace for a long time. It is odd to feel it now, with so much happening.
 
-The fog lifts a bit more, and you [[&lt;span style=&quot;color: #c3c3c3;&quot;&gt;weave as you wait&lt;/span&gt;-&gt;weave as you wait]].</tw-passagedata>
-<tw-passagedata pid="55" name="Weave with the gold-white." tags="" position="1620,1559">More joy.
+The fog lifts a bit more, and you [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;weave as you wait&lt;/span&gt;-&gt;weave as you wait]].</tw-passagedata>
+<tw-passagedata pid="55" name="Weave with the dawn." tags="" position="1620,1559">More joy.
 
 You have not felt joy in a long time. It is odd to feel it now, with so much happening.
 
-The fog lifts a bit more, and you [[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;weave as you wait&lt;/span&gt;-&gt;weave as you wait]].</tw-passagedata>
+The fog lifts a bit more, and you [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;weave as you wait&lt;/span&gt;-&gt;weave as you wait]].</tw-passagedata>
 <tw-passagedata pid="56" name="weave as you wait" tags="" position="1546,1684">The fog has cleared. It is time.
 
 What will you do?
 
 [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Sit down on the cool grey tile.&lt;/span&gt;-&gt;You are in a room.]]
-[[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;Walk forward into the golden mist.&lt;/span&gt;-&gt;You are in a room.]]</tw-passagedata>
+[[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Walk forward into the rising dawn.&lt;/span&gt;-&gt;You are in a room.]]</tw-passagedata>
 <tw-passagedata pid="57" name="Dip the cup in the water." tags="" position="1631,2106">You fill the cup with the fountain&#39;s water and take a sip.
 
 Your parched throat is soothed, and you feel life force rushing into your veins.
 
 You are ready.
 
-[[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;Main Menu]] </tw-passagedata>
+[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;Tutorial]] </tw-passagedata>
 <tw-passagedata pid="58" name="Dip your fingers in the water." tags="" position="1764,2108">The water begins to swirl about your fingers. A purple ink seems to spread out from your hand, and within moments the color of the water has enitrely changed. It is a deep purple, with a flash of something every so often. As you peer closer, you can see a watery reflection of galaxies below the surface.
 
 Of course. The Rememberance Basin.
@@ -530,7 +524,7 @@ You plunge your head in the water, and immediately you can see for eons across t
 
 You are among the stars.
 
-[[&lt;span style=&quot;color:white;text-shadow:2px 2px 4px #daa520; font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;Main Menu]] </tw-passagedata>
+[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;Tutorial]] </tw-passagedata>
 <tw-passagedata pid="59" name="Oedipus" tags="" position="1816,1004">Intro
 
 [[Prophecy]]</tw-passagedata>

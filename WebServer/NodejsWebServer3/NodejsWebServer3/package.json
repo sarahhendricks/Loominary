@@ -1,7 +1,7 @@
 {
-  "name": "nodejs-web-server2",
+  "name": "nodejs-web-server3",
   "version": "0.0.0",
-  "description": "NodejsWebServer2",
+  "description": "NodejsWebServer3",
   "main": "server.js",
   "author": {
     "name": "Sarah",
@@ -9,6 +9,9 @@
   },
   "target_arch": "ARM",
   "platform": "uwp",
+  "dependencies": {
+    "socket.io": "^1.7.3"
+  },
   "scripts": {
     "start": "--debug server.js"
   }

@@ -5,12 +5,12 @@
   xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10"
   IgnorableNamespaces="uap mp iot">
 
-  <Identity Name="NodejsWebServer2" Publisher="CN=Sarah" Version="1.0.0.0" />
+  <Identity Name="NodejsWebServer3" Publisher="CN=Sarah" Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="d0e58607-dd5f-448c-9a9e-548de6647f99" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="33b7479b-a890-492b-8638-356710372f96" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>NodejsWebServer2</DisplayName>
+    <DisplayName>NodejsWebServer3</DisplayName>
     <PublisherDisplayName>Sarah</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -26,7 +26,7 @@
   <Applications>
     <Application Id="App">
       <uap:VisualElements
-        DisplayName="NodejsWebServer2"
+        DisplayName="NodejsWebServer3"
         Description="nodeuwp"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"

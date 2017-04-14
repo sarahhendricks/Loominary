@@ -3,15 +3,15 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <Name>NodejsWebServer2</Name>
-    <RootNamespace>NodejsWebServer2</RootNamespace>
+    <Name>NodejsWebServer3</Name>
+    <RootNamespace>NodejsWebServer3</RootNamespace>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == 'Any CPU' ">x86</Platform>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>d82c4acc-f840-483a-af3f-2e8c942cb23b</ProjectGuid>
+    <ProjectGuid>acf1e2e2-b2e6-4254-8e49-1dd2f717684f</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>server.js</StartupFile>
     <StartWebBrowser>False</StartWebBrowser>
@@ -22,7 +22,7 @@
     <ProjectTypeGuids>{00251F00-BA30-4CE4-96A2-B8A1085F37AA};{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
     <ProjectView>ShowAllFiles</ProjectView>
     <StartWebBrowser>false</StartWebBrowser>
-    <PackageCertificateKeyFile>NodejsWebServer2_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>NodejsWebServer3_TemporaryKey.pfx</PackageCertificateKeyFile>
     <DefaultLanguage>en-US</DefaultLanguage>
     <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
     <AppContainerApplication>true</AppContainerApplication>
@@ -39,6 +39,7 @@
     <DebugSymbols>true</DebugSymbols>
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
     <OutputPath>bin\Debug\</OutputPath>
+    <DeployTarget>remote</DeployTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <DebugSymbols>true</DebugSymbols>
@@ -61,7 +62,7 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
-    <None Include="NodejsWebServer2_TemporaryKey.pfx" />
+    <None Include="NodejsWebServer3_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
@@ -109,10 +110,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="SpicNSpan" AfterTargets="Clean">
-    <!-- Remove obj folder -->
-    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
-    <!-- Remove bin folder -->
-    <RemoveDir Directories="$(BaseOutputPath)" />
-  </Target>
 </Project>
