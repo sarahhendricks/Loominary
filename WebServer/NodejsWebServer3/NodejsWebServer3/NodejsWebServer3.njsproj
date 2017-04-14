@@ -48,6 +48,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="server.js" />
+    <Content Include="GIFs\First_Line_Reed_large.gif" />
+    <Content Include="GIFs\First_Line_Shuttle_large.gif" />
+    <Content Include="GIFs\First_Line_Side_Reed_large.gif" />
+    <Content Include="First_Line_Side_Shuttle_large.gif" />
     <Content Include="Loominary.html" />
     <Content Include="package.json" />
   </ItemGroup>
@@ -66,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="GIFs\" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
     <Folder Include="typings\globals\node\" />

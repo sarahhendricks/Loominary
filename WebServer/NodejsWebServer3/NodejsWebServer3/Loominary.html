@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -43,6 +43,7 @@ a {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">
 $(document).on('hidepassage', function() {
 	$('#passage').addClass('passage-in');
@@ -61,7 +62,7 @@ $(function () {
 	socket.on('choice', function (data) {
 		var message = { tagID: 'Not listed among the colors'};
 		if (data.tag == 'E2-00-40-84-39-04-02-41-14-40-82-9F') 		{
-			$('span[style=""background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;"]').click();
+			$('span[style="background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;"]').click();
 		}
 		else if (data.tag == 'E2-00-40-84-39-04-02-41-15-90-74-42') 		{
 			$('span[style="background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;"]').click();
@@ -77,6 +78,7 @@ $(function () {
 		}
 	});
 });
+
 
 
 
@@ -438,7 +440,7 @@ Such care was taken by your mother to never let the lines tangle.
 
 You take the shuttle of the grey thread in your hands, and [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;pull it through the gap &lt;/span&gt;-&gt;first grey line]] made by the reed.
 
-&lt;img src=&quot;GIFs/First_Line_Shuttle_large.gif&quot; &gt;&lt;img src=&quot;GIFs/First_Line_Side_Shuttle_large.gif&quot; &gt;</tw-passagedata>
+&lt;img src=&quot;GIFs/First_Line_Shuttle_large.gif&quot; &gt;&lt;img src=&quot;First_Line_Side_Shuttle_large.gif&quot; &gt;</tw-passagedata>
 <tw-passagedata pid="47" name="first grey line" tags="" position="812,1400">The air begins to sparkle and shimmer around you. A feeling of soothing pleasantness perfumes the air.
 
 You are calm. You are at peace.
