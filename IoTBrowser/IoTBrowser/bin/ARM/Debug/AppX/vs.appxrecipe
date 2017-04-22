@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\bin\ARM\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-09T01:11:35.111</Modified>
+      <Modified>2017-04-19T18:45:19.101</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\bin\ARM\Debug\IoTBrowser.exe">
       <PackagePath>entrypoint\IoTBrowser.exe</PackagePath>
-      <Modified>2017-04-09T01:11:34.230</Modified>
+      <Modified>2017-04-19T18:45:18.710</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -484,7 +484,7 @@
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\Assets\SplashScreen.scale-200.jpg">
       <PackagePath>Assets\SplashScreen.scale-200.jpg</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-11-05T21:12:51.236</Modified>
+      <Modified>2017-04-14T02:47:57.015</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\bin\ARM\Debug\IoTBrowser.xr.xml">
       <PackagePath>IoTBrowser.xr.xml</PackagePath>
@@ -497,11 +497,11 @@
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\bin\ARM\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-04-09T01:11:34.836</Modified>
+      <Modified>2017-04-19T15:14:05.084</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Sarah\Documents\GitHub\Loominosity\IoTBrowser\IoTBrowser\bin\ARM\Debug\Core\IoTBrowser.exe">
       <PackagePath>IoTBrowser.exe</PackagePath>
-      <Modified>2017-04-09T01:11:35.098</Modified>
+      <Modified>2017-04-19T18:45:19.095</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

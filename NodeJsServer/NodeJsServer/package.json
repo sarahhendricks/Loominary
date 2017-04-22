@@ -1,0 +1,19 @@
+{
+  "name": "test-server-with-express",
+  "version": "0.0.0",
+  "description": "TestServerWithExpress",
+  "main": "server.js",
+  "author": {
+    "name": "Sarah",
+    "email": ""
+  },
+  "target_arch": "ARM",
+  "platform": "uwp",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
+  },
+  "scripts": {
+    "start": "--debug server.js"
+  }
+}
