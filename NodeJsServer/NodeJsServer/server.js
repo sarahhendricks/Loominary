@@ -6,30 +6,28 @@ var server = http.createServer(app);
 var io = require('socket.io')(server);
 var lastSent = 0;
 var htmlConnection;
-
+var MESSAGE_DELAY_SEC = 10;
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Listen for requests
+// Listen for requests. The server will send the file on a GET request
+// from the browser application. This listens on port 1337.
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
-    console.log('Magic happens on port ');
 });
 server.listen(1337);
 
-console.log("about to try io.on");
+// Browser connection established.
 io.on('connection', function (socket) {
-    // Get here when the IoT browser connects!!
-    // Story only shows up when you get here, not before.
-    console.log("inside io.on; client connected....");
     htmlConnection = socket;
     htmlConnection.on('response', function (color) {
-        console.log("color");
-        console.log(color.color);
+        // TODO: If for any reason we want to handle info from the story,
+        // this is the place to do it.
     });
 });
 
-// This handles the POST requests from the RFID hardware. 
+// This handles the POST requests from the RFID hardware. It listens on its
+// own port, 1338.
 http.createServer(function (req, res) {
     if (req.method === 'POST') {
         var body = '';
@@ -42,7 +40,7 @@ http.createServer(function (req, res) {
         });
         // When we reach the end of the request, parse the body JSON
         req.on('end', function () {
-            // get tag id
+            // Get tag id
             var result = JSON.parse(body);
             var tagId = result[0].TagId;
 
@@ -50,10 +48,11 @@ http.createServer(function (req, res) {
             // current weave.
             var date = new Date();
             var timeReceived = Math.round(date.getTime() / 1000);
-            if (timeReceived - lastSent > 10 || lastSent == 0) {
-                console.log("Send the message!");
+            if (timeReceived - lastSent > MESSAGE_DELAY_SEC || lastSent == 0) {
+
+                // If we are within a decent time span, then have the server send the tag ID over 
+                // the HTML connection established in io.on
                 lastSent = timeReceived;
-                console.log(tagId);
                 if (htmlConnection) {
                     htmlConnection.emit('choice', { tag: tagId });
                 }
@@ -61,9 +60,5 @@ http.createServer(function (req, res) {
         });
         res.writeHead(200, { 'Content-Type': 'text/html' });
         res.end('post received');
-    }
-    else {
-        // Shouldn't be getting anything here, but just in case...
-        console.log("GET");
     }
 }).listen(process.env.port || 1338);
