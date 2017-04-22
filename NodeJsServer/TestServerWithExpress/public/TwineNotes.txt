@@ -1,0 +1,133 @@
+Set a variable after I click a link, not necessarily in the new passage:
+<a id="link">Link</a>
+<%
+$(function () {
+	console.log('showpassage:after event fired');
+
+	$('#link').click(function () {
+		console.log('link clicked');
+	});
+});
+%>
+Note: the console log is only accessible in browser.
+Note 2: console.log('showpassage:after event fired'); executes as soon as the frame is loaded; console.log('link clicked'); executes once when the link is clicked
+How to register the click multiple times?
+		
+Also available is this version:		
+Are you <a onclick="story.state.gender='male'; story.show('Some Passage')">Male</a> or <a onclick="story.state.gender='female'; story.show('Some Passage')">Female</a>?
+
+
+Print something after I click a link:
+<a id="link">Link</a>
+<div id="link-target"></div>
+<%
+$(function () {
+	'use strict';
+
+	$('#link').one('click', function () {
+		$('#link-target').text("I'm a little teapot!");
+	});
+});
+%>
+
+
+Set a variable to check later (global):
+	<% s.tutorialColor = "yellow" %>
+
+
+
+Print a variable’s value:
+	<%= s.tutorialColor %>
+
+Use if statements to decide what is displayed:
+	<% if (s.tutorialColor == "white") { %>
+[[Peek outside, through the arches.]]
+<% } else { %>
+[[Gaze upwards to the clouds.]]
+<% } %>
+
+
+Using <a> tag to set variables before taking me to next passage:
+	/*
+Using <%= %> instead of just <% %> to surround code lets you render the value of the contained variable outright. Perfect for when you set your player's name in one passage and then want to retrieve it for showing later.
+*/
+
+Assured that "<%= story.state.yourName %>" is your name, the blanks begin to refill in your mind as you slowly remember your identity. The next thing you struggle with is remembering how you preferred to be addressed:
+
+/*
+Notice the use of bare html for links here. Compared to Twine's link syntax, this lets you use actions on click as shown below. This technique is cross-format.
+*/
+
+<a>Him/his.</a>
+
+<a>Her/hers.</a>
+
+<a>They/theirs.</a>
+
+<a>It/its.</a>
+
+/*
+Code within a template block is executed on load, so these functions are set before the player even starts reading.
+
+Each function sets the pronouns variable to be an array of pronouns, and stores it in the story.state object. Then, the start2 passage is navigated to. Connecting passages using script like that prevents connection lines from being drawn in the editor view.
+*/
+
+<% story.state.setHe = function (){ 
+		story.state.pronouns = ["he","him","his","his","he's"]; 
+		story.state.cPronouns = ["He","Him","His","His","He's"]; 
+		story.show('start2'); 
+	} 
+	story.state.setShe = function (){ 
+		story.state.pronouns = ["she","her","her","hers","she's"]; 
+		story.state.cPronouns = ["She","Her","Her","Hers","She's"];
+		story.show('start2'); 
+	} 
+	story.state.setThey = function (){ 
+		story.state.pronouns = ["they","them","their","theirs","they're"];
+		story.state.cPronouns = ["They","Them","Their","Theirs","They're"];
+		story.show('start2'); 
+	} 
+	story.state.setIt = function (){
+		story.state.pronouns = ["it","it","its","its","it's"]; 
+		story.state.cPronouns = ["It","It","Its","Its","It's"]; 
+		story.show('start2'); 
+	} %>
+
+
+Determine reading speed:
+<% s.wordcount = 62;
+s.timeStart = new Date().getTime();
+s.times = 0;
+s.totalReadSpeed = 0;
+s.avgReadSpeed = 0;
+%>
+<%
+$(function () {
+	'use strict';
+
+	$('#link').one('click', function () {
+		s.timeEnd = new Date().getTime();
+		var total = ((s.timeEnd - s.timeStart) / 1000) / 60;
+		var avg = s.wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times += 1;
+		console.log("Total of reading speeds: ",s.totalReadSpeed,"; Total sum of read speeds taken: ",s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show('first white line');
+	});
+});
+%>
+	
+
+
+Make text fade:
+	Story JavaScript:
+window.fadeout = function( el ) {
+	console.log("fadeout function called");
+	$(el).fadeTo(3000, 0);
+}
+
+	Local passage:
+	<span id="fadeout">Approach the fountain.</span>
+<script> fadeout("#fadeout") </script>
+
