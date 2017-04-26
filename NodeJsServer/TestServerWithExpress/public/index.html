@@ -11,7 +11,7 @@ Loominary
 <body>
 <div id="passage"></div>
 
-<tw-storydata name="Loominary" startnode="40" creator="Twine" creator-version="2.0.11" ifid="B22A7FCF-6CFE-41C4-B0A5-91F32B3FC503" format="Snowman" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
+<tw-storydata name="Loominary" startnode="1" creator="Twine" creator-version="2.0.11" ifid="B22A7FCF-6CFE-41C4-B0A5-91F32B3FC503" format="Snowman" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
 	text-decoration: none;
 }
 
@@ -28,6 +28,7 @@ a {
 	opacity: 0;
 	transition: opacity 0ms ease-in;
 }
+
 
 
 
@@ -88,6 +89,12 @@ $(function () {
 });
 
 
+window.fadeout = function( el ) {
+	$(el).fadeTo(3000, 0);
+}
+
+
+
 
 
 
@@ -97,26 +104,107 @@ $(function () {
 
 
 </script><tw-passagedata pid="1" name="Medusa&#39;s Laugh" tags="" position="100,86">Your name is Medusa and you
-&lt;blockquote&gt;[[&lt;span style=&quot;color:#4A5D23;&quot;&gt;are one of the gorgon sisters of Sarpedon.&lt;/span&gt; -&gt; Born into it]]&lt;/blockquote&gt;
-&lt;blockquote&gt;[[&lt;span style=&quot;color:white;&quot;&gt;are a virgin priestess of Athena. &lt;/span&gt;-&gt; Praise Athena]]&lt;/blockquote&gt;</tw-passagedata>
-<tw-passagedata pid="2" name=" Born into it" tags="" position="102,238">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
+&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:#4A5D23;&quot;&gt;are one of the gorgon sisters of Sarpedon.&lt;/span&gt; -&gt; Born into it]]&lt;/blockquote&gt;
+&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:white;&quot;&gt;are a virgin priestess of Athena. &lt;/span&gt;-&gt; Praise Athena]]&lt;/blockquote&gt;
+ 
+&lt;% 
+s.times = 0;
+s.totalReadSpeed = 0;
+s.avgReadSpeed = 0;
 
-Men would often come to try and defeat you and your sisters, but together you were invincible. Stheno&#39;s brass claws were sharpened on the armor of man. Euryale&#39;s cry could bring anyone quickly to pain and madness. And with your eyes of stone, [[&lt;span style=&quot;color:#4A5D23;&quot;&gt;you could stop any fool in their tracks. &lt;/span&gt;-&gt; Dominion]] </tw-passagedata>
+var wordcount = 20;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+	});
+});
+
+%&gt;
+</tw-passagedata>
+<tw-passagedata pid="2" name=" Born into it" tags="" position="103,238">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
+
+Men would often come to try and defeat you and your sisters, but together you were invincible. Stheno&#39;s brass claws were sharpened on the armor of man. Euryale&#39;s cry could bring anyone quickly to pain and madness. And with your eyes of stone, [[&lt;span id=&quot;link&quot; style=&quot;color:#4A5D23;&quot;&gt;you could stop any fool in their tracks. &lt;/span&gt;-&gt; Dominion]] 
+
+&lt;% var wordcount = 68;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show(&#39; Dominion&#39;);
+	});
+});
+%&gt;</tw-passagedata>
 <tw-passagedata pid="3" name=" Praise Athena" tags="" position="251,235">Ever since you were young, you have been a worshiper at the altar of Athena. You have devoted your body and soul to her, and for that you make the men of Athens jealous. 
 
 You are beautiful. Everyday men from all over the city come and ask you to be their paramore.
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:#DAA520;&quot;&gt;You tell them of your promise to Athena and decline. &lt;/span&gt;-&gt; Pious]]&lt;/blockquote&gt;
-&lt;blockquote&gt;[[&lt;span style=&quot;color:green;&quot;&gt;You laugh in their face and boast about your beauty. -&gt; sass]]&lt;/blockquote&gt;</tw-passagedata>
+&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:#DAA520;&quot;&gt;You tell them of your promise to Athena and decline. &lt;/span&gt;-&gt; Pious]]&lt;/blockquote&gt;
+&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:green;&quot;&gt;You laugh in their face and boast about your beauty. -&gt; sass]]&lt;/blockquote&gt;
+
+&lt;% var wordcount = 72;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+	});
+});
+%&gt;</tw-passagedata>
 <tw-passagedata pid="4" name=" Dominion" tags="" position="101,385">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
 
 Men would often come to try and defeat you and your sisters, but together you were invincible. Stheno&#39;s brass claws were sharpened on the armor of man. Euryale&#39;s cry could bring anyone quickly to pain and madness. And with your eyes of stone, you could stop any fool in their tracks.
 
 With your mother and father watching over you from the depths of the sea, humans would whisper your name in fear in the safety of their homes. 
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:#4A5D23;&quot;&gt;For a long time no one dared to touch you&lt;/span&gt; -&gt; Perseus]]&lt;/blockquote&gt;
+&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:#4A5D23;&quot;&gt;For a long time no one dared to touch you&lt;/span&gt; -&gt; Perseus]]&lt;/blockquote&gt;
 
-&lt;% s.athenaReaction = &quot;dominion&quot; %&gt;</tw-passagedata>
+&lt;% s.athenaReaction = &quot;dominion&quot; %&gt;
+
+&lt;% var wordcount = 20;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show(&#39; Perseus&#39;);
+	});
+});
+%&gt;</tw-passagedata>
 <tw-passagedata pid="5" name=" Perseus" tags="" position="908,641">Your name is Perseus and in order to appease king Polydectes, you have set out in search for the gorgon Medusa. You have been wandering, trying to find her for days, and with each one that passes you fear that even if you found her you would surely die. 
 
 Athena reaction: &lt;%= s.athenaReaction%&gt;
@@ -135,32 +223,113 @@ Some will concede and simply ask you to pray for them.
 Others will come everyday to try and convince you otherwise.
 Many will get angry and grab you, but your sisters are often there to push these men away. 
 
-For as long as you can remember, things have been this way, but you stand strong. Though you haven&#39;t been called on directly, you know that Athena is proud of you. [[&lt;span style=&quot;color:#DAA520;&quot;&gt;And with that thought you can live peacefully. &lt;/span&gt;-&gt; Poseidon the asshole]]
-</tw-passagedata>
-<tw-passagedata pid="7" name=" sass" tags="" position="402,388">You can&#39;t help but be filled with glee as men come one after another to try and take your hand. You laugh at them all, saying that you are the epitome of beauty and as such they can never have you. 
+For as long as you can remember, things have been this way, but you stand strong. Though you haven&#39;t been called on directly, you know that Athena is proud of you. [[&lt;span id=&quot;link&quot; style=&quot;color:#DAA520;&quot;&gt;And with that thought you can live peacefully. &lt;/span&gt;-&gt; Poseidon the asshole]]
+
+&lt;% var wordcount = 94;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show(&#39; Poseidon the asshole&#39;);
+	});
+});
+%&gt;</tw-passagedata>
+<tw-passagedata pid="7" name=" sass" tags="" position="402,387">You can&#39;t help but be filled with glee as men come one after another to try and take your hand. You laugh at them all, saying that you are the epitome of beauty and as such they can never have you. 
 
 You couldn&#39;t help but shiver when men praised your looks knowing that they would never have you. Many times you would talk to the heavens saying that not even the gods could touch you. 
 
 You would often wonder what it would be like to have this temple in your honor instead of Athena&#39;s. People would give offerings to your beauty daily. 
 
-[[&lt;span style=&quot;color:green;&quot;&gt;How wonderful that would be. &lt;/span&gt;-&gt; Poseidon the asshole]] </tw-passagedata>
+[[&lt;span id=&quot;link&quot; style=&quot;color:green;&quot;&gt;How wonderful that would be. &lt;/span&gt;-&gt; Poseidon the asshole]] 
+
+&lt;% var wordcount = 107;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show(&#39; Poseidon the asshole&#39;);
+	});
+});
+%&gt;</tw-passagedata>
 <tw-passagedata pid="8" name=" Poseidon the asshole" tags="" position="324,553">Those who covet you come from many places. But none more powerful and troublesome than the god from the sea. 
 
-Poseidon finds you irresistable. [[&lt;span style=&quot;color:#30c9c1;&quot;&gt;He wants you and he will do anythng to have you. &lt;/span&gt;-&gt; The confrontation]]
+Poseidon finds you irresistable. [[&lt;span id=&quot;link&quot; style=&quot;color:#30c9c1;&quot;&gt;He wants you and he will do anythng to have you. &lt;/span&gt;-&gt; The confrontation]]
 
-</tw-passagedata>
+&lt;% var wordcount = 35;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show(&#39; The confrontation&#39;);
+	});
+});
+%&gt;</tw-passagedata>
 <tw-passagedata pid="9" name=" The confrontation" tags="" position="325,694">The night everything changes is when you are in Athena&#39;s temple late into the night. 
 
-Most others have gone to sleep, but you stayed up to tend to the offerings and [[&lt;span style=&quot;color:#30c9c1;&quot;&gt;meditate. &lt;/style&gt;-&gt; The Scene]]</tw-passagedata>
-<tw-passagedata pid="10" name=" The Scene" tags="" position="325,844">A man walks into the temple of Athena late into your vigil. You don&#39;t see him at first but when you feel someone whisper behind you, you turn around in surprise. Backing away, you ask what the man wants. 
+Most others have gone to sleep, but you stayed up to tend to the offerings and [[&lt;span id=&quot;link&quot; style=&quot;color:#30c9c1;&quot;&gt;meditate. &lt;/style&gt;-&gt; The Scene]]
+
+&lt;% var wordcount = 20;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show(&#39; The Scene&#39;);
+	});
+});
+%&gt;</tw-passagedata>
+<tw-passagedata pid="10" name=" The Scene" tags="" position="324,844">A man walks into the temple of Athena late into your vigil. You don&#39;t see him at first but when you feel someone whisper behind you, you turn around in surprise. Backing away, you ask what the man wants. 
 
 When a simple &quot;you&quot; falls from his lips, you start to panic. 
+&lt;% 
+var wordcount = 58;
+var timeExpected = (wordcount / s.avgReadSpeed) * 60 * 1000;
+console.log(&quot;time expected in minutes: &quot;,timeExpected); 
+%&gt;
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;Run.&lt;/span&gt; -&gt; The catch]]
+&lt;blockquote&gt;[[&lt;span id=&quot;fadeout&quot; style=&quot;color:red;&quot;&gt;Run.&lt;/span&gt; -&gt; The catch]]
 &lt;/blockquote&gt;
+&lt;% %&gt;
 &lt;blockquote&gt;[[&lt;span style=&quot;color:green;&quot;&gt;Throw the nearest object.&lt;/span&gt; -&gt; The toss]]
 &lt;/blockquote&gt;
-&lt;blockquote&gt;[[&lt;span style=&quot;color:#AAAAAA;&quot;&gt;Nervously decline. &lt;/span&gt;-&gt; The discussion]]&lt;/blockquote&gt;</tw-passagedata>
+&lt;blockquote&gt;[[&lt;span style=&quot;color:#AAAAAA;&quot;&gt;Nervously decline. &lt;/span&gt;-&gt; The discussion]]&lt;/blockquote&gt;
+
+&lt;% setTimeout(function() { console.log(&quot;Time expected: &quot;, timeExpected); fadeout(&quot;#fadeout&quot;); }, timeExpected);  %&gt;</tw-passagedata>
 <tw-passagedata pid="11" name=" The catch" tags="" position="325,994">You do your best to run, using your knowledge of the temple&#39;s layout to your advantage, but it&#39;s useless. The man seems to glide towards you, whatever turn you make. 
 
 [[&lt;span style=&quot;color:red;&quot;&gt;Eventually he catches you and pins you down&lt;/span&gt; -&gt; The Scene 2]]
