@@ -13,8 +13,8 @@ This semester will focus on creating the interactive storyline, creating the cus
 This project was developed by Windows IoT, which means there are a lot of files that got pushed. Here is a list of the ones that are critical to the project:
 - codingbandit-RfidScanner-90bad51/RfidScanner/StartupTask.cs
 - codingbandit-RfidScanner-90bad51/CottonwoodRfidReader/Cottonwood.cs
-- WebServer/NodejsWebServer2/Loominosity.html
-- WebServer/NodejsWebServer2/server.js
+- NodeJsServer/TestServerWithExpress/public/index.html
+- NodeJsServer/TestServerWithExpress/server.js
 - IoTBrowser/IoTBrowser/App.xaml.cs
 - IoTBrowser/IoTBrowser/MainPage.xaml.cs
 
