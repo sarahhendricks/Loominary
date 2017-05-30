@@ -11,7 +11,7 @@ Loominary
 <body>
 <div id="passage"></div>
 
-<tw-storydata name="Loominary" startnode="1" creator="Twine" creator-version="2.0.11" ifid="B22A7FCF-6CFE-41C4-B0A5-91F32B3FC503" format="Snowman" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
+<tw-storydata name="Loominary" startnode="39" creator="Twine" creator-version="2.0.11" ifid="B22A7FCF-6CFE-41C4-B0A5-91F32B3FC503" format="Snowman" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
 	text-decoration: none;
 }
 
@@ -47,6 +47,8 @@ a {
 
 
 
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* Fade in and fade out functions for Twine passages. */
 $(document).on('hidepassage', function() {
 	$('#passage').addClass('passage-in');
@@ -55,13 +57,13 @@ $(document).on('showpassage:after', function() {
 	$('#passage').removeClass('passage-in');
 });
 
-/* Establishing connection to web server. */
+/* Establishing connection to web server. 
 var socket;
 $(function () {
 	socket = io.connect('http://127.0.0.1:1337');
 });
-
-/* Matching a tag sent from the server via socket to a color available. The color is encoded as the specific span styling that particular color uses. */
+/*
+/* Matching a tag sent from the server via socket to a color available. The color is encoded as the specific span styling that particular color uses. 
 $(function () {
 	socket.on('choice', function (data) {
 		var message = { tagID: 'Not listed among the colors'};
@@ -87,10 +89,33 @@ $(function () {
 		}
 	});
 });
+*/
 
+window.fadeOut = function( el ) {
+	$(el).fadeOut(2000);
+}
 
-window.fadeout = function( el ) {
-	$(el).fadeTo(3000, 0);
+window.fadeIn = function( el ) {
+	$(el).fadeIn(2000);
+}
+
+window.fadeInThenOut = function( el ) {
+	$(el).fadeIn(2000, function() {
+		$(el).delay(5000).fadeOut(2000);
+	});
+}
+
+window.welcomeSequence = function( el ) {
+	$("#welcome, #summary, #instructions").hide();
+	$(el).fadeIn(2000, function() {
+		$("#summary").delay(1000).fadeIn(2000, function() {
+			$("#instructions").delay(1000).fadeIn(2000, function() {
+				$("#welcome, #summary, #instructions").delay(5000).fadeOut(2000, function() {
+					story.show("Callibration");
+				});
+			});
+		});
+	});
 }
 
 
@@ -102,8 +127,7 @@ window.fadeout = function( el ) {
 
 
 
-
-</script><tw-passagedata pid="1" name="Medusa&#39;s Laugh" tags="" position="100,86">Your name is Medusa and you
+</script><tw-passagedata pid="1" name="Medusa&#39;s Laugh" tags="" position="200,664">Your name is Medusa and you
 &lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:#4A5D23;&quot;&gt;are one of the gorgon sisters of Sarpedon.&lt;/span&gt; -&gt; Born into it]]&lt;/blockquote&gt;
 &lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:white;&quot;&gt;are a virgin priestess of Athena. &lt;/span&gt;-&gt; Praise Athena]]&lt;/blockquote&gt;
  
@@ -131,7 +155,7 @@ $(function () {
 
 %&gt;
 </tw-passagedata>
-<tw-passagedata pid="2" name=" Born into it" tags="" position="103,238">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
+<tw-passagedata pid="2" name=" Born into it" tags="" position="200,816">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
 
 Men would often come to try and defeat you and your sisters, but together you were invincible. Stheno&#39;s brass claws were sharpened on the armor of man. Euryale&#39;s cry could bring anyone quickly to pain and madness. And with your eyes of stone, [[&lt;span id=&quot;link&quot; style=&quot;color:#4A5D23;&quot;&gt;you could stop any fool in their tracks. &lt;/span&gt;-&gt; Dominion]] 
 
@@ -153,7 +177,7 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="3" name=" Praise Athena" tags="" position="251,235">Ever since you were young, you have been a worshiper at the altar of Athena. You have devoted your body and soul to her, and for that you make the men of Athens jealous. 
+<tw-passagedata pid="3" name=" Praise Athena" tags="" position="348,812">Ever since you were young, you have been a worshiper at the altar of Athena. You have devoted your body and soul to her, and for that you make the men of Athens jealous. 
 
 You are beautiful. Everyday men from all over the city come and ask you to be their paramore.
 
@@ -177,7 +201,7 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="4" name=" Dominion" tags="" position="101,385">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
+<tw-passagedata pid="4" name=" Dominion" tags="" position="200,964">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
 
 Men would often come to try and defeat you and your sisters, but together you were invincible. Stheno&#39;s brass claws were sharpened on the armor of man. Euryale&#39;s cry could bring anyone quickly to pain and madness. And with your eyes of stone, you could stop any fool in their tracks.
 
@@ -205,7 +229,7 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="5" name=" Perseus" tags="" position="908,641">Your name is Perseus and in order to appease king Polydectes, you have set out in search for the gorgon Medusa. You have been wandering, trying to find her for days, and with each one that passes you fear that even if you found her you would surely die. 
+<tw-passagedata pid="5" name=" Perseus" tags="" position="1008,1220">Your name is Perseus and in order to appease king Polydectes, you have set out in search for the gorgon Medusa. You have been wandering, trying to find her for days, and with each one that passes you fear that even if you found her you would surely die. 
 
 Athena reaction: &lt;%= s.athenaReaction%&gt;
 
@@ -218,7 +242,7 @@ if (s.athenaReaction == &quot;mercy&quot;) { %&gt;
 if (s.athenaReaction == &quot;dominion&quot;) { %&gt;
 &lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;On a quiet night you pray to the gods for guidance. &lt;/span&gt; -&gt; A Warning]]&lt;/blockquote&gt;
 &lt;% } %&gt;</tw-passagedata>
-<tw-passagedata pid="6" name=" Pious" tags="" position="250,385">Most of the men try to gently coerce you, but you stand firm in your devotion. 
+<tw-passagedata pid="6" name=" Pious" tags="" position="348,964">Most of the men try to gently coerce you, but you stand firm in your devotion. 
 Some will concede and simply ask you to pray for them. 
 Others will come everyday to try and convince you otherwise.
 Many will get angry and grab you, but your sisters are often there to push these men away. 
@@ -243,7 +267,7 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="7" name=" sass" tags="" position="402,387">You can&#39;t help but be filled with glee as men come one after another to try and take your hand. You laugh at them all, saying that you are the epitome of beauty and as such they can never have you. 
+<tw-passagedata pid="7" name=" sass" tags="" position="500,964">You can&#39;t help but be filled with glee as men come one after another to try and take your hand. You laugh at them all, saying that you are the epitome of beauty and as such they can never have you. 
 
 You couldn&#39;t help but shiver when men praised your looks knowing that they would never have you. Many times you would talk to the heavens saying that not even the gods could touch you. 
 
@@ -269,7 +293,7 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="8" name=" Poseidon the asshole" tags="" position="324,553">Those who covet you come from many places. But none more powerful and troublesome than the god from the sea. 
+<tw-passagedata pid="8" name=" Poseidon the asshole" tags="" position="424,1132">Those who covet you come from many places. But none more powerful and troublesome than the god from the sea. 
 
 Poseidon finds you irresistable. [[&lt;span id=&quot;link&quot; style=&quot;color:#30c9c1;&quot;&gt;He wants you and he will do anythng to have you. &lt;/span&gt;-&gt; The confrontation]]
 
@@ -291,7 +315,7 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="9" name=" The confrontation" tags="" position="325,694">The night everything changes is when you are in Athena&#39;s temple late into the night. 
+<tw-passagedata pid="9" name=" The confrontation" tags="" position="424,1272">The night everything changes is when you are in Athena&#39;s temple late into the night. 
 
 Most others have gone to sleep, but you stayed up to tend to the offerings and [[&lt;span id=&quot;link&quot; style=&quot;color:#30c9c1;&quot;&gt;meditate. &lt;/style&gt;-&gt; The Scene]]
 
@@ -313,7 +337,7 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="10" name=" The Scene" tags="" position="324,844">A man walks into the temple of Athena late into your vigil. You don&#39;t see him at first but when you feel someone whisper behind you, you turn around in surprise. Backing away, you ask what the man wants. 
+<tw-passagedata pid="10" name=" The Scene" tags="" position="424,1424">A man walks into the temple of Athena late into your vigil. You don&#39;t see him at first but when you feel someone whisper behind you, you turn around in surprise. Backing away, you ask what the man wants. 
 
 When a simple &quot;you&quot; falls from his lips, you start to panic. 
 &lt;% 
@@ -330,17 +354,17 @@ console.log(&quot;time expected in minutes: &quot;,timeExpected);
 &lt;blockquote&gt;[[&lt;span style=&quot;color:#AAAAAA;&quot;&gt;Nervously decline. &lt;/span&gt;-&gt; The discussion]]&lt;/blockquote&gt;
 
 &lt;% setTimeout(function() { console.log(&quot;Time expected: &quot;, timeExpected); fadeout(&quot;#fadeout&quot;); }, timeExpected);  %&gt;</tw-passagedata>
-<tw-passagedata pid="11" name=" The catch" tags="" position="325,994">You do your best to run, using your knowledge of the temple&#39;s layout to your advantage, but it&#39;s useless. The man seems to glide towards you, whatever turn you make. 
+<tw-passagedata pid="11" name=" The catch" tags="" position="424,1572">You do your best to run, using your knowledge of the temple&#39;s layout to your advantage, but it&#39;s useless. The man seems to glide towards you, whatever turn you make. 
 
 [[&lt;span style=&quot;color:red;&quot;&gt;Eventually he catches you and pins you down&lt;/span&gt; -&gt; The Scene 2]]
 
 &lt;% s.fightStyle = &quot;home advantage&quot; %&gt;</tw-passagedata>
-<tw-passagedata pid="12" name=" The toss" tags="" position="475,994">You look for something close to you, a set of small bowls and coin offerings, and start to throw them at the man. His eyes become dark like a storm. With every bowl you throw, you swear you see a crack of lightning in his eyes. 
+<tw-passagedata pid="12" name=" The toss" tags="" position="572,1572">You look for something close to you, a set of small bowls and coin offerings, and start to throw them at the man. His eyes become dark like a storm. With every bowl you throw, you swear you see a crack of lightning in his eyes. 
 
 [[&lt;span style=&quot;color:green;&quot;&gt;He advances towards you and pins you the the ground.&lt;/span&gt; -&gt; The Scene 2]] 
 
 &lt;% s.fightStyle = &quot;stones turned&quot; %&gt;</tw-passagedata>
-<tw-passagedata pid="13" name=" The discussion" tags="" position="671,1001">You try to remain calm as you back away and tell the man that he can&#39;t have you. You are a priestess of Athena, you say, and you will not to commit to any potential suitor. Your voice shakes.
+<tw-passagedata pid="13" name=" The discussion" tags="" position="768,1580">You try to remain calm as you back away and tell the man that he can&#39;t have you. You are a priestess of Athena, you say, and you will not to commit to any potential suitor. Your voice shakes.
 
 The man only laughs as he walks towards you and pins you to the wall. 
 
@@ -348,20 +372,20 @@ The man only laughs as he walks towards you and pins you to the wall.
 
 &lt;% s.fightStyle = &quot;forsaken&quot; %&gt;
 </tw-passagedata>
-<tw-passagedata pid="14" name=" The Scene 2" tags="" position="461,1161">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, [[&lt;span style=&quot;color:black; background-color:#444;&quot;&gt; your inner thighs. &lt;/span&gt; -&gt; The Scene 3]]
+<tw-passagedata pid="14" name=" The Scene 2" tags="" position="560,1740">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, [[&lt;span style=&quot;color:black; background-color:#444;&quot;&gt; your inner thighs. &lt;/span&gt; -&gt; The Scene 3]]
 </tw-passagedata>
-<tw-passagedata pid="15" name=" Athena&#39;s Anger" tags="" position="252,2036">Posiedon only laughs as you ball your fists and try to fight agaisnt whatever is pinning you down. You pull against the force with everything you have and manage to slap him across the face. He stops, but before you can attempt to slap him again he physically pins you down. His movements become even more violent and your scream echoes [[&lt;span style=&quot;color:red;&quot;&gt;throughout the temple.&lt;/span&gt; -&gt; Athena&#39;s Anger 2]]
+<tw-passagedata pid="15" name=" Athena&#39;s Anger" tags="" position="352,2615">Posiedon only laughs as you ball your fists and try to fight agaisnt whatever is pinning you down. You pull against the force with everything you have and manage to slap him across the face. He stops, but before you can attempt to slap him again he physically pins you down. His movements become even more violent and your scream echoes [[&lt;span style=&quot;color:red;&quot;&gt;throughout the temple.&lt;/span&gt; -&gt; Athena&#39;s Anger 2]]
 
 &lt;% s.athenaReaction = &quot;anger&quot; %&gt;
 </tw-passagedata>
-<tw-passagedata pid="16" name="Athena&#39;s Mercy" tags="" position="644,2032">Your voice echoes around the temple as you plead to both Athena and Posiedon to let this end. You turn back to your assaulter as he laughs in your face. 
+<tw-passagedata pid="16" name="Athena&#39;s Mercy" tags="" position="744,2612">Your voice echoes around the temple as you plead to both Athena and Posiedon to let this end. You turn back to your assaulter as he laughs in your face. 
 
 &quot;Keep screaming like that and I&#39;ll finish quickly, just like you want.&quot;
 
 [[&lt;span style=&quot;color:white;&quot;&gt;You begin to sob. &lt;/span&gt;-&gt; Athena&#39;s Mercy 2]] 
 
 &lt;% s.athenaReaction = &quot;mercy&quot; %&gt;</tw-passagedata>
-<tw-passagedata pid="17" name=" Transformation" tags="" position="428,2300">A splitting pain comes from the very top of your head. You grab at it only to clumps of hair fall into your hands. You can hear hissing and rattling above you as your skin begins to crack. 
+<tw-passagedata pid="17" name=" Transformation" tags="" position="528,2880">A splitting pain comes from the very top of your head. You grab at it only to clumps of hair fall into your hands. You can hear hissing and rattling above you as your skin begins to crack. 
 
 You look at your hands. Your nails become long and sharp. You can see yourself hardening into scales. You scream and close your eyes in pain as snakes fall from your head and caress your cheeks. 
 
@@ -372,7 +396,7 @@ You curl into your self. Your hair calms down to a quiet hiss as their tongues l
 &lt;blockquote&gt;[[You have never felt so alone. -&gt; Perseus]]&lt;/blockquote&gt;
 
 (I believe this is where we&#39;d include the cutting mechanic)</tw-passagedata>
-<tw-passagedata pid="18" name=" Abomination" tags="" position="806,1095">A loud crack fills your ears at lightning strikes right in front of you. The light and heat give way to the figures of a man and woman. The man floats a few feet above the ground, the woman walks toward you in full armor. 
+<tw-passagedata pid="18" name=" Abomination" tags="" position="904,1672">A loud crack fills your ears at lightning strikes right in front of you. The light and heat give way to the figures of a man and woman. The man floats a few feet above the ground, the woman walks toward you in full armor. 
 
 The woman speaks: &quot;I know of the task you must complete, and I am here to aid you.&quot;
 
@@ -380,13 +404,13 @@ She places a helm on your head and a sword in your hand as she continues to spea
 
 &quot;A while ago, someone insulted my honor by using my temple as her personal chambers. I gave her a just punishment yet now she entices men [[&lt;span style=&quot;color:red;&quot;&gt;in a different way. &lt;/span&gt;-&gt; Abomination 2]]
 </tw-passagedata>
-<tw-passagedata pid="19" name=" Out of Misery" tags="" position="1075,1083">A gentle hand touches your shoulder. You whip around to see a man and woman standing behind you. You recognize them as Hermes the messenger and Athena the goddess of war. You kneel before them. 
+<tw-passagedata pid="19" name=" Out of Misery" tags="" position="1172,1660">A gentle hand touches your shoulder. You whip around to see a man and woman standing behind you. You recognize them as Hermes the messenger and Athena the goddess of war. You kneel before them. 
 
 &quot;There is no need for that Perseus, it is I who must beg for your help.&quot; Athena lifts your chin so that you raise to your feet. Hermes kneels down before you, gently slipping off your sandals and replacing them with his. 
 
 &quot;A long time ago, I tried to protect a young woman from ever getting hurt again,&quot; says Athena. &quot;But instead I have made her suffer [[&lt;span style=&quot;color:white;&quot;&gt;an unimaginable fate.&quot; &lt;/span&gt;-&gt; Out of Misery 2]]
 </tw-passagedata>
-<tw-passagedata pid="20" name=" The fight" tags="" position="960,1568">As you land in her garden, you can&#39;t help but feel a shiver run down your spine as you look at all the stone figures before you. Some are in the middle of attack. Some have their hands up, with faces frozen in terror. Many of the statues, you notice, have there limbs knocked off. Where arms and legs once were, you can see the details of muscle and bone. 
+<tw-passagedata pid="20" name=" The fight" tags="" position="1060,2148">As you land in her garden, you can&#39;t help but feel a shiver run down your spine as you look at all the stone figures before you. Some are in the middle of attack. Some have their hands up, with faces frozen in terror. Many of the statues, you notice, have there limbs knocked off. Where arms and legs once were, you can see the details of muscle and bone. 
 
 As you continue through the garden, you suddenly hear the hiss of hundreds of snakes from behind you. You lift the shield up to look in it&#39;s reflection and see a hideous woman; her skin is in scales, her eyes are black with yello slits, and every tendril of her hair has been replaced with snakes who are snapping in your direction. 
 
@@ -402,18 +426,18 @@ if (s.fightStyle == &quot;forsaken&quot;) { %&gt;
 &lt;blockquote&gt;[[The battle begins. -&gt; Forsaken]]&lt;/blockquote&gt;
 &lt;% } %&gt;
 </tw-passagedata>
-<tw-passagedata pid="21" name=" A Warning" tags="" position="881,930">A brilliant glow floods the sky above you, and all around you can hear the faint giggling of women. 
+<tw-passagedata pid="21" name=" A Warning" tags="" position="980,1508">A brilliant glow floods the sky above you, and all around you can hear the faint giggling of women. 
 
 From that glowing sky Hermes, the messenger of the gods, floats down. His brilliance is blinding. The giggling gets louder behind you, and when you turn around you see beautiful young women dancing around a tall female figure with a [[&lt;span style=&quot;color:#DAA520;&quot;&gt;sword and shield in hand. &lt;/span&gt;-&gt; A warning 2]]
 </tw-passagedata>
-<tw-passagedata pid="22" name=" The Slumber" tags="" position="1320,1652">You watch the habits of the three sisters for several days waiting for a good opportunity to strike. On the third day, you realize, that in the afternoon the sisters like to retire to a small grotto on the south east side of the island. [[&lt;span style=&quot;color:#4A5D23;&quot;&gt;You know that this is the best opportunity to strike &lt;/span&gt; -&gt; The Slumber 2]]
+<tw-passagedata pid="22" name=" The Slumber" tags="" position="1420,2232">You watch the habits of the three sisters for several days waiting for a good opportunity to strike. On the third day, you realize, that in the afternoon the sisters like to retire to a small grotto on the south east side of the island. [[&lt;span style=&quot;color:#4A5D23;&quot;&gt;You know that this is the best opportunity to strike &lt;/span&gt; -&gt; The Slumber 2]]
 </tw-passagedata>
-<tw-passagedata pid="23" name=" The end" tags="" position="1744,2568">Credits!
+<tw-passagedata pid="23" name=" The end" tags="" position="2064,2244">Credits!
 
 (I need everyone&#39;s portfolio infor and twitters and such for this probably maybe??????)
 
 [[Main Menu]]</tw-passagedata>
-<tw-passagedata pid="24" name=" Home Advantage" tags="" position="956,2032">You try to advance towards her but stumble on the statues that fell to the ground and the broken off limbs. You&#39;re barely able to dodge as she tries to claw at your face. You elbow her chest causing her to cry out. 
+<tw-passagedata pid="24" name=" Home Advantage" tags="" position="1056,2612">You try to advance towards her but stumble on the statues that fell to the ground and the broken off limbs. You&#39;re barely able to dodge as she tries to claw at your face. You elbow her chest causing her to cry out. 
 
 Suddenly everything goes quiet. The hiss off her hair is gone, and as you look around you realize she is nowhere to be found. 
 
@@ -423,13 +447,13 @@ The time you spend in that garden seems endless as you pace around ready to stri
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;You wonder if Athena truly prepared you for this. &lt;/span&gt;-&gt; Home Advantage 2]]&lt;/blockquote&gt; 
 </tw-passagedata>
-<tw-passagedata pid="25" name=" Stones Turned" tags="" position="800,2024">You advance backwards towards the creature, but as you get close a stone arm is hurled at your back and crumbles. You are stunned for a moment but the monster continues to pick up stone limbs from the ground and hurl them in your direction as she advances. 
+<tw-passagedata pid="25" name=" Stones Turned" tags="" position="900,2604">You advance backwards towards the creature, but as you get close a stone arm is hurled at your back and crumbles. You are stunned for a moment but the monster continues to pick up stone limbs from the ground and hurl them in your direction as she advances. 
 
 You quickly pick yourself back up and fly into the air. She continues to throw apendages at you but they all come back down on her, making her dodge her own attacks. 
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;You see an opening. &lt;/span&gt;-&gt; Stones Turned 2]]&lt;/blockquote&gt;
 </tw-passagedata>
-<tw-passagedata pid="26" name=" Forsaken" tags="" position="1128,2032">What happens next you are not prepared for. 
+<tw-passagedata pid="26" name=" Forsaken" tags="" position="1228,2612">What happens next you are not prepared for. 
 
 Medusa collapses to the ground, prostrate. The snakes of her hair become docile and almost look at you pleadingly. She begins to speak.
 
@@ -440,10 +464,10 @@ This gives you pause. You ask her why now, and why you.
 &quot;At first I thought this was a blessing, that I would finally be left alone. But I&#39;m sick of these men who try to conquer me. I&#39;m sick of having my revenge. If I&#39;m going to end it, I want it to be on my terms.&quot;
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:white;&quot;&gt;You agree to her terms and she turns her back to you. &lt;/span&gt;-&gt; Forsaken 2]]&lt;/blockquote&gt;</tw-passagedata>
-<tw-passagedata pid="27" name=" The Scene 3" tags="" position="463,1315">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, your inner thighs.
+<tw-passagedata pid="27" name=" The Scene 3" tags="" position="560,1892">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, your inner thighs.
 
 When he enters you, a hot searing pain blooms from your groin. Your voice finally breaks free, a low and long pained groan spills from your lips as he thrusts. His ego makes him think you are enjoying this, and he gives you a tender kiss [[&lt;span style=&quot;color:black; background-color:#444;&quot;&gt; like a lover. &lt;/span&gt;-&gt; The Scene 4]]</tw-passagedata>
-<tw-passagedata pid="28" name=" The Scene 4" tags="" position="456,1816">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, your inner thighs.
+<tw-passagedata pid="28" name=" The Scene 4" tags="" position="556,2396">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, your inner thighs.
 
 When he enters you, a hot searing pain blooms from your groin. Your voice finally breaks free, a low and long pained groan spills from your lips as he thrusts. His ego makes him think you are enjoying this, and he gives you a tender kiss like a lover.
 
@@ -455,7 +479,7 @@ All you want is for this to be over.
 &lt;blockquote&gt; [[&lt;span style=&quot;color:white;&quot;&gt;You rear your head back and beg Posiedon and Athena for mercy. &lt;/span&gt;-&gt;Athena&#39;s Mercy]] &lt;/blockquote&gt;
 
 </tw-passagedata>
-<tw-passagedata pid="29" name=" Athena&#39;s Anger 2" tags="" position="256,2161">Posiedon only laughs as you ball your fists and try to fight agaisnt whatever is pinning you down. You pull against the force with everything you have and manage to slap him across the face. He stops, but before you can attempt to slap him again he physically pins you down. His movements become even more violent and your scream echoes throughout the temple.
+<tw-passagedata pid="29" name=" Athena&#39;s Anger 2" tags="" position="356,2740">Posiedon only laughs as you ball your fists and try to fight agaisnt whatever is pinning you down. You pull against the force with everything you have and manage to slap him across the face. He stops, but before you can attempt to slap him again he physically pins you down. His movements become even more violent and your scream echoes throughout the temple.
 
 As soon as it ends a tremor passes through the temple. From it&#39;s pedestal, the statue of Athena steps down and turns to you prone on the floor. 
 
@@ -465,7 +489,7 @@ You point to Poseidon, trying to explain that you didn&#39;t want any of this to
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:green;&quot;&gt;&quot;Silence. You will be punished for your crime.&quot;&lt;/span&gt; -&gt; Transformation]]&lt;/blockquote&gt;
 </tw-passagedata>
-<tw-passagedata pid="30" name=" Athena&#39;s Mercy 2" tags="" position="644,2184">Your voice echoes around the temple as you plead to both Athena and Posiedon to let this end. You turn back to your assaulter as he laughs in your face. 
+<tw-passagedata pid="30" name=" Athena&#39;s Mercy 2" tags="" position="744,2764">Your voice echoes around the temple as you plead to both Athena and Posiedon to let this end. You turn back to your assaulter as he laughs in your face. 
 
 &quot;Keep screaming like that and I&#39;ll finish quickly, just like you want.&quot;
 
@@ -476,7 +500,7 @@ As Poseidon leaves satisfied, you hear the faint shift of fabric behind you. A g
 &quot;My poor child. To have such a thing done to you.&quot; Athena coos while stroking your hair. You begin to sob into her embrace.
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:green;&quot;&gt;&quot;I will make it so nothing like this ever happens to you again. &lt;/span&gt;-&gt; Transformation]]&lt;/blockquote&gt;</tw-passagedata>
-<tw-passagedata pid="31" name=" A warning 2" tags="" position="939,1095">A brilliant glow flood the sky above you, and all around you can hear the faint giggling of women. 
+<tw-passagedata pid="31" name=" A warning 2" tags="" position="1036,1672">A brilliant glow flood the sky above you, and all around you can hear the faint giggling of women. 
 
 From that glowing sky Hermes, the messenger of the gods, floats down. His brilliance is blinding. The giggling gets louder behind you, and when you turn around you see beautiful young women dancing around a tall female figure with a sword and shield in hand. 
 
@@ -489,7 +513,7 @@ With that, Athena takes the helmet from her head. The nymphs gather around and k
 You kneel before the gods and thank them for the gifts.
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:#DAA520;&quot;&gt;And with their blessing you fly to Sarpedon &lt;/span&gt; -&gt; The Slumber]]&lt;/blockquote&gt;</tw-passagedata>
-<tw-passagedata pid="32" name=" Abomination 2" tags="" position="810,1232">A loud crack fills your ears at lightning strikes right in front of you. The light and heat give way to the figures of a man and woman. The man floats a few feet above the ground, the woman walks toward you in full armor. 
+<tw-passagedata pid="32" name=" Abomination 2" tags="" position="908,1812">A loud crack fills your ears at lightning strikes right in front of you. The light and heat give way to the figures of a man and woman. The man floats a few feet above the ground, the woman walks toward you in full armor. 
 
 The woman speaks: &quot;I know of the task you must complete, and I am here to aid you.&quot;
 
@@ -506,33 +530,33 @@ After she speaks she hands you the shield. Her companion lands on the ground and
 &lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;You thank Athena for her blessings and fly off to Sarpedon. &lt;/span&gt;-&gt; The fight]]&lt;/blockquote&gt;
 
 (red thread)</tw-passagedata>
-<tw-passagedata pid="33" name=" Out of Misery 2" tags="" position="1110,1231">As if out of thin air, Athena materializes a sword, shield, and helm. She places the helm on your head and you seem to vanish. The sword in your hand is sharp and the shield is reflective and sturdy. As Hermes finishes lacing the sandles, you begin to gently float in the air. 
+<tw-passagedata pid="33" name=" Out of Misery 2" tags="" position="1208,1808">As if out of thin air, Athena materializes a sword, shield, and helm. She places the helm on your head and you seem to vanish. The sword in your hand is sharp and the shield is reflective and sturdy. As Hermes finishes lacing the sandles, you begin to gently float in the air. 
 
 Athena looks up at you. &quot;Please, be the angel of mercy I could not be.&quot; 
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:white;&quot;&gt;With a solemn nod you float into the sky, and off to Sarpedon. &lt;/span&gt;-&gt; The fight]]&lt;/blockquote&gt;
 </tw-passagedata>
-<tw-passagedata pid="34" name=" The Slumber 2" tags="" position="1320,1824">You watch the habits of the three sisters for several days waiting for a good opportunity to strike. On the third day, you realize, that in the afternoon the sisters like to retire to a small grotto on the south east side of the island. You know that this is the best opportunity to strike. 
+<tw-passagedata pid="34" name=" The Slumber 2" tags="" position="1420,2404">You watch the habits of the three sisters for several days waiting for a good opportunity to strike. On the third day, you realize, that in the afternoon the sisters like to retire to a small grotto on the south east side of the island. You know that this is the best opportunity to strike. 
 
 You wait until you can hear the soft snores of all three gorgons and tiptoe backwards into the grotto. You quietly pass Euryale and then Steno before reaching Medusa in the very back of the grotto. 
 
 Confirming her eyes are closed, you turn around and strike swiftly. Her head falls to the ground with a thud that echoes through the small cave. It instantly wakes the sisters up and screech at finding their youngest sister [[&lt;span style=&quot;color:#4A5D23;&quot;&gt; without her head. &lt;/span&gt; -&gt;  The Slumber 3]] 
 
 </tw-passagedata>
-<tw-passagedata pid="35" name="  The Slumber 3" tags="" position="1320,1972">They stalk around the cave trying to find who murdered their sister. With the helm granting you invisibility, you start to walk out of the cave as quickly as possible. 
+<tw-passagedata pid="35" name="  The Slumber 3" tags="" position="1420,2552">They stalk around the cave trying to find who murdered their sister. With the helm granting you invisibility, you start to walk out of the cave as quickly as possible. 
 
 The sound of a thousand snakes clang in your ears and make your heart race, but you eventually find the entrance and float off into the sky.
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:#4A5D23;&quot;&gt;With the sisters&#39; cries at his back perseus continues his journey &lt;/span&gt;-&gt; The end]]&lt;/blockquote&gt;
 </tw-passagedata>
-<tw-passagedata pid="36" name=" Stones Turned 2" tags="" position="800,2176">As the monster dodges a stone head she tried to throw in the air, you come hurtling back to the ground. Before she can even look up at you again you swing at her neck. 
+<tw-passagedata pid="36" name=" Stones Turned 2" tags="" position="900,2756">As the monster dodges a stone head she tried to throw in the air, you come hurtling back to the ground. Before she can even look up at you again you swing at her neck. 
 
 A messy diagonal cut sends her head tumbling to the ground while her hands try to claw at you. The snakes on her head writhe around for awhile before their hisses subside and they droop. 
 
 Your carefully take her head and place it in a small bag you prepared. 
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;You look one last time at the bodies of the fallen frozen around you before flying off with your prize &lt;/span&gt;-&gt; The end]]&lt;/blockquote&gt; </tw-passagedata>
-<tw-passagedata pid="37" name=" Home Advantage 2" tags="" position="956,2180">Without thinking, you turn around to look at your assailant and scream as you look upon Medusa. Her locks of &quot;hair&quot; drip poison from their mouths as you feel yourself freeze in fear. 
+<tw-passagedata pid="37" name=" Home Advantage 2" tags="" position="1056,2760">Without thinking, you turn around to look at your assailant and scream as you look upon Medusa. Her locks of &quot;hair&quot; drip poison from their mouths as you feel yourself freeze in fear. 
 
 She glares at you, her stare making your heart stop. From your peripheral you can see your arms becoming gray. 
 
@@ -543,26 +567,27 @@ It&#39;s the last thing you hear as your senses stop working and you feel your l
 &lt;blockquote&gt;[[In your last moments, you think of your mother. -&gt; The end]]&lt;/blockquote&gt;
 
 (cutting mechanic&gt;</tw-passagedata>
-<tw-passagedata pid="38" name=" Forsaken 2" tags="" position="1128,2184">You take a small step towards her and lift your sword. You apologize for what you&#39;re about to do. 
+<tw-passagedata pid="38" name=" Forsaken 2" tags="" position="1228,2764">You take a small step towards her and lift your sword. You apologize for what you&#39;re about to do. 
 
 &quot;No,&quot; She says. &quot;You are my hero. Thank you.&quot;
 
 The blow is swift and her head falls to the ground. You lift her head up and observe it. Her eyes are closed as if she was sleeping, and you can tell that at some point she was beautiful. 
 
 &lt;blockquote&gt;[[&lt;span style=&quot;color:white;&quot;&gt;You put her head in a bag and pray for her before flying off to continue your mission. &lt;/span&gt;-&gt; The end]]&lt;/blockquote&gt;</tw-passagedata>
-<tw-passagedata pid="39" name="Main Menu" tags="menu" position="1300,28">&lt;center&gt;Loominary&lt;/center&gt;
+<tw-passagedata pid="39" name="Main Menu" tags="menu" position="1400,608">&lt;center&gt;Loominary&lt;/center&gt;
 &lt;blockquote&gt;[[Tutorial]]&lt;/blockquote&gt;
 &lt;blockquote&gt;[[Medusa&#39;s Laugh]]&lt;/blockquote&gt;
 &lt;blockquote&gt;[[Oedipus]]&lt;/blockquote&gt;
+&lt;blockquote&gt;[[Callibration]]&lt;/blockquote&gt;
 </tw-passagedata>
-<tw-passagedata pid="40" name="Tutorial" tags="" position="2136,940">A white fog swirls about you...
+<tw-passagedata pid="40" name="Tutorial" tags="" position="2236,1520">A white fog swirls about you...
 
 In the distance, you hear a trickle of water...
 
 You are shapeless... without form...
 
 Before you is a loom, much like your mother had, and her mother before her. The vertical lines of thread, the &lt;b&gt;warp&lt;/b&gt;, are already wound tight. The &lt;b&gt;reed&lt;/b&gt; remains in the middle with the warp running through its bars. To the side is a stick, the &lt;b&gt;shuttle&lt;/b&gt;, with cutouts in the sides. It is wound with a grey thread. [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;You hold the shuttle above the threads of warp &lt;/span&gt;-&gt;Observe the shuttle]], contemplating it.</tw-passagedata>
-<tw-passagedata pid="41" name="Approach the fountain." tags="" position="3456,1632">The fountain overflows with cool, sparkling water. Its splashes help drown out your thoughts, and gentle bubbles of sweet perfume float through the air.
+<tw-passagedata pid="41" name="Approach the fountain." tags="" position="3556,2212">The fountain overflows with cool, sparkling water. Its splashes help drown out your thoughts, and gentle bubbles of sweet perfume float through the air.
 
 On the ground is the golden cup. Etchings decorate its rim. As you pull it close to you, you can see that they are depictions of the journey you have just returned from. 
 
@@ -570,7 +595,7 @@ You smile at the drawing of a figure strangling a snake.
 
 [[&lt;span style=&quot;color:#8600b3;&quot;&gt;Dip the cup in the water.&lt;/span&gt;-&gt;Dip the cup in the water.]]
 [[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Dip your fingers in the water.&lt;/span&gt;-&gt;Dip your fingers in the water.]]</tw-passagedata>
-<tw-passagedata pid="42" name="Gaze upwards to the clouds." tags="" position="2948,1608">Up, up, up go the walls, disappearing into the misty clouds. 
+<tw-passagedata pid="42" name="Gaze upwards to the clouds." tags="" position="3048,2188">Up, up, up go the walls, disappearing into the misty clouds. 
 
 You feal tears begin to prick your eyes. They easily overflow the corners and roll down your face.
 
@@ -583,14 +608,14 @@ Your face crumples as the sobs overtake you. You sink to your knees. The clouds 
 Suddenly, starting anew doesn&#39;t seem so bad.
 
 [[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]]</tw-passagedata>
-<tw-passagedata pid="43" name="Peek outside, through the arches." tags="" position="3236,1756">The water dances around your feet as you peer through the arch. The room you are in is raised above the ground, and the water flows out like a sheet to the land beneath it. 
+<tw-passagedata pid="43" name="Peek outside, through the arches." tags="" position="3336,2336">The water dances around your feet as you peer through the arch. The room you are in is raised above the ground, and the water flows out like a sheet to the land beneath it. 
 
 There is lush greenery as far as the eye can see. A manicured, yet distinctly wild, garden touches the high walls that you stand on. Trees are bright green with a hint of gold. Birds chirp in the distance, and you are overcome with a wave of nostalgia.
 
 It is late summer, and you are nowhere near home.
 
 [[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]]</tw-passagedata>
-<tw-passagedata pid="44" name="Turn around and walk away." tags="" position="3144,1612">You know this room all too well. It is the Hall of Sacrifice, where you were bequeathed your last, and only, quest.
+<tw-passagedata pid="44" name="Turn around and walk away." tags="" position="3244,2192">You know this room all too well. It is the Hall of Sacrifice, where you were bequeathed your last, and only, quest.
 
 It is too painful to remain here.
 
@@ -601,7 +626,7 @@ You grew up in this palace, high among the clouds. Your father, Zeus, has reined
 You, on the other hand, have just returned after centuries away, far away, after traveling to more lands than you can remember in pursuit of accomplishing the task you were set out with. A desert, a rainforrest, a tundra. Each sear into your brain with the power of Hephaestus&#39; iron.
 
 [[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Walk out to the balcony. &lt;/span&gt;-&gt;Peek outside, through the arches.]]</tw-passagedata>
-<tw-passagedata pid="45" name="You are in a room." tags="" position="3200,1440">You are in a room. The tile floor is cool beneath your feet. Tall arches reach above you, disappearing into the misty heavens. A fountain is before you, its clear waters overflowing its basins and flowing out the open arches where sunlight streams in. Beside the fountain, on the ground, is a golden cup.
+<tw-passagedata pid="45" name="You are in a room." tags="" position="3300,2020">You are in a room. The tile floor is cool beneath your feet. Tall arches reach above you, disappearing into the misty heavens. A fountain is before you, its clear waters overflowing its basins and flowing out the open arches where sunlight streams in. Beside the fountain, on the ground, is a golden cup.
 
 What will you do?
 
@@ -613,14 +638,14 @@ What will you do?
 [[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Peek outside, through the arches.&lt;/span&gt;-&gt;Peek outside, through the arches.]]
 
 [[&lt;span style=&quot;color:#8600b3;&quot;&gt;Turn around and walk away.&lt;/span&gt;-&gt;Turn around and walk away.]]</tw-passagedata>
-<tw-passagedata pid="46" name="Observe the shuttle" tags="" position="2292,944">You observe the way the thread has been woven around the shuttle, over and under. To the side, you see more shuttles, each wound with a different color.
+<tw-passagedata pid="46" name="Observe the shuttle" tags="" position="2391,1524">You observe the way the thread has been woven around the shuttle, over and under. To the side, you see more shuttles, each wound with a different color.
 
 Such care was taken by your mother to never let the lines tangle.
 
 You take the shuttle of the grey thread in your hands, and [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;pull it through the gap &lt;/span&gt;-&gt;first grey line]] made by the reed.
 
 &lt;img src=&quot;GIFs/First_Line_Shuttle_large.gif&quot; &gt;&lt;img src=&quot;First_Line_Side_Shuttle_large.gif&quot; &gt;</tw-passagedata>
-<tw-passagedata pid="47" name="first grey line" tags="" position="2417,944">The air begins to sparkle and shimmer around you. A feeling of soothing pleasantness perfumes the air.
+<tw-passagedata pid="47" name="first grey line" tags="" position="2515,1524">The air begins to sparkle and shimmer around you. A feeling of soothing pleasantness perfumes the air.
 
 You are calm. You are at peace.
 
@@ -631,7 +656,7 @@ You lift the reed off its perch and towards yourself, pushing your line of threa
 &lt;img src=&quot;GIFs/First_Line_Reed_org.gif&quot; &gt; &lt;img src=&quot;GIFs/First_Line_Side_Reed_large.gif&quot; &gt;
 
 You put the reed on its lower rung, changing the height of the warp threads. [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;You pull the shuttle through the gap made by the reed.&lt;/span&gt;-&gt;learn tabby weave]]</tw-passagedata>
-<tw-passagedata pid="48" name="learn tabby weave" tags="" position="2542,944">Again, a sense of peace.
+<tw-passagedata pid="48" name="learn tabby weave" tags="" position="2639,1524">Again, a sense of peace.
 
 Now the diagonal goes the other way. This is done so that there&#39;s enough thread to go over and under the lines of the weft without pulling the first lines too tightly.
 
@@ -642,7 +667,7 @@ You lift the reed from its lower position and again pull it towards you, pushing
 This, your mother taught you, is the &lt;b&gt;Tabby Weave&lt;/b&gt;, the most basic technique for weaving. 
 
 You lift the reed back to its high position and [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;pass the shuttle through again.&lt;/span&gt;-&gt;learn about reed]]</tw-passagedata>
-<tw-passagedata pid="49" name="learn about reed" tags="" position="2667,944">The reed is what changes the over-under pattern of the warp. 
+<tw-passagedata pid="49" name="learn about reed" tags="" position="2764,1524">The reed is what changes the over-under pattern of the warp. 
 
 In the high position, every other thread is heald up high, while the other threads are heald down below. It makes a nice, wide space for the shuttle to pass through.
 
@@ -653,20 +678,20 @@ When you were a child, you had no reed at all. You had to go under and over each
 The reed, needless to say, makes things a lot easier.
 
 Again, you change the reed. Before [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;passing the shuttle through again&lt;/span&gt;-&gt;learn warp overexposure]], you pinch the weft thread on the end to make sure the edge stays nice.</tw-passagedata>
-<tw-passagedata pid="50" name="learn warp overexposure" tags="" position="2792,944">The reed also doubles as a beater, helping to keep the horizontal threads nice and close together.
+<tw-passagedata pid="50" name="learn warp overexposure" tags="" position="2891,1524">The reed also doubles as a beater, helping to keep the horizontal threads nice and close together.
 
 Your early attempts always showed a lot of the warp threads, because you pulled the weft too tightly. You learned over time that keeping your horizontal threads fairly loose would cover most of the warp.
 
 In the short term, you just chose pretty warp threads.
 
 You look up and see the [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;fog beginning to clear&lt;/span&gt;-&gt;fog beginning to clear]], and pull your shuttle through after changing the reed height.</tw-passagedata>
-<tw-passagedata pid="51" name="fog beginning to clear" tags="" position="2917,944">You can begin to make out the tile floor beneath you, but the fog is still too dense to see farther ahead.
+<tw-passagedata pid="51" name="fog beginning to clear" tags="" position="3016,1524">You can begin to make out the tile floor beneath you, but the fog is still too dense to see farther ahead.
 
 You look to the side, and see another shuttle, this one with wound with a thread that shifts between pink, purple, and blue. You take it up and [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;pass it through the gap&lt;/span&gt;-&gt;first dawn line]].</tw-passagedata>
-<tw-passagedata pid="52" name="first dawn line" tags="" position="3044,944">A sense of joy fills you. The mist begins to turn pale purple, and the air becomes warm.
+<tw-passagedata pid="52" name="first dawn line" tags="" position="3144,1524">A sense of joy fills you. The mist begins to turn pale purple, and the air becomes warm.
 
 The sun begins to pierce [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;through the fog and turn it pink,&lt;/span&gt;-&gt;pierce through the fog]] as you weave with the pink-purple-blue again.</tw-passagedata>
-<tw-passagedata pid="53" name="pierce through the fog" tags="" position="3172,948">Four lines of grey, two lines of the colors of dawn.
+<tw-passagedata pid="53" name="pierce through the fog" tags="" position="3272,1528">Four lines of grey, two lines of the colors of dawn.
 
 The beginnings of a masterpiece.
 
@@ -674,30 +699,30 @@ But now, what will you choose?
 
 [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Weave with the dawn colors.&lt;/span&gt;-&gt;Weave with the dawn.]]
 [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Weave with the grey.&lt;/span&gt;-&gt;Weave with the grey.]]</tw-passagedata>
-<tw-passagedata pid="54" name="Weave with the grey." tags="" position="3140,1188">More peace. 
+<tw-passagedata pid="54" name="Weave with the grey." tags="" position="3240,1767">More peace. 
 
 You have not been at peace for a long time. It is odd to feel it now, with so much happening.
 
 The fog lifts a bit more, and you [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;weave as you wait&lt;/span&gt;-&gt;weave as you wait]].</tw-passagedata>
-<tw-passagedata pid="55" name="Weave with the dawn." tags="" position="3272,1188">More joy.
+<tw-passagedata pid="55" name="Weave with the dawn." tags="" position="3372,1767">More joy.
 
 You have not felt joy in a long time. It is odd to feel it now, with so much happening.
 
 The fog lifts a bit more, and you [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;weave as you wait&lt;/span&gt;-&gt;weave as you wait]].</tw-passagedata>
-<tw-passagedata pid="56" name="weave as you wait" tags="" position="3196,1315">The fog has cleared. It is time.
+<tw-passagedata pid="56" name="weave as you wait" tags="" position="3296,1892">The fog has cleared. It is time.
 
 What will you do?
 
 [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Sit down on the cool grey tile.&lt;/span&gt;-&gt;You are in a room.]]
 [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Walk forward into the rising dawn.&lt;/span&gt;-&gt;You are in a room.]]</tw-passagedata>
-<tw-passagedata pid="57" name="Dip the cup in the water." tags="" position="3420,1784">You fill the cup with the fountain&#39;s water and take a sip.
+<tw-passagedata pid="57" name="Dip the cup in the water." tags="" position="3520,2364">You fill the cup with the fountain&#39;s water and take a sip.
 
 Your parched throat is soothed, and you feel life force rushing into your veins.
 
 You are ready.
 
 [[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]] </tw-passagedata>
-<tw-passagedata pid="58" name="Dip your fingers in the water." tags="" position="3556,1788">The water begins to swirl about your fingers. A purple ink seems to spread out from your hand, and within moments the color of the water has enitrely changed. It is a deep purple, with a flash of something every so often. As you peer closer, you can see a watery reflection of galaxies below the surface.
+<tw-passagedata pid="58" name="Dip your fingers in the water." tags="" position="3656,2368">The water begins to swirl about your fingers. A purple ink seems to spread out from your hand, and within moments the color of the water has enitrely changed. It is a deep purple, with a flash of something every so often. As you peer closer, you can see a watery reflection of galaxies below the surface.
 
 Of course. The Rememberance Basin.
 
@@ -706,14 +731,14 @@ You plunge your head in the water, and immediately you can see for eons across t
 You are among the stars.
 
 [[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]] </tw-passagedata>
-<tw-passagedata pid="59" name="Oedipus" tags="" position="1856,2">As your hand reaches to pick up the shuttle once more, an old hand lays itself on yours. You look up to see an old man whose face is kind but tired. In his eyes you can see centuries, you can see snakes, you can see gods fighting among men. 
+<tw-passagedata pid="59" name="Oedipus" tags="" position="1956,580">As your hand reaches to pick up the shuttle once more, an old hand lays itself on yours. You look up to see an old man whose face is kind but tired. In his eyes you can see centuries, you can see snakes, you can see gods fighting among men. 
 
 [[&quot;Please,&quot; He begins. &quot;A great tragedy is going to befall Thebes. I need your help to stop it.&quot; -&gt; Task]]
 
 
 
 </tw-passagedata>
-<tw-passagedata pid="60" name="You nod, ready to do what you must because you can" tags="" position="1986,0">Tiresias nods back at you and waves his staff in the air. A cloud forms and you can hear the faint sound of a baby crying. 
+<tw-passagedata pid="60" name="You nod, ready to do what you must because you can" tags="" position="2083,580">Tiresias nods back at you and waves his staff in the air. A cloud forms and you can hear the faint sound of a baby crying. 
 
 The prophet Tiresias turns back to you. &quot;I will take you to crucial moments in the life of young Oedipus. It is up to you to make decisions that will change his destiny.&quot;
 
@@ -730,10 +755,10 @@ In Laius&#39; eyes you can see a bit of doubt in what he is about to do. Maybe y
 
 [[Abandon]]
 [[Don&#39;t abandon]]</tw-passagedata>
-<tw-passagedata pid="61" name="Abandon" tags="" position="2111,0">parents abandon Oedipus
+<tw-passagedata pid="61" name="Abandon" tags="" position="2208,580">parents abandon Oedipus
 
 [[shepard finds]]</tw-passagedata>
-<tw-passagedata pid="62" name="Don&#39;t abandon" tags="" position="1993,152">((If the player hasn&#39;t done the sequence in the right order show this text))
+<tw-passagedata pid="62" name="Don&#39;t abandon" tags="" position="2092,732">((If the player hasn&#39;t done the sequence in the right order show this text))
 
 Though you try to let the seed of doubt blossom, all it seems to do is make the king feel a sense of dread and guilt. 
 
@@ -754,104 +779,104 @@ Laius looks to the shepherd, tears in his eyes and a smile on his face.
 &quot;Perhaps you are right.&quot; He looks down at Oedipus who beams back up at him. 
 
 [[&quot;I don&#39;t feel like losing my son.&quot; -&gt; The end]] </tw-passagedata>
-<tw-passagedata pid="63" name="shepard finds" tags="" position="2236,0">Shepard finds Oedipus
+<tw-passagedata pid="63" name="shepard finds" tags="" position="2335,580">Shepard finds Oedipus
 
 [[brings to king &amp; queen]]</tw-passagedata>
-<tw-passagedata pid="64" name="brings to king &amp; queen" tags="" position="2361,0">king &amp; queen adopt
+<tw-passagedata pid="64" name="brings to king &amp; queen" tags="" position="2459,580">king &amp; queen adopt
 
 [[grows up]]</tw-passagedata>
-<tw-passagedata pid="65" name="grows up" tags="" position="2486,0">Oedipus grows up
+<tw-passagedata pid="65" name="grows up" tags="" position="2583,580">Oedipus grows up
 
 [[chorus says he&#39;s adopted]]</tw-passagedata>
-<tw-passagedata pid="66" name="chorus says he&#39;s adopted" tags="" position="2611,0">Oedipus doesn&#39;t believe
+<tw-passagedata pid="66" name="chorus says he&#39;s adopted" tags="" position="2708,580">Oedipus doesn&#39;t believe
 
 [[Oedipus goes to oracle]]</tw-passagedata>
-<tw-passagedata pid="67" name="Oedipus goes to oracle" tags="" position="2736,0">Oedipus arrives at oracle of delphi
+<tw-passagedata pid="67" name="Oedipus goes to oracle" tags="" position="2835,580">Oedipus arrives at oracle of delphi
 
 [[Oracle tells prophecy]]</tw-passagedata>
-<tw-passagedata pid="68" name="Oracle tells prophecy" tags="" position="2861,0">Original prophecy
+<tw-passagedata pid="68" name="Oracle tells prophecy" tags="" position="2959,580">Original prophecy
 
 [[Oedipus misunderstands]]</tw-passagedata>
-<tw-passagedata pid="69" name="Oedipus misunderstands" tags="" position="2986,0">Oedipus doesn&#39;t understand the prophecy
+<tw-passagedata pid="69" name="Oedipus misunderstands" tags="" position="3083,579">Oedipus doesn&#39;t understand the prophecy
 
 [[Leaves for neighboring kingdom]]
 [[Stays &amp; decides own fate]]</tw-passagedata>
-<tw-passagedata pid="70" name="Leaves for neighboring kingdom" tags="" position="3111,0">Walking across the land
+<tw-passagedata pid="70" name="Leaves for neighboring kingdom" tags="" position="3208,580">Walking across the land
 
 [[Arrives at crossroads]]</tw-passagedata>
-<tw-passagedata pid="71" name="Stays &amp; decides own fate" tags="" position="2987,125">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="72" name="Arrives at crossroads" tags="" position="3236,0">Meets a man in a charriot, argues about who has right of way
+<tw-passagedata pid="71" name="Stays &amp; decides own fate" tags="" position="3083,704">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="72" name="Arrives at crossroads" tags="" position="3335,580">Meets a man in a charriot, argues about who has right of way
 
 [[Gets into argument]]</tw-passagedata>
-<tw-passagedata pid="73" name="Gets into argument" tags="" position="3361,0">Arguement may become violent
+<tw-passagedata pid="73" name="Gets into argument" tags="" position="3459,579">Arguement may become violent
 
 [[kills the men]]
 [[does not kill the men]]</tw-passagedata>
-<tw-passagedata pid="74" name="kills the men" tags="" position="3486,0">continues on
+<tw-passagedata pid="74" name="kills the men" tags="" position="3583,579">continues on
 
 [[meet sphynx at city limit]]</tw-passagedata>
-<tw-passagedata pid="75" name="does not kill the men" tags="" position="3361,125">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="76" name="meet sphynx at city limit" tags="" position="3611,0">Get sphynx&#39;s riddle
+<tw-passagedata pid="75" name="does not kill the men" tags="" position="3460,704">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="76" name="meet sphynx at city limit" tags="" position="3708,579">Get sphynx&#39;s riddle
 
 [[Answer correctly]]
 [[Answer incorrectly]]</tw-passagedata>
-<tw-passagedata pid="77" name="Answer correctly" tags="" position="3736,0">Sphynx is upset
+<tw-passagedata pid="77" name="Answer correctly" tags="" position="3835,579">Sphynx is upset
 
 [[Sphynx destroys itself]]</tw-passagedata>
-<tw-passagedata pid="78" name="Answer incorrectly" tags="" position="3613,125">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="79" name="Sphynx destroys itself" tags="" position="3861,0">Hey, since we defeated it, we could become king now! And marry the queen!
+<tw-passagedata pid="78" name="Answer incorrectly" tags="" position="3712,704">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="79" name="Sphynx destroys itself" tags="" position="3959,579">Hey, since we defeated it, we could become king now! And marry the queen!
 
 [[accept]]
 [[deny]]</tw-passagedata>
-<tw-passagedata pid="80" name="accept" tags="" position="3986,0">Cool beans
+<tw-passagedata pid="80" name="accept" tags="" position="4083,580">Cool beans
 
 [[Time passes]], we are happy</tw-passagedata>
-<tw-passagedata pid="81" name="deny" tags="" position="3864,125">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="82" name="Time passes" tags="" position="4111,0">All this shit is good
+<tw-passagedata pid="81" name="deny" tags="" position="3959,704">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="82" name="Time passes" tags="" position="4208,580">All this shit is good
 
 [[Plague hits city]]</tw-passagedata>
-<tw-passagedata pid="83" name="Plague hits city" tags="" position="4236,0">Aw shit, all the people are dying
+<tw-passagedata pid="83" name="Plague hits city" tags="" position="4335,580">Aw shit, all the people are dying
 
 [[send uncle to Oracle]]</tw-passagedata>
-<tw-passagedata pid="84" name="send uncle to Oracle" tags="" position="4361,0">uncle goes &amp; asks
+<tw-passagedata pid="84" name="send uncle to Oracle" tags="" position="4459,580">uncle goes &amp; asks
 
 [[Oracle says killer must be taken to justice-&gt;Oracle justice]]</tw-passagedata>
-<tw-passagedata pid="85" name="Oracle justice" tags="" position="4486,0">Oracle says reason plague has occurred is the king&#39;s killer never brought to justice
+<tw-passagedata pid="85" name="Oracle justice" tags="" position="4583,580">Oracle says reason plague has occurred is the king&#39;s killer never brought to justice
 
 Uncle returns to tell
 
 [[Oedipus curses killer]]</tw-passagedata>
-<tw-passagedata pid="86" name="Oedipus curses killer" tags="" position="4611,0">We are so not happy
+<tw-passagedata pid="86" name="Oedipus curses killer" tags="" position="4708,580">We are so not happy
 
 [[Tell Tiresius to find killer]]</tw-passagedata>
-<tw-passagedata pid="87" name="Tell Tiresius to find killer" tags="" position="4736,0">Tiresius does NOT want to do this
+<tw-passagedata pid="87" name="Tell Tiresius to find killer" tags="" position="4835,580">Tiresius does NOT want to do this
 
 [[Tiresius reveals truth]]</tw-passagedata>
-<tw-passagedata pid="88" name="Tiresius reveals truth" tags="" position="4861,0">Tiresius: my dude, you&#39;re adopted
+<tw-passagedata pid="88" name="Tiresius reveals truth" tags="" position="4959,580">Tiresius: my dude, you&#39;re adopted
 
 [[Messenger arrives]]</tw-passagedata>
-<tw-passagedata pid="89" name="things go to shit" tags="" position="5362,0">We are all freaking out. Jocasta leaves. Oedipus follows.
+<tw-passagedata pid="89" name="things go to shit" tags="" position="5459,580">We are all freaking out. Jocasta leaves. Oedipus follows.
 
 [[Jocasta hangs herself]]</tw-passagedata>
-<tw-passagedata pid="90" name="Messenger arrives" tags="" position="4986,0">Guess what the king is dead.
+<tw-passagedata pid="90" name="Messenger arrives" tags="" position="5084,580">Guess what the king is dead.
 
 Oedipus thinks prophecy canceled
 
 [[Will go to funeral]]
 [[Won&#39;t go to funeral]]</tw-passagedata>
-<tw-passagedata pid="91" name="Will go to funeral" tags="" position="4986,141">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="92" name="Won&#39;t go to funeral" tags="" position="5112,0">[[Messenger says old king was father]]</tw-passagedata>
-<tw-passagedata pid="93" name="Messenger says old king was father" tags="" position="5237,0">[[things go to shit]] </tw-passagedata>
-<tw-passagedata pid="94" name="Jocasta hangs herself" tags="" position="5487,0">Aw man this sucks
+<tw-passagedata pid="91" name="Will go to funeral" tags="" position="5084,720">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="92" name="Won&#39;t go to funeral" tags="" position="5211,580">[[Messenger says old king was father]]</tw-passagedata>
+<tw-passagedata pid="93" name="Messenger says old king was father" tags="" position="5336,580">[[things go to shit]] </tw-passagedata>
+<tw-passagedata pid="94" name="Jocasta hangs herself" tags="" position="5584,580">Aw man this sucks
 
 [[Oedipus stabs his eyes out]]</tw-passagedata>
-<tw-passagedata pid="95" name="Oedipus stabs his eyes out" tags="" position="5612,0">We are reaaaaally upset.
+<tw-passagedata pid="95" name="Oedipus stabs his eyes out" tags="" position="5712,580">We are reaaaaally upset.
 
 [[Oedipus leaves]]</tw-passagedata>
-<tw-passagedata pid="96" name="Oedipus leaves" tags="" position="5612,150">we are gone gone gone
+<tw-passagedata pid="96" name="Oedipus leaves" tags="" position="5712,728">we are gone gone gone
 
 [[Main Menu]] </tw-passagedata>
-<tw-passagedata pid="97" name=" Task" tags="" position="1856,152">The man puts his hand to his chest and bows his head. 
+<tw-passagedata pid="97" name=" Task" tags="" position="1956,732">The man puts his hand to his chest and bows his head. 
 
 &quot;My name is Tiresias, a prophet gifted visions by the goddess Aphrodite. I have seen many things in my lifetime, and I know that in a few decades a tragedy like no other is going to put Thebes in harm&#39;s way, and destroy a man and his family in the process.&quot;
 
@@ -865,16 +890,34 @@ Tiresias looks to you for an answer.
 
 
 [[You nod, ready to do what you must because you can]]</tw-passagedata>
-<tw-passagedata pid="98" name=" Confirm" tags="" position="1856,302">Tiresias looks at you appalled.
+<tw-passagedata pid="98" name=" Confirm" tags="" position="1956,880">Tiresias looks at you appalled.
 
 &quot;Is that really your decision, you are the only person who can help.&quot;
 
 [[You confirm your choice]]
 
 [[You change your mind. You are ready to help -&gt;You nod, ready to do what you must because you can]] </tw-passagedata>
-<tw-passagedata pid="99" name="You confirm your choice" tags="" position="1854,458">Tiresias sighs, his form fading as his words leave him.
+<tw-passagedata pid="99" name="You confirm your choice" tags="" position="1952,1036">Tiresias sighs, his form fading as his words leave him.
 
 [[&quot;Then you are not the person I am looking for. -&gt;Main Menu]] </tw-passagedata>
+<tw-passagedata pid="100" name="Welcome" tags="" position="1230,406">&lt;span id=&quot;welcome&quot; class=&quot;text&quot; style=&quot;margin:3em;&quot;&gt;Welcome to Loominary.&lt;/span&gt;
+
+&lt;span id=&quot;summary&quot; class=&quot;text&quot;&gt;This unique gameplay experience will take you through the myths of Medusa, Oedipus, and more.&lt;/span&gt;
+
+&lt;span id=&quot;instructions&quot; class=&quot;text&quot;&gt;But before you go on your journey, there are some tasks we must complete...&lt;/span&gt;
+
+
+&lt;script&gt;welcomeSequence(&quot;#welcome&quot;)&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="101" name="Callibration" tags="callibration" position="1407,411">&lt;span id=&quot;first&quot; class=&quot;fadeIn&quot; style=&quot;display: none;&quot;&gt;Welcome to Shuttle Callibration.&lt;/span&gt;
+
+&lt;span id=&quot;second&quot; class=&quot;fadeIn&quot; style=&quot;display:none;&quot;&gt;Please place the &lt;variable&gt; shuttle on top of the loom.
+(once we get the reading, change the variable)(loading gif here?) (show number of shuttles left to calibrate)(master shuttle goes last)&lt;/span&gt;
+
+
+[[&lt;span id=&quot;master&quot; class=&quot;fadeIn&quot; style=&quot;display:none; font-weight:bold;&quot;&gt;If you would like to skip calibration, please place the Master Shuttle on top of the loom.&lt;/span&gt;-&gt;Main Menu]]
+
+&lt;script&gt;fadeInThenOut(&quot;.fadeInThenOut&quot;);
+fadeIn(&quot;.fadeIn&quot;)&lt;/script&gt;</tw-passagedata>
 </tw-storydata>
 
 
