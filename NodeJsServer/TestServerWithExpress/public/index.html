@@ -6,7 +6,6 @@ Loominary
 </title>
 <meta charset="utf-8">
 <style>a,body{color:#222}body{font:18px "Helvetica Neue",Helvetica,Arial,sans-serif}#passage{max-width:38em;margin:0 auto;line-height:145%}a{text-decoration:none;border-bottom:2px solid #bbb}a:hover{color:#cc8929;border-color:#cc8929}a:active{color:#ffb040;border-color:#ffb040}tw-storydata{display:none}@media screen and (max-device-width:480px){#passage{font-size:70%}}</style>
-<script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 <div id="passage"></div>
@@ -70,6 +69,13 @@ $(function () {
 		if (data.tag == 'E2-00-40-84-39-04-02-41-14-40-82-9F') 		
 		{
 			// purple-pink-blue color
+			
+			// DOES THIS SPAN NEED TO HAVE ALL INFO OR JUST A PART?
+			
+			// if this is the tag, go to the map, get it's corresponding color id, find the span that has that id, and click it.
+			
+			$('#colorid').click();
+			
 			$('span[style="background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;"]').click();
 		}
 		else if (data.tag == 'E2-00-40-84-39-04-02-41-15-90-74-42') 		{
@@ -91,6 +97,7 @@ $(function () {
 });
 */
 
+/* Animations for the fade in and out of an element. */
 window.fadeOut = function( el ) {
 	$(el).fadeOut(2000);
 }
@@ -105,6 +112,7 @@ window.fadeInThenOut = function( el ) {
 	});
 }
 
+/* This is the animation sequence for the welcome text of Loominary, immediately after boot-up. This will take the user directly to the calibration sequence without any input from the shuttles. */
 window.welcomeSequence = function( el ) {
 	$("#welcome, #summary, #instructions").hide();
 	$(el).fadeIn(2000, function() {
@@ -118,9 +126,20 @@ window.welcomeSequence = function( el ) {
 	});
 }
 
+/* This is the initial calibration for the shuttle tags and colors. The shuttle tags have been hard-coded from trials, but are configurable via the calibration sequence. */
+var tagColors = new Map();
+tagColors.set('E2-00-40-84-39-04-02-41-14-40-82-9F', "purple-pink-blue");
+tagColors.set('E2-00-40-84-39-04-02-41-15-90-74-42', "raspbery-purple");
+for (var [key, value] of tagColors) {
+  console.log(key + ' = ' + value);
+}
 
-
-
+// Getting all of the values - these never change, but we want to have them be the values of the map for easy access when tag ID's come in during gameplay.
+for (var value of tagColors.values()) {
+  console.log(value);
+	// show this value one at a time inside the calibration sequence
+	
+}
 
 
 
@@ -699,7 +718,7 @@ But now, what will you choose?
 
 [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Weave with the dawn colors.&lt;/span&gt;-&gt;Weave with the dawn.]]
 [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Weave with the grey.&lt;/span&gt;-&gt;Weave with the grey.]]</tw-passagedata>
-<tw-passagedata pid="54" name="Weave with the grey." tags="" position="3240,1767">More peace. 
+<tw-passagedata pid="54" name="Weave with the grey." tags="" position="3240.0001,1767">More peace. 
 
 You have not been at peace for a long time. It is odd to feel it now, with so much happening.
 
@@ -914,10 +933,11 @@ Tiresias looks to you for an answer.
 (once we get the reading, change the variable)(loading gif here?) (show number of shuttles left to calibrate)(master shuttle goes last)&lt;/span&gt;
 
 
+
+
 [[&lt;span id=&quot;master&quot; class=&quot;fadeIn&quot; style=&quot;display:none; font-weight:bold;&quot;&gt;If you would like to skip calibration, please place the Master Shuttle on top of the loom.&lt;/span&gt;-&gt;Main Menu]]
 
-&lt;script&gt;fadeInThenOut(&quot;.fadeInThenOut&quot;);
-fadeIn(&quot;.fadeIn&quot;)&lt;/script&gt;</tw-passagedata>
+&lt;script&gt;fadeIn(&quot;.fadeIn&quot;)&lt;/script&gt;</tw-passagedata>
 </tw-storydata>
 
 
