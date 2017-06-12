@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>
@@ -6,6 +6,7 @@ Loominary
 </title>
 <meta charset="utf-8">
 <style>a,body{color:#222}body{font:18px "Helvetica Neue",Helvetica,Arial,sans-serif}#passage{max-width:38em;margin:0 auto;line-height:145%}a{text-decoration:none;border-bottom:2px solid #bbb}a:hover{color:#cc8929;border-color:#cc8929}a:active{color:#ffb040;border-color:#ffb040}tw-storydata{display:none}@media screen and (max-device-width:480px){#passage{font-size:70%}}</style>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 <div id="passage"></div>
@@ -48,6 +49,15 @@ a {
 
 
 
+
+
+
+
+
+
+
+
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* Fade in and fade out functions for Twine passages. */
 $(document).on('hidepassage', function() {
 	$('#passage').addClass('passage-in');
@@ -56,48 +66,48 @@ $(document).on('showpassage:after', function() {
 	$('#passage').removeClass('passage-in');
 });
 
-/* Establishing connection to web server. 
+/* This is the initial calibration for the shuttle tags and colors. The shuttle tags have been hard-coded from trials, but are configurable via the calibration sequence. */
+//story.state.myObject = {health: 67};
+var tagColors = new Map();
+
+tagColors.set('E2-00-40-84-39-04-02-41-15-90-74-42', "purple-pink-blue");
+tagColors.set('E2-00-40-84-39-04-02-41-14-40-82-9F', "raspbery-purple");
+tagColors.set('E2-00-40-84-39-04-02-41-11-70-A0-F0', "royal-purple");
+tagColors.set('E2-00-40-84-39-04-02-41-14-10-86-46', "silver-grey");
+tagColors.set('E2-00-40-84-39-04-02-41-12-00-9D-58', "pine-green");
+tagColors.set('E2-00-40-84-39-04-02-41-13-30-8F-46', "moss-green");
+tagColors.set('E2-00-40-84-39-04-02-41-11-90-A0-EC', "bright-green-blue");  
+tagColors.set('E2-00-40-84-39-04-02-41-11-80-A1-A9', "dirt-brown");
+tagColors.set('E2-00-40-84-39-04-02-41-14-20-87-1B', "master");
+
+for (var [key, value] of tagColors) {
+	console.log(key + ' = ' + value);
+}
+
+story.state.tags = {colors: tagColors};
+
+
+// Establishing connection to web server.
 var socket;
 $(function () {
 	socket = io.connect('http://127.0.0.1:1337');
 });
-/*
-/* Matching a tag sent from the server via socket to a color available. The color is encoded as the specific span styling that particular color uses. 
+
+
+/* Matching a tag sent from the server via socket to a color available. The color is encoded as the specific span styling that particular color uses. */
+
 $(function () {
 	socket.on('choice', function (data) {
-		var message = { tagID: 'Not listed among the colors'};
-		if (data.tag == 'E2-00-40-84-39-04-02-41-14-40-82-9F') 		
-		{
-			// purple-pink-blue color
-			
-			// DOES THIS SPAN NEED TO HAVE ALL INFO OR JUST A PART?
-			
-			// if this is the tag, go to the map, get it's corresponding color id, find the span that has that id, and click it.
-			
-			$('#colorid').click();
-			
-			$('span[style="background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;"]').click();
-		}
-		else if (data.tag == 'E2-00-40-84-39-04-02-41-15-90-74-42') 		{
-			// raspbery-purple color
-			$('span[style="background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;"]').click();
-		}
-		else if (data.tag == "E2-00-40-84-39-04-02-41-14-10-86-46") 		{
-			// grey color
-			$('span[style="color:#c3c3c3;"]').click();
-		}
-		else if (data.tag == 'E2-00-40-84-39-04-02-41-11-70-A0-F0') 		{
-			// royal purple color
-			$('span[style="color:#8600b3;"]').click();
-		}
-		else {
-			socket.emit('response', message);
-		}
+		var message;
+		var color = tagColors.get(data.tag);
+		message = { tagId: color};
+		$('span[id='+color+']').click();
+		socket.emit('response', message);
 	});
 });
-*/
 
-/* Animations for the fade in and out of an element. */
+
+//Animations for the fade in and out of an element. 
 window.fadeOut = function( el ) {
 	$(el).fadeOut(2000);
 }
@@ -110,7 +120,7 @@ window.fadeInThenOut = function( el ) {
 	$(el).fadeIn(2000, function() {
 		$(el).delay(5000).fadeOut(2000);
 	});
-}
+}  
 
 /* This is the animation sequence for the welcome text of Loominary, immediately after boot-up. This will take the user directly to the calibration sequence without any input from the shuttles. */
 window.welcomeSequence = function( el ) {
@@ -119,26 +129,17 @@ window.welcomeSequence = function( el ) {
 		$("#summary").delay(1000).fadeIn(2000, function() {
 			$("#instructions").delay(1000).fadeIn(2000, function() {
 				$("#welcome, #summary, #instructions").delay(5000).fadeOut(2000, function() {
-					story.show("Callibration");
+					story.show("Calibration");
 				});
 			});
 		});
 	});
 }
 
-/* This is the initial calibration for the shuttle tags and colors. The shuttle tags have been hard-coded from trials, but are configurable via the calibration sequence. */
-var tagColors = new Map();
-tagColors.set('E2-00-40-84-39-04-02-41-14-40-82-9F', "purple-pink-blue");
-tagColors.set('E2-00-40-84-39-04-02-41-15-90-74-42', "raspbery-purple");
-for (var [key, value] of tagColors) {
-  console.log(key + ' = ' + value);
-}
-
-// Getting all of the values - these never change, but we want to have them be the values of the map for easy access when tag ID's come in during gameplay.
-for (var value of tagColors.values()) {
-  console.log(value);
-	// show this value one at a time inside the calibration sequence
-	
+window.creditSequence = function( el ) {
+	$("#credits, #screenwriter, #implementor, #advisors, #copyright").delay(10000).fadeOut(2000, function() {
+		story.show("Main Menu");
+	});
 }
 
 
@@ -147,8 +148,10 @@ for (var value of tagColors.values()) {
 
 
 </script><tw-passagedata pid="1" name="Medusa&#39;s Laugh" tags="" position="200,664">Your name is Medusa and you
-&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:#4A5D23;&quot;&gt;are one of the gorgon sisters of Sarpedon.&lt;/span&gt; -&gt; Born into it]]&lt;/blockquote&gt;
-&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:white;&quot;&gt;are a virgin priestess of Athena. &lt;/span&gt;-&gt; Praise Athena]]&lt;/blockquote&gt;
+
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;are one of the gorgon sisters of Sarpedon.&lt;/span&gt; -&gt; Born into it]]
+
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;are a virgin priestess of Athena. &lt;/span&gt;-&gt; Praise Athena]]
  
 &lt;% 
 s.times = 0;
@@ -157,11 +160,24 @@ s.avgReadSpeed = 0;
 
 var wordcount = 20;
 var timeStart = new Date().getTime();
+var colorMap = s.tags.colors;
+
+console.log(colorMap);
+console.log(colorMap.size);
+console.log(colorMap.keys());
+console.log(colorMap.values());
+
+// Getting all of the values - these never change, but we want to have them be the values of the map for easy access when tag ID&#39;s come in during gameplay.
+for (var value of colorMap.values()) {
+  console.log(value);
+	// show this value one at a time inside the calibration sequence
+	
+}
 
 $(function () {
 	&#39;use strict&#39;;
 
-	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+	$(&#39;.readSpeed&#39;).one(&#39;click&#39;, function () {
 		var timeEnd = new Date().getTime();
 		var total = ((timeEnd - timeStart) / 1000) / 60;
 		var avg = wordcount / total;
@@ -176,7 +192,7 @@ $(function () {
 </tw-passagedata>
 <tw-passagedata pid="2" name=" Born into it" tags="" position="200,816">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
 
-Men would often come to try and defeat you and your sisters, but together you were invincible. Stheno&#39;s brass claws were sharpened on the armor of man. Euryale&#39;s cry could bring anyone quickly to pain and madness. And with your eyes of stone, [[&lt;span id=&quot;link&quot; style=&quot;color:#4A5D23;&quot;&gt;you could stop any fool in their tracks. &lt;/span&gt;-&gt; Dominion]] 
+Men would often come to try and defeat you and your sisters, but together you were invincible. Stheno&#39;s brass claws were sharpened on the armor of man. Euryale&#39;s cry could bring anyone quickly to pain and madness. And with your eyes of stone, [[&lt;span id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;you could stop any fool in their tracks. &lt;/span&gt;-&gt; Dominion]] 
 
 &lt;% var wordcount = 68;
 var timeStart = new Date().getTime();
@@ -198,18 +214,19 @@ $(function () {
 %&gt;</tw-passagedata>
 <tw-passagedata pid="3" name=" Praise Athena" tags="" position="348,812">Ever since you were young, you have been a worshiper at the altar of Athena. You have devoted your body and soul to her, and for that you make the men of Athens jealous. 
 
-You are beautiful. Everyday men from all over the city come and ask you to be their paramore.
+You are beautiful. Every day, men from all over the city come and ask you to be their paramour.
 
-&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:#DAA520;&quot;&gt;You tell them of your promise to Athena and decline. &lt;/span&gt;-&gt; Pious]]&lt;/blockquote&gt;
-&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:green;&quot;&gt;You laugh in their face and boast about your beauty. -&gt; sass]]&lt;/blockquote&gt;
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You tell them of your promise to Athena and decline. &lt;/span&gt;-&gt; Pious]]
 
-&lt;% var wordcount = 72;
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;You laugh in their face and boast about your beauty. -&gt; sass]]
+
+&lt;% var wordcount = 73;
 var timeStart = new Date().getTime();
 
 $(function () {
 	&#39;use strict&#39;;
 
-	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+	$(&#39;.readSpeed&#39;).one(&#39;click&#39;, function () {
 		var timeEnd = new Date().getTime();
 		var total = ((timeEnd - timeStart) / 1000) / 60;
 		var avg = wordcount / total;
@@ -220,13 +237,9 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="4" name=" Dominion" tags="" position="200,964">Along with your sisters Stheno and Euryale, you lived peacefully among the flora and fauna of Sarpedon. 
+<tw-passagedata pid="4" name=" Dominion" tags="" position="200,964">With your mother and father watching over you from the depths of the sea, humans would whisper your name in fear in the safety of their homes. 
 
-Men would often come to try and defeat you and your sisters, but together you were invincible. Stheno&#39;s brass claws were sharpened on the armor of man. Euryale&#39;s cry could bring anyone quickly to pain and madness. And with your eyes of stone, you could stop any fool in their tracks.
-
-With your mother and father watching over you from the depths of the sea, humans would whisper your name in fear in the safety of their homes. 
-
-&lt;blockquote&gt;[[&lt;span id=&quot;link&quot; style=&quot;color:#4A5D23;&quot;&gt;For a long time no one dared to touch you&lt;/span&gt; -&gt; Perseus]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;For a long time, no one dared to touch you.&lt;/span&gt; -&gt; Perseus]]
 
 &lt;% s.athenaReaction = &quot;dominion&quot; %&gt;
 
@@ -248,33 +261,38 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="5" name=" Perseus" tags="" position="1008,1220">Your name is Perseus and in order to appease king Polydectes, you have set out in search for the gorgon Medusa. You have been wandering, trying to find her for days, and with each one that passes you fear that even if you found her you would surely die. 
+<tw-passagedata pid="5" name=" Perseus" tags="" position="1008,1220">Your name is Perseus and in order to appease King Polydectes, you have set out in search for the gorgon Medusa. 
 
-Athena reaction: &lt;%= s.athenaReaction%&gt;
+You have been wandering across the world, trying to find her, for days. With each one that passes, you begin to fear that even if you found her, you will surely die. 
 
 &lt;% if (s.athenaReaction == &quot;anger&quot;) { %&gt;
-&lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;On a quiet night you pray to the gods for guidance. &lt;/span&gt; -&gt; Abomination]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;On a quiet night you pray to the gods for guidance. &lt;/span&gt; -&gt; Abomination]]
+
 &lt;% } 
 if (s.athenaReaction == &quot;mercy&quot;) { %&gt;
-&lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;On a quiet night you pray to the gods for guidance. &lt;/span&gt; -&gt; Out of Misery]]&lt;/bockquote&gt;
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;On a quiet night you pray to the gods for guidance. &lt;/span&gt; -&gt; Out of Misery]]
+
 &lt;% }
 if (s.athenaReaction == &quot;dominion&quot;) { %&gt;
-&lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;On a quiet night you pray to the gods for guidance. &lt;/span&gt; -&gt; A Warning]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;On a quiet night you pray to the gods for guidance. &lt;/span&gt; -&gt; A Warning]]
 &lt;% } %&gt;</tw-passagedata>
 <tw-passagedata pid="6" name=" Pious" tags="" position="348,964">Most of the men try to gently coerce you, but you stand firm in your devotion. 
+
 Some will concede and simply ask you to pray for them. 
-Others will come everyday to try and convince you otherwise.
+
+Others will come every day to try and convince you otherwise.
+
 Many will get angry and grab you, but your sisters are often there to push these men away. 
 
-For as long as you can remember, things have been this way, but you stand strong. Though you haven&#39;t been called on directly, you know that Athena is proud of you. [[&lt;span id=&quot;link&quot; style=&quot;color:#DAA520;&quot;&gt;And with that thought you can live peacefully. &lt;/span&gt;-&gt; Poseidon the asshole]]
+For as long as you can remember, things have been this way, but you stand strong. Though you haven&#39;t been called on directly, you know that Athena is proud of you. [[&lt;span class=&quot;readSpeed&quot; id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;And with that thought, you can live peacefully. &lt;/span&gt;-&gt; Poseidon the asshole]]
 
-&lt;% var wordcount = 94;
+&lt;% var wordcount = 95;
 var timeStart = new Date().getTime();
 
 $(function () {
 	&#39;use strict&#39;;
 
-	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+	$(&#39;.readSpeed&#39;).one(&#39;click&#39;, function () {
 		var timeEnd = new Date().getTime();
 		var total = ((timeEnd - timeStart) / 1000) / 60;
 		var avg = wordcount / total;
@@ -292,7 +310,7 @@ You couldn&#39;t help but shiver when men praised your looks knowing that they w
 
 You would often wonder what it would be like to have this temple in your honor instead of Athena&#39;s. People would give offerings to your beauty daily. 
 
-[[&lt;span id=&quot;link&quot; style=&quot;color:green;&quot;&gt;How wonderful that would be. &lt;/span&gt;-&gt; Poseidon the asshole]] 
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;How wonderful that would be. &lt;/span&gt;-&gt; Poseidon the asshole]] 
 
 &lt;% var wordcount = 107;
 var timeStart = new Date().getTime();
@@ -300,7 +318,7 @@ var timeStart = new Date().getTime();
 $(function () {
 	&#39;use strict&#39;;
 
-	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+	$(&#39;.readSpeed&#39;).one(&#39;click&#39;, function () {
 		var timeEnd = new Date().getTime();
 		var total = ((timeEnd - timeStart) / 1000) / 60;
 		var avg = wordcount / total;
@@ -312,17 +330,19 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="8" name=" Poseidon the asshole" tags="" position="424,1132">Those who covet you come from many places. But none more powerful and troublesome than the god from the sea. 
+<tw-passagedata pid="8" name=" Poseidon the asshole" tags="" position="378,1137">Those who covet you come from many places, but none are more powerful or troublesome than the god from the sea. 
 
-Poseidon finds you irresistable. [[&lt;span id=&quot;link&quot; style=&quot;color:#30c9c1;&quot;&gt;He wants you and he will do anythng to have you. &lt;/span&gt;-&gt; The confrontation]]
+Poseidon finds you irresistable. He has come to the temple more than once, seeking you out. Each time, you have rebuffed him with grace, even though a small part of you remains curious about his offers. At each denial, Poseidon has smiled and left, but once you caught the flash of something in his eyes before he turned away. 
 
-&lt;% var wordcount = 35;
+Something tells you that [[&lt;span class=&quot;readSpeed&quot; id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;he wants you and he will do anything to have you. &lt;/span&gt;-&gt; The confrontation]]
+
+&lt;% var wordcount = 95;
 var timeStart = new Date().getTime();
 
 $(function () {
 	&#39;use strict&#39;;
 
-	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+	$(&#39;.readSpeed&#39;).one(&#39;click&#39;, function () {
 		var timeEnd = new Date().getTime();
 		var total = ((timeEnd - timeStart) / 1000) / 60;
 		var avg = wordcount / total;
@@ -334,17 +354,17 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="9" name=" The confrontation" tags="" position="424,1272">The night everything changes is when you are in Athena&#39;s temple late into the night. 
+<tw-passagedata pid="9" name=" The confrontation" tags="" position="512,1138">One night, everything changes.
 
-Most others have gone to sleep, but you stayed up to tend to the offerings and [[&lt;span id=&quot;link&quot; style=&quot;color:#30c9c1;&quot;&gt;meditate. &lt;/style&gt;-&gt; The Scene]]
+Most of the others have gone to sleep, but you stayed up to tend to the offerings. Torches flicker around you and cast long shadows as you rest a pile of burning herbs on the ground in front of Athena&#39;s statue. You kneel before her presence and begin to [[&lt;span class=&quot;readSpeed&quot; id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;meditate.&lt;/style&gt;-&gt; The Scene]]
 
-&lt;% var wordcount = 20;
+&lt;% var wordcount = 54;
 var timeStart = new Date().getTime();
 
 $(function () {
 	&#39;use strict&#39;;
 
-	$(&#39;#link&#39;).one(&#39;click&#39;, function () {
+	$(&#39;.readSpeed&#39;).one(&#39;click&#39;, function () {
 		var timeEnd = new Date().getTime();
 		var total = ((timeEnd - timeStart) / 1000) / 60;
 		var avg = wordcount / total;
@@ -356,55 +376,64 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="10" name=" The Scene" tags="" position="424,1424">A man walks into the temple of Athena late into your vigil. You don&#39;t see him at first but when you feel someone whisper behind you, you turn around in surprise. Backing away, you ask what the man wants. 
+<tw-passagedata pid="10" name=" The Scene" tags="" position="518,1274">Deep into your vigil, you suddenly hear echoing footsteps. You whip your head around. A dark shadow cast by an enormous figure blocks the doorway. You rise in greeting even as your stomach churns with unease. 
 
-When a simple &quot;you&quot; falls from his lips, you start to panic. 
-&lt;% 
-var wordcount = 58;
-var timeExpected = (wordcount / s.avgReadSpeed) * 60 * 1000;
-console.log(&quot;time expected in minutes: &quot;,timeExpected); 
-%&gt;
+&quot;Welcome,&quot; you say as smile at them. &quot;What brings a traveler here at such an hour of the night?&quot;
 
-&lt;blockquote&gt;[[&lt;span id=&quot;fadeout&quot; style=&quot;color:red;&quot;&gt;Run.&lt;/span&gt; -&gt; The catch]]
-&lt;/blockquote&gt;
-&lt;% %&gt;
-&lt;blockquote&gt;[[&lt;span style=&quot;color:green;&quot;&gt;Throw the nearest object.&lt;/span&gt; -&gt; The toss]]
-&lt;/blockquote&gt;
-&lt;blockquote&gt;[[&lt;span style=&quot;color:#AAAAAA;&quot;&gt;Nervously decline. &lt;/span&gt;-&gt; The discussion]]&lt;/blockquote&gt;
+When a deep voice says &quot;You,&quot; you realize who it is. Poseidon.
 
-&lt;% setTimeout(function() { console.log(&quot;Time expected: &quot;, timeExpected); fadeout(&quot;#fadeout&quot;); }, timeExpected);  %&gt;</tw-passagedata>
-<tw-passagedata pid="11" name=" The catch" tags="" position="424,1572">You do your best to run, using your knowledge of the temple&#39;s layout to your advantage, but it&#39;s useless. The man seems to glide towards you, whatever turn you make. 
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;Begin to blush, feeling flattered.&lt;/span&gt; -&gt; Flirtatious]]
 
-[[&lt;span style=&quot;color:red;&quot;&gt;Eventually he catches you and pins you down&lt;/span&gt; -&gt; The Scene 2]]
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Demand that he leave the temple.&lt;/span&gt; -&gt; The Escalation]]
+
+&lt;% s.athenaReaction = &quot;mercy&quot; %&gt;
+
+</tw-passagedata>
+<tw-passagedata pid="11" name=" The catch" tags="" position="386,1903">You turn and flee through the door into the heart of the temple.
+
+You do your best to outrun him, using your knowledge of the temple&#39;s layout to your advantage, but it&#39;s useless. Posieden seems to always be just a few steps behind you, no matter what turn you take. 
+
+As you round a corner, you feel a hand grip your wrist and yank you backwards. While you try to regain your balance, [[&lt;span id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Posieden catches you and pins you down.&lt;/span&gt; -&gt; The Scene 2]]
 
 &lt;% s.fightStyle = &quot;home advantage&quot; %&gt;</tw-passagedata>
-<tw-passagedata pid="12" name=" The toss" tags="" position="572,1572">You look for something close to you, a set of small bowls and coin offerings, and start to throw them at the man. His eyes become dark like a storm. With every bowl you throw, you swear you see a crack of lightning in his eyes. 
+<tw-passagedata pid="12" name=" The toss" tags="" position="534,1903">You look for something close to you, a set of small bowls and coin offerings, and start to throw them at Posieden. His eyes become dark like a storm. With every bowl you throw, you swear you see a crack of lightning in his eyes. 
 
-[[&lt;span style=&quot;color:green;&quot;&gt;He advances towards you and pins you the the ground.&lt;/span&gt; -&gt; The Scene 2]] 
+[[&lt;span id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;He advances towards you and pins you the the ground.&lt;/span&gt; -&gt; The Scene 2]] 
 
 &lt;% s.fightStyle = &quot;stones turned&quot; %&gt;</tw-passagedata>
-<tw-passagedata pid="13" name=" The discussion" tags="" position="768,1580">You try to remain calm as you back away and tell the man that he can&#39;t have you. You are a priestess of Athena, you say, and you will not to commit to any potential suitor. Your voice shakes.
+<tw-passagedata pid="13" name=" The discussion" tags="" position="730,1911">You try to remain calm as you back away and tell Posieden that he can&#39;t have you. 
 
-The man only laughs as he walks towards you and pins you to the wall. 
+&quot;I am a priestess of Athena,&quot; you say, &quot;and I will not to commit to any potential suitor.&quot; Your voice shakes.
 
-[[&lt;span style=&quot;color:gray;&quot;&gt;&quot;I am not bound by the laws of man. If there is something I want, I will take it.&quot;&lt;/span&gt; -&gt; The Scene 2]] 
+He only laughs as he walks towards you and pins you to the wall. 
+
+&quot;I am not bound by the laws of man,&quot; he says. 
+
+[[&lt;span id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;&quot;If there is something I want, I will take it.&quot;&lt;/span&gt; -&gt; The Scene 2]] 
 
 &lt;% s.fightStyle = &quot;forsaken&quot; %&gt;
 </tw-passagedata>
-<tw-passagedata pid="14" name=" The Scene 2" tags="" position="560,1740">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, [[&lt;span style=&quot;color:black; background-color:#444;&quot;&gt; your inner thighs. &lt;/span&gt; -&gt; The Scene 3]]
+<tw-passagedata pid="14" name=" The Scene 2" tags="" position="522,2071">Every single sound echoes in your ears as one of his hands pins your arms above your head. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, [[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt; your inner thighs. &lt;/span&gt; -&gt; The Scene 3]]
 </tw-passagedata>
-<tw-passagedata pid="15" name=" Athena&#39;s Anger" tags="" position="352,2615">Posiedon only laughs as you ball your fists and try to fight agaisnt whatever is pinning you down. You pull against the force with everything you have and manage to slap him across the face. He stops, but before you can attempt to slap him again he physically pins you down. His movements become even more violent and your scream echoes [[&lt;span style=&quot;color:red;&quot;&gt;throughout the temple.&lt;/span&gt; -&gt; Athena&#39;s Anger 2]]
+<tw-passagedata pid="15" name=" Athena&#39;s Anger" tags="" position="352,2615">Posiedon only laughs as you ball your fists and try to fight. You beat his chest weakly, then manage to slap him across the face. He stops, but before you can slap him again he physically pins you down. 
 
-&lt;% s.athenaReaction = &quot;anger&quot; %&gt;
-</tw-passagedata>
+&lt;% if (s.athenaReaction == &quot;anger&quot;) { %&gt;
+His movements become even more violent and your scream echoes [[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt;throughout the temple.&lt;/span&gt; -&gt; Athena&#39;s Anger 2]]
+
+&lt;% } 
+if (s.athenaReaction == &quot;mercy&quot;) { %&gt;
+His movements become even more violent and your scream echoes [[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt;throughout the temple.&lt;/span&gt; -&gt; Athena&#39;s Mercy 2]]
+
+
+&lt;% } %&gt;</tw-passagedata>
 <tw-passagedata pid="16" name="Athena&#39;s Mercy" tags="" position="744,2612">Your voice echoes around the temple as you plead to both Athena and Posiedon to let this end. You turn back to your assaulter as he laughs in your face. 
 
 &quot;Keep screaming like that and I&#39;ll finish quickly, just like you want.&quot;
 
-[[&lt;span style=&quot;color:white;&quot;&gt;You begin to sob. &lt;/span&gt;-&gt; Athena&#39;s Mercy 2]] 
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You begin to sob. &lt;/span&gt;-&gt; Athena&#39;s Mercy 2]] 
 
-&lt;% s.athenaReaction = &quot;mercy&quot; %&gt;</tw-passagedata>
-<tw-passagedata pid="17" name=" Transformation" tags="" position="528,2880">A splitting pain comes from the very top of your head. You grab at it only to clumps of hair fall into your hands. You can hear hissing and rattling above you as your skin begins to crack. 
+</tw-passagedata>
+<tw-passagedata pid="17" name=" Transformation" tags="" position="528,2880">A splitting pain comes from the very top of your head. You grab at it only find clumps of hair falling into your hands. You can hear hissing and rattling above you as your skin begins to crack. 
 
 You look at your hands. Your nails become long and sharp. You can see yourself hardening into scales. You scream and close your eyes in pain as snakes fall from your head and caress your cheeks. 
 
@@ -412,50 +441,61 @@ When you open your eyes again, the pillars of the temple have been replaced with
 
 You curl into your self. Your hair calms down to a quiet hiss as their tongues lap at your tears. 
 
-&lt;blockquote&gt;[[You have never felt so alone. -&gt; Perseus]]&lt;/blockquote&gt;
-
-(I believe this is where we&#39;d include the cutting mechanic)</tw-passagedata>
+[[&lt;span id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;You have never felt so alone.&lt;/span&gt; -&gt; Perseus]]
+</tw-passagedata>
 <tw-passagedata pid="18" name=" Abomination" tags="" position="904,1672">A loud crack fills your ears at lightning strikes right in front of you. The light and heat give way to the figures of a man and woman. The man floats a few feet above the ground, the woman walks toward you in full armor. 
 
 The woman speaks: &quot;I know of the task you must complete, and I am here to aid you.&quot;
 
 She places a helm on your head and a sword in your hand as she continues to speak. 
 
-&quot;A while ago, someone insulted my honor by using my temple as her personal chambers. I gave her a just punishment yet now she entices men [[&lt;span style=&quot;color:red;&quot;&gt;in a different way. &lt;/span&gt;-&gt; Abomination 2]]
+&quot;A while ago, someone insulted my honor by using my temple as her personal chambers. I gave her a just punishment, yet now she entices men [[&lt;span id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;in a different way.&quot; &lt;/span&gt;-&gt; Abomination 2]]
 </tw-passagedata>
 <tw-passagedata pid="19" name=" Out of Misery" tags="" position="1172,1660">A gentle hand touches your shoulder. You whip around to see a man and woman standing behind you. You recognize them as Hermes the messenger and Athena the goddess of war. You kneel before them. 
 
 &quot;There is no need for that Perseus, it is I who must beg for your help.&quot; Athena lifts your chin so that you raise to your feet. Hermes kneels down before you, gently slipping off your sandals and replacing them with his. 
 
-&quot;A long time ago, I tried to protect a young woman from ever getting hurt again,&quot; says Athena. &quot;But instead I have made her suffer [[&lt;span style=&quot;color:white;&quot;&gt;an unimaginable fate.&quot; &lt;/span&gt;-&gt; Out of Misery 2]]
+&quot;A long time ago, I tried to protect a young woman from ever getting hurt again,&quot; says Athena. 
+
+&quot;But instead I have made her suffer [[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;an unimaginable fate.&quot; &lt;/span&gt;-&gt; Out of Misery 2]]
 </tw-passagedata>
-<tw-passagedata pid="20" name=" The fight" tags="" position="1060,2148">As you land in her garden, you can&#39;t help but feel a shiver run down your spine as you look at all the stone figures before you. Some are in the middle of attack. Some have their hands up, with faces frozen in terror. Many of the statues, you notice, have there limbs knocked off. Where arms and legs once were, you can see the details of muscle and bone. 
+<tw-passagedata pid="20" name=" The fight" tags="" position="1060,2148">As you land in her garden, you can&#39;t help but feel a shiver run down your spine as you look at all the stone figures around you. Some are in the middle of attack. Some have their hands up, with faces frozen in terror. Many of the statues, you notice, have their limbs broken off. Where arms and legs once were, you can see the details of muscle and bone. 
 
-As you continue through the garden, you suddenly hear the hiss of hundreds of snakes from behind you. You lift the shield up to look in it&#39;s reflection and see a hideous woman; her skin is in scales, her eyes are black with yello slits, and every tendril of her hair has been replaced with snakes who are snapping in your direction. 
-
-Fight style: &lt;%= s.fightStyle%&gt;
+As you continue through the garden, you suddenly hear the hiss of hundreds of snakes behind you. You lift the shield up to look at its reflection and see a hideous woman; her skin is scales, her eyes are black with yellow slits, and every tendril of her hair has been replaced with snakes who are snapping in your direction. 
 
 &lt;% if (s.fightStyle == &quot;home advantage&quot;) { %&gt;
-&lt;blockquote&gt;[[The battle begins. -&gt; Home Advantage]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;The battle begins.&lt;/span&gt; -&gt; Home Advantage]]
+
 &lt;% } 
 if (s.fightStyle == &quot;stones turned&quot;) { %&gt;
-&lt;blockquote&gt;[[THe battle begins. -&gt; Stones Turned]] &lt;/bockquote&gt;
+[[&lt;span id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;The battle begins.&lt;/span&gt; -&gt; Stones Turned]]
+
 &lt;% }
 if (s.fightStyle == &quot;forsaken&quot;) { %&gt;
-&lt;blockquote&gt;[[The battle begins. -&gt; Forsaken]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;The battle begins.&lt;/span&gt; -&gt; Forsaken]]
 &lt;% } %&gt;
 </tw-passagedata>
-<tw-passagedata pid="21" name=" A Warning" tags="" position="980,1508">A brilliant glow floods the sky above you, and all around you can hear the faint giggling of women. 
+<tw-passagedata pid="21" name=" A Warning" tags="" position="980,1508">One night, you awake startled. A brilliant glow floods the sky above you, and all around you can hear the faint giggling of women. 
 
-From that glowing sky Hermes, the messenger of the gods, floats down. His brilliance is blinding. The giggling gets louder behind you, and when you turn around you see beautiful young women dancing around a tall female figure with a [[&lt;span style=&quot;color:#DAA520;&quot;&gt;sword and shield in hand. &lt;/span&gt;-&gt; A warning 2]]
+From that glowing sky, Hermes, the messenger of the gods, floats down. His brilliance is blinding. The giggling gets louder behind you, and when you turn around you see beautiful young women dancing around a tall female figure. She holds a [[&lt;span  id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3; font-weight:bold;&quot;&gt;sword and shield in hand. &lt;/span&gt;-&gt; A warning 2]]
+
 </tw-passagedata>
-<tw-passagedata pid="22" name=" The Slumber" tags="" position="1420,2232">You watch the habits of the three sisters for several days waiting for a good opportunity to strike. On the third day, you realize, that in the afternoon the sisters like to retire to a small grotto on the south east side of the island. [[&lt;span style=&quot;color:#4A5D23;&quot;&gt;You know that this is the best opportunity to strike &lt;/span&gt; -&gt; The Slumber 2]]
+<tw-passagedata pid="22" name=" The Slumber" tags="" position="1420,2232">You watch the habits of the three sisters for several days waiting for a good opportunity to strike. On the third day, you realize, that in the afternoon the sisters like to retire to a small grotto on the south east side of the island. 
+
+[[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt;You know that this is the best opportunity to strike. &lt;/span&gt; -&gt; The Slumber 2]]
 </tw-passagedata>
-<tw-passagedata pid="23" name=" The end" tags="" position="2064,2244">Credits!
+<tw-passagedata pid="23" name=" The end" tags="" position="2064,2244">&lt;span id=&quot;credits&quot; style=&quot;font-weight:bold;&quot;&gt;Credits&lt;/span&gt;
 
-(I need everyone&#39;s portfolio infor and twitters and such for this probably maybe??????)
+&lt;span id=&quot;screenwriter&quot;&gt;Screenwriter: Brittany Williams&lt;/span&gt;
 
-[[Main Menu]]</tw-passagedata>
+&lt;span id=&quot;implementor&quot;&gt;Implementor: Sarah Hendricks&lt;/span&gt;
+
+&lt;span id=&quot;advisors&quot;&gt;Advisors: Dr. Josh McCoy &amp; Dr. Anne Sullivan&lt;/span&gt;
+
+&lt;span id=&quot;copyright&quot; style=&quot;font-size:24px;&quot;&gt;Loominary is an open-source project that can be found at &lt;b&gt;https://github.com/sarahhendricks/Loominary&lt;/b&gt;&lt;/span&gt;
+
+
+&lt;script&gt;creditSequence(&quot;#credits&quot;)&lt;/script&gt;</tw-passagedata>
 <tw-passagedata pid="24" name=" Home Advantage" tags="" position="1056,2612">You try to advance towards her but stumble on the statues that fell to the ground and the broken off limbs. You&#39;re barely able to dodge as she tries to claw at your face. You elbow her chest causing her to cry out. 
 
 Suddenly everything goes quiet. The hiss off her hair is gone, and as you look around you realize she is nowhere to be found. 
@@ -464,13 +504,13 @@ You turn around, shield raised high and start to look around the garden for the 
 
 The time you spend in that garden seems endless as you pace around ready to strike. You start to wonder if she&#39;s run of to another part of the island when what feels like a hundred needles pierce your skin. 
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;You wonder if Athena truly prepared you for this. &lt;/span&gt;-&gt; Home Advantage 2]]&lt;/blockquote&gt; 
+[[&lt;span id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;You wonder if Athena truly prepared you for this. &lt;/span&gt;-&gt; Home Advantage 2]]
 </tw-passagedata>
-<tw-passagedata pid="25" name=" Stones Turned" tags="" position="900,2604">You advance backwards towards the creature, but as you get close a stone arm is hurled at your back and crumbles. You are stunned for a moment but the monster continues to pick up stone limbs from the ground and hurl them in your direction as she advances. 
+<tw-passagedata pid="25" name=" Stones Turned" tags="" position="900,2604">You advance backwards towards the creature, but as you get close, a stone arm is hurled at your back and crumbles. You are stunned for a moment but the monster continues to pick up stone limbs from the ground and hurl them in your direction as she advances. 
 
-You quickly pick yourself back up and fly into the air. She continues to throw apendages at you but they all come back down on her, making her dodge her own attacks. 
+You quickly pick yourself back up and fly into the air. She continues to throw apendages at you but they all fall back down on her, making her dodge her own attacks. 
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;You see an opening. &lt;/span&gt;-&gt; Stones Turned 2]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;You see an opening. &lt;/span&gt;-&gt; Stones Turned 2]]
 </tw-passagedata>
 <tw-passagedata pid="26" name=" Forsaken" tags="" position="1228,2612">What happens next you are not prepared for. 
 
@@ -482,122 +522,96 @@ This gives you pause. You ask her why now, and why you.
 
 &quot;At first I thought this was a blessing, that I would finally be left alone. But I&#39;m sick of these men who try to conquer me. I&#39;m sick of having my revenge. If I&#39;m going to end it, I want it to be on my terms.&quot;
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:white;&quot;&gt;You agree to her terms and she turns her back to you. &lt;/span&gt;-&gt; Forsaken 2]]&lt;/blockquote&gt;</tw-passagedata>
-<tw-passagedata pid="27" name=" The Scene 3" tags="" position="560,1892">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, your inner thighs.
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You agree to her terms and she turns her back to you. &lt;/span&gt;-&gt; Forsaken 2]]</tw-passagedata>
+<tw-passagedata pid="27" name=" The Scene 3" tags="" position="522,2223">When he enters you, a hot searing pain blooms from your groin. Your voice finally breaks free, a low and long pained groan spills from your lips as he thrusts. 
 
-When he enters you, a hot searing pain blooms from your groin. Your voice finally breaks free, a low and long pained groan spills from your lips as he thrusts. His ego makes him think you are enjoying this, and he gives you a tender kiss [[&lt;span style=&quot;color:black; background-color:#444;&quot;&gt; like a lover. &lt;/span&gt;-&gt; The Scene 4]]</tw-passagedata>
-<tw-passagedata pid="28" name=" The Scene 4" tags="" position="556,2396">Every single sound echoes in your ears as an invisble force pins you to the ground. Your voice feels stuck in your throat as his hands claw their way between your legs and tear them apart. His hands are cold and clammy as they carress your arms, your breasts, your inner thighs.
-
-When he enters you, a hot searing pain blooms from your groin. Your voice finally breaks free, a low and long pained groan spills from your lips as he thrusts. His ego makes him think you are enjoying this, and he gives you a tender kiss like a lover.
-
-You can&#39;t see anymore, your tears make the temple a blur. His soft grunts are all you can hear now. The dull burning ache between your legs is all you can feel.
+His ego makes him think you are enjoying this, and he gives you a tender kiss [[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt; like a lover. &lt;/span&gt;-&gt; The Scene 4]]</tw-passagedata>
+<tw-passagedata pid="28" name=" The Scene 4" tags="" position="556,2396">You can&#39;t see anymore. Your tears make the temple a blur. His soft grunts are all you can hear now. The dull burning ache between your legs is all you can feel.
 
 All you want is for this to be over. 
 
-&lt;blockquote&gt; [[&lt;span style=&quot;color:red;&quot;&gt;In a fit of desperation, you fight with everything you have.&lt;/span&gt; -&gt; Athena&#39;s Anger]]&lt;/blockquote&gt;
-&lt;blockquote&gt; [[&lt;span style=&quot;color:white;&quot;&gt;You rear your head back and beg Posiedon and Athena for mercy. &lt;/span&gt;-&gt;Athena&#39;s Mercy]] &lt;/blockquote&gt;
+[[&lt;span id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;In a fit of desperation, you fight with everything you have.&lt;/span&gt; -&gt; Athena&#39;s Anger]]
+
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You rear your head back and beg Poseidon and Athena for mercy. &lt;/span&gt;-&gt;Athena&#39;s Mercy]]
 
 </tw-passagedata>
-<tw-passagedata pid="29" name=" Athena&#39;s Anger 2" tags="" position="356,2740">Posiedon only laughs as you ball your fists and try to fight agaisnt whatever is pinning you down. You pull against the force with everything you have and manage to slap him across the face. He stops, but before you can attempt to slap him again he physically pins you down. His movements become even more violent and your scream echoes throughout the temple.
-
-As soon as it ends a tremor passes through the temple. From it&#39;s pedestal, the statue of Athena steps down and turns to you prone on the floor. 
+<tw-passagedata pid="29" name=" Athena&#39;s Anger 2" tags="" position="356,2740">As soon as he ends and lets go of you, a tremor passes through the temple. From its pedestal, the statue of Athena steps down and turns to you crumpled on the floor. 
 
 Her voice booms inside the temple. &quot;You dare to commit such sacriledge in my place of worship?&quot; 
 
 You point to Poseidon, trying to explain that you didn&#39;t want any of this to happen. You beg for her forgiveness but it falls on deaf ears. 
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:green;&quot;&gt;&quot;Silence. You will be punished for your crime.&quot;&lt;/span&gt; -&gt; Transformation]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;&quot;Silence. You will be punished for your crime,&quot; Athena says.&lt;/span&gt; -&gt; Transformation]]
 </tw-passagedata>
-<tw-passagedata pid="30" name=" Athena&#39;s Mercy 2" tags="" position="744,2764">Your voice echoes around the temple as you plead to both Athena and Posiedon to let this end. You turn back to your assaulter as he laughs in your face. 
-
-&quot;Keep screaming like that and I&#39;ll finish quickly, just like you want.&quot;
-
-You begin to sob.
-
-As Poseidon leaves satisfied, you hear the faint shift of fabric behind you. A gentle hand lifts up your chin and wipes away your tears. A radiant glow tells you this is no ordinary woman. 
+<tw-passagedata pid="30" name=" Athena&#39;s Mercy 2" tags="" position="744,2764">As Poseidon leaves satisfied, you hear the faint shift of fabric behind you. A gentle hand lifts up your chin and wipes away your tears. A radiant glow tells you this is no ordinary woman. 
 
 &quot;My poor child. To have such a thing done to you.&quot; Athena coos while stroking your hair. You begin to sob into her embrace.
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:green;&quot;&gt;&quot;I will make it so nothing like this ever happens to you again. &lt;/span&gt;-&gt; Transformation]]&lt;/blockquote&gt;</tw-passagedata>
-<tw-passagedata pid="31" name=" A warning 2" tags="" position="1036,1672">A brilliant glow flood the sky above you, and all around you can hear the faint giggling of women. 
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;&quot;I will make it so nothing like this ever happens to you again.&quot; &lt;/span&gt;-&gt; Transformation]]</tw-passagedata>
+<tw-passagedata pid="31" name=" A warning 2" tags="" position="1036,1672">It is Athena. 
 
-From that glowing sky Hermes, the messenger of the gods, floats down. His brilliance is blinding. The giggling gets louder behind you, and when you turn around you see beautiful young women dancing around a tall female figure with a sword and shield in hand. 
+&quot;I know of your dangerous task, warrior,&quot; she says. She hands you the sword and shield, while the glowing Hermes takes off his sandals and puts them on your feet. 
 
-The woman claims she is Athena and she tells you that she knows of your dangerous task. She hands you the sword and shield, while the glowing Hermes takes off his sandals and puts them on your feet. 
+&quot;Use Hermes&#39; shoes to fly to the lair of the gorgons. Use my mirror sheild so that you do not look directly at them. Use the sword to do the deed. And use this helm so that they may not see you.&quot;
 
-&quot;Use Harmes&#39; shoes to fly to the lair of the gorgons. Use my mirror sheild so that you do not look directly at them. Use the sword to do the deed. And use this helm so that may not see you.&quot;
+With that, Athena takes the helmet from her head. The nymphs gather around and kiss it, making it sparkle.
 
-With that, Athena takes the helmet from her head. The nymphs gather around and kiss it, making it sparkle. 
+You kneel before the gods and thank them for the gifts. Athena places the helmet on your head. You rise.
 
-You kneel before the gods and thank them for the gifts.
+[[&lt;span id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;And with their blessing, you fly to Sarpedon.&lt;/span&gt; -&gt; The Slumber]]</tw-passagedata>
+<tw-passagedata pid="32" name=" Abomination 2" tags="" position="908,1812">&quot;Many of my best heroes have gone to try and kill her without success. You will be the one to change that.&quot;
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:#DAA520;&quot;&gt;And with their blessing you fly to Sarpedon &lt;/span&gt; -&gt; The Slumber]]&lt;/blockquote&gt;</tw-passagedata>
-<tw-passagedata pid="32" name=" Abomination 2" tags="" position="908,1812">A loud crack fills your ears at lightning strikes right in front of you. The light and heat give way to the figures of a man and woman. The man floats a few feet above the ground, the woman walks toward you in full armor. 
+After she speaks she hands you the shield. Her companion, Hermes, lands on the ground and hands you his sandals.
 
-The woman speaks: &quot;I know of the task you must complete, and I am here to aid you.&quot;
+&quot;With these items, you can end this,&quot; Athena says, eyes flashing. &quot;I want her dead.&quot;
 
-She places a helm on your head and a sword in your hand as she continues to speak. 
-
-&quot;A while ago, someone insulted my honor by using my temple as her personal chambers. I gave her a just punishment yet now she entices men in a different way.&quot;
-
-&quot;Many of my best heroes have gone to try and kill her to know success. You will be the one to change that.&quot;
-
-After she speaks she hands you the shield. Her companion lands on the ground and hands you his sandals.
-
-&quot;With these items, you can end it. I want her dead.&quot;
-
-&lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;You thank Athena for her blessings and fly off to Sarpedon. &lt;/span&gt;-&gt; The fight]]&lt;/blockquote&gt;
-
-(red thread)</tw-passagedata>
+[[&lt;span id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;You thank Athena for her blessings and fly off to Sarpedon. &lt;/span&gt;-&gt; The fight]]</tw-passagedata>
 <tw-passagedata pid="33" name=" Out of Misery 2" tags="" position="1208,1808">As if out of thin air, Athena materializes a sword, shield, and helm. She places the helm on your head and you seem to vanish. The sword in your hand is sharp and the shield is reflective and sturdy. As Hermes finishes lacing the sandles, you begin to gently float in the air. 
 
 Athena looks up at you. &quot;Please, be the angel of mercy I could not be.&quot; 
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:white;&quot;&gt;With a solemn nod you float into the sky, and off to Sarpedon. &lt;/span&gt;-&gt; The fight]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;With a solemn nod you float into the sky, and off to Sarpedon. &lt;/span&gt;-&gt; The fight]]
 </tw-passagedata>
-<tw-passagedata pid="34" name=" The Slumber 2" tags="" position="1420,2404">You watch the habits of the three sisters for several days waiting for a good opportunity to strike. On the third day, you realize, that in the afternoon the sisters like to retire to a small grotto on the south east side of the island. You know that this is the best opportunity to strike. 
+<tw-passagedata pid="34" name=" The Slumber 2" tags="" position="1420,2404">You wait until you can hear the soft snores of all three gorgons and tiptoe backwards into the grotto. You quietly pass Euryale and then Steno before reaching Medusa in the very back of the grotto. 
 
-You wait until you can hear the soft snores of all three gorgons and tiptoe backwards into the grotto. You quietly pass Euryale and then Steno before reaching Medusa in the very back of the grotto. 
-
-Confirming her eyes are closed, you turn around and strike swiftly. Her head falls to the ground with a thud that echoes through the small cave. It instantly wakes the sisters up and screech at finding their youngest sister [[&lt;span style=&quot;color:#4A5D23;&quot;&gt; without her head. &lt;/span&gt; -&gt;  The Slumber 3]] 
+Confirming her eyes are closed, you turn around and strike swiftly. Her head falls to the ground with a thud that echoes through the small cave. It instantly wakes the sisters up and screech at finding their youngest sister [[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt; without her head. &lt;/span&gt; -&gt;  The Slumber 3]] 
 
 </tw-passagedata>
 <tw-passagedata pid="35" name="  The Slumber 3" tags="" position="1420,2552">They stalk around the cave trying to find who murdered their sister. With the helm granting you invisibility, you start to walk out of the cave as quickly as possible. 
 
 The sound of a thousand snakes clang in your ears and make your heart race, but you eventually find the entrance and float off into the sky.
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:#4A5D23;&quot;&gt;With the sisters&#39; cries at his back perseus continues his journey &lt;/span&gt;-&gt; The end]]&lt;/blockquote&gt;
+[[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt;With the sisters&#39; cries at your back, you return to the King. &lt;/span&gt;-&gt; The end]]
 </tw-passagedata>
-<tw-passagedata pid="36" name=" Stones Turned 2" tags="" position="900,2756">As the monster dodges a stone head she tried to throw in the air, you come hurtling back to the ground. Before she can even look up at you again you swing at her neck. 
+<tw-passagedata pid="36" name=" Stones Turned 2" tags="" position="900,2756">As the monster dodges a stone head she tried to throw in the air, you come hurtling back to the ground. Before she can even look up at you, you swing your sword at her neck. 
 
-A messy diagonal cut sends her head tumbling to the ground while her hands try to claw at you. The snakes on her head writhe around for awhile before their hisses subside and they droop. 
+A messy diagonal cut sends her head tumbling to the ground while her hands try to claw at you. The snakes on her head writhe around for a moment before their hisses subside and they droop, dead. 
 
 Your carefully take her head and place it in a small bag you prepared. 
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:red;&quot;&gt;You look one last time at the bodies of the fallen frozen around you before flying off with your prize &lt;/span&gt;-&gt; The end]]&lt;/blockquote&gt; </tw-passagedata>
+[[&lt;span id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;You look one last time at the bodies of the frozen around you before flying off with your prize. &lt;/span&gt;-&gt; The end]]</tw-passagedata>
 <tw-passagedata pid="37" name=" Home Advantage 2" tags="" position="1056,2760">Without thinking, you turn around to look at your assailant and scream as you look upon Medusa. Her locks of &quot;hair&quot; drip poison from their mouths as you feel yourself freeze in fear. 
 
 She glares at you, her stare making your heart stop. From your peripheral you can see your arms becoming gray. 
 
-A hiss rolls from her tongue, &quot;No one will ever hurt me again. NO ONE!&quot;
+A hiss rolls from her tongue, &quot;No one will ever hurt me again. No one!&quot;
 
 It&#39;s the last thing you hear as your senses stop working and you feel your lungs become solid. 
 
-&lt;blockquote&gt;[[In your last moments, you think of your mother. -&gt; The end]]&lt;/blockquote&gt;
-
-(cutting mechanic&gt;</tw-passagedata>
+[[&lt;span id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;You are now just another vanquished statue.&lt;/span&gt; -&gt; The end]]
+</tw-passagedata>
 <tw-passagedata pid="38" name=" Forsaken 2" tags="" position="1228,2764">You take a small step towards her and lift your sword. You apologize for what you&#39;re about to do. 
 
 &quot;No,&quot; She says. &quot;You are my hero. Thank you.&quot;
 
 The blow is swift and her head falls to the ground. You lift her head up and observe it. Her eyes are closed as if she was sleeping, and you can tell that at some point she was beautiful. 
 
-&lt;blockquote&gt;[[&lt;span style=&quot;color:white;&quot;&gt;You put her head in a bag and pray for her before flying off to continue your mission. &lt;/span&gt;-&gt; The end]]&lt;/blockquote&gt;</tw-passagedata>
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You put her head in a bag and pray for her before flying off to continue your mission. &lt;/span&gt;-&gt; The end]]</tw-passagedata>
 <tw-passagedata pid="39" name="Main Menu" tags="menu" position="1400,608">&lt;center&gt;Loominary&lt;/center&gt;
 &lt;blockquote&gt;[[Tutorial]]&lt;/blockquote&gt;
 &lt;blockquote&gt;[[Medusa&#39;s Laugh]]&lt;/blockquote&gt;
 &lt;blockquote&gt;[[Oedipus]]&lt;/blockquote&gt;
-&lt;blockquote&gt;[[Callibration]]&lt;/blockquote&gt;
+&lt;blockquote&gt;[[Calibration]]&lt;/blockquote&gt;
 </tw-passagedata>
 <tw-passagedata pid="40" name="Tutorial" tags="" position="2236,1520">A white fog swirls about you...
 
@@ -718,7 +732,7 @@ But now, what will you choose?
 
 [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Weave with the dawn colors.&lt;/span&gt;-&gt;Weave with the dawn.]]
 [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Weave with the grey.&lt;/span&gt;-&gt;Weave with the grey.]]</tw-passagedata>
-<tw-passagedata pid="54" name="Weave with the grey." tags="" position="3240.0001,1767">More peace. 
+<tw-passagedata pid="54" name="Weave with the grey." tags="" position="3240,1767">More peace. 
 
 You have not been at peace for a long time. It is odd to feel it now, with so much happening.
 
@@ -927,10 +941,10 @@ Tiresias looks to you for an answer.
 
 
 &lt;script&gt;welcomeSequence(&quot;#welcome&quot;)&lt;/script&gt;</tw-passagedata>
-<tw-passagedata pid="101" name="Callibration" tags="callibration" position="1407,411">&lt;span id=&quot;first&quot; class=&quot;fadeIn&quot; style=&quot;display: none;&quot;&gt;Welcome to Shuttle Callibration.&lt;/span&gt;
+<tw-passagedata pid="101" name="Calibration" tags="" position="1407,411">&lt;span id=&quot;first&quot; class=&quot;fadeIn&quot; style=&quot;display: none;&quot;&gt;Welcome to Shuttle Callibration.&lt;/span&gt;
 
 &lt;span id=&quot;second&quot; class=&quot;fadeIn&quot; style=&quot;display:none;&quot;&gt;Please place the &lt;variable&gt; shuttle on top of the loom.
-(once we get the reading, change the variable)(loading gif here?) (show number of shuttles left to calibrate)(master shuttle goes last)&lt;/span&gt;
+&lt;/span&gt;
 
 
 
@@ -938,6 +952,95 @@ Tiresias looks to you for an answer.
 [[&lt;span id=&quot;master&quot; class=&quot;fadeIn&quot; style=&quot;display:none; font-weight:bold;&quot;&gt;If you would like to skip calibration, please place the Master Shuttle on top of the loom.&lt;/span&gt;-&gt;Main Menu]]
 
 &lt;script&gt;fadeIn(&quot;.fadeIn&quot;)&lt;/script&gt;</tw-passagedata>
+<tw-passagedata pid="102" name=" Flirtatious" tags="" position="368,1550">Posieden strides forward, closer. The torches cast his face in a warm glow. He smiles.
+
+&quot;I have long thought of you, fair priestess,&quot; he says. &quot;No mortal has occupied my mind so much as you. My desire burns for you like no other.&quot;
+
+You swell with pride. Your beauty is not only a gift from the gods, showing that they favor you, but it outmatches their own divine appearance!
+
+&quot;My beauty outshines all of the women in this land, it is true,&quot; you say, turning away coyly. &quot;That is why I stay in this temple, awaiting my perfect match. Only a face as beautiful as mine will do.&quot;
+
+Posieden&#39;s hand grabs your arm and spins you around roughly. You stumble and crash into his chest. You feel his hand on your arm slide to your waist as the other cups your face and tilts it upwards. He smirks down at you from his towering height.
+
+&quot;Are you saying a god is not good enough for you?&quot; he asks.
+
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Relax into his embrace. &lt;/span&gt;-&gt; The Coupling]]
+
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;Push yourself away from him. &lt;/span&gt;-&gt; The Escalation]]
+
+</tw-passagedata>
+<tw-passagedata pid="103" name=" The Escalation" tags="" position="555,1552">You square your shoulders and drop the smile.
+
+&quot;I have told you many times that I am not interested in your offers,&quot; you say coldly. &quot;I serve only Athena. You should leave immediately.&quot;
+
+Poseidon chuckles darkly as he begins to advance towards you. 
+
+[[&lt;span class=&quot;readSpeed&quot; id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;You take a few steps backwards,&lt;/span&gt; -&gt;You take a few steps backwards]] towards the exit to the inner temple.
+
+&lt;% var wordcount = 56;
+var timeStart = new Date().getTime();
+
+$(function () {
+	&#39;use strict&#39;;
+
+	$(&#39;.readSpeed&#39;).one(&#39;click&#39;, function () {
+		var timeEnd = new Date().getTime();
+		var total = ((timeEnd - timeStart) / 1000) / 60;
+		var avg = wordcount / total;
+		s.totalReadSpeed += avg;
+		s.times++;
+		console.log(&quot;Total of reading speeds: &quot;,s.totalReadSpeed,&quot;; Total sum of read speeds taken: &quot;,s.times);
+		s.avgReadSpeed = s.totalReadSpeed / s.times;
+		story.show(&#39;You take a few steps backwards&#39;);
+	});
+});
+%&gt;
+
+</tw-passagedata>
+<tw-passagedata pid="104" name=" The Coupling" tags="" position="261,1875">You slide your hands up the sea god&#39;s chest to his shoulders.
+
+&quot;I never said that a god wouldn&#39;t do,&quot; you smirk back at him. You raise a hand to stroke a few locks of his sea-swept hair. &quot;Especially one as handsome as you.&quot;
+
+He pulls you into a deep, searing kiss. You respond enthusiastically by wrapping your arms behind his neck. You feel as if waves are crashing about inside you, and you let yourself [[&lt;span id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;be swept out to sea.&lt;/span&gt; -&gt; The Ravishing]]
+
+&lt;% s.athenaReaction = &quot;anger&quot; %&gt;
+
+
+&lt;% s.fightStyle = &quot;stones turned&quot; %&gt;</tw-passagedata>
+<tw-passagedata pid="105" name=" The Ravishing" tags="" position="261,2025">Poseidon backs you up against the wall. He grabs the back of your thighs and hoists you up, and you wrap your legs around his waist.
+
+When he finally thrusts inside you, there is searing pain. You gasp and try to push him away, but he only chuckles and thrusts again. 
+
+&quot;Ah, such a beautiful cries that fall from your lips,&quot; he says. &quot;Don&#39;t worry, fair maiden. I&#39;ll be sure to ravish you thoroughly before we&#39;re through.&quot;
+
+&quot;Stop, stop!&quot; you choke out. The pain is unbearable, but he only moves more roughly.
+
+&quot;The pain will subside,&quot; he says inbetween grunts. He picks up the pace and a high-pitched scream escapes you. You try to wiggle away from him again, but his strength is far greater than yours. You are trapped.
+
+[[&lt;span id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Tears begin to roll down your face.&lt;/span&gt; -&gt; Athena&#39;s Anger]]</tw-passagedata>
+<tw-passagedata pid="106" name="You take a few steps backwards" tags="" position="554,1690">&lt;% 
+var wordcount = 120;
+var timeExpected = (wordcount / s.avgReadSpeed) * 60 * 1000;
+console.log(&#39;time expected in minutes: &#39;,timeExpected); 
+%&gt;
+
+&quot;Fair Medusa, are you telling me I cannot have what I most desire?&quot; Poseidon says. &quot;Your beauty is unmatched amongst the women here. Your eyes are as bright as the stars, your hair golden like fields of grain. A woman as beautiful as you should not be chained to chastity her entire life.&quot; The torches cast long shadows on his face, and you can see his eyes glinting in the low light.
+
+&quot;My love could sweep you off your feet,&quot; he says. &quot;Our passion would set you free.&quot;
+
+He towers over you and you feel the first stirrings of panic. &quot;Surely you would not refuse the offer of one of the gods?&quot; he says.
+
+[[&lt;span id=&quot;bright-green-blue&quot; class=&quot;fadeout&quot;  style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Run.&lt;/span&gt; -&gt; The catch]]
+
+[[&lt;span id=&quot;moss-green&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt;Throw the nearest object.&lt;/span&gt; -&gt; The toss]]
+
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;Nervously decline. &lt;/span&gt;-&gt; The discussion]]
+
+
+
+&lt;% setTimeout(function() { console.log(&#39;Time expected: &#39;, timeExpected); fadeOut(&#39;.fadeout&#39;); }, timeExpected);  
+%&gt;
+</tw-passagedata>
 </tw-storydata>
 
 

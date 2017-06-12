@@ -20,9 +20,11 @@ server.listen(1337);
 // Browser connection established.
 io.on('connection', function (socket) {
     htmlConnection = socket;
-    htmlConnection.on('response', function (color) {
+    htmlConnection.on('response', function (message) {
         // TODO: If for any reason we want to handle info from the story,
         // this is the place to do it.
+        console.log("message");
+        console.log(message.tagId);
     });
 });
 
@@ -43,6 +45,7 @@ http.createServer(function (req, res) {
             // Get tag id
             var result = JSON.parse(body);
             var tagId = result[0].TagId;
+            console.log(tagId);
 
             // If we have sent a message recently, wait a few seconds for the user to finish their
             // current weave.
