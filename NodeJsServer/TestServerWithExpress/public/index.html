@@ -58,6 +58,7 @@ a {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* Fade in and fade out functions for Twine passages. */
 $(document).on('hidepassage', function() {
 	$('#passage').addClass('passage-in');
@@ -71,7 +72,7 @@ $(document).on('showpassage:after', function() {
 var tagColors = new Map();
 
 tagColors.set('E2-00-40-84-39-04-02-41-15-90-74-42', "purple-pink-blue");
-tagColors.set('E2-00-40-84-39-04-02-41-14-40-82-9F', "raspbery-purple");
+tagColors.set('E2-00-40-84-39-04-02-41-14-40-82-9F', "raspberry-purple");
 tagColors.set('E2-00-40-84-39-04-02-41-11-70-A0-F0', "royal-purple");
 tagColors.set('E2-00-40-84-39-04-02-41-14-10-86-46', "silver-grey");
 tagColors.set('E2-00-40-84-39-04-02-41-12-00-9D-58', "pine-green");
@@ -137,10 +138,11 @@ window.welcomeSequence = function( el ) {
 }
 
 window.creditSequence = function( el ) {
-	$("#credits, #screenwriter, #implementor, #advisors, #copyright").delay(10000).fadeOut(2000, function() {
+	$("#credits, #screenwriter, #implementor, #advisors, #copyright, #thanks, #redirect").delay(10000).fadeOut(2000, function() {
 		story.show("Main Menu");
 	});
 }
+
 
 
 
@@ -484,13 +486,25 @@ From that glowing sky, Hermes, the messenger of the gods, floats down. His brill
 
 [[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt;You know that this is the best opportunity to strike. &lt;/span&gt; -&gt; The Slumber 2]]
 </tw-passagedata>
-<tw-passagedata pid="23" name=" The end" tags="" position="2064,2244">&lt;span id=&quot;credits&quot; style=&quot;font-weight:bold;&quot;&gt;Credits&lt;/span&gt;
+<tw-passagedata pid="23" name=" The end" tags="" position="2064,2244">
 
-&lt;span id=&quot;screenwriter&quot;&gt;Screenwriter: Brittany Williams&lt;/span&gt;
+&lt;span id=&quot;thanks&quot; style=&quot;font-weight:bold;&quot;&gt;Thanks for playing!&lt;/span&gt;
 
-&lt;span id=&quot;implementor&quot;&gt;Implementor: Sarah Hendricks&lt;/span&gt;
+&lt;span id=&quot;redirect&quot;&gt;You will be redirected to the homepage in a few moments...&lt;/span&gt;
 
-&lt;span id=&quot;advisors&quot;&gt;Advisors: Dr. Josh McCoy &amp; Dr. Anne Sullivan&lt;/span&gt;
+
+
+
+&lt;span id=&quot;credits&quot; style=&quot;font-weight:bold;&quot;&gt;Credits&lt;/span&gt;
+
+&lt;span id=&quot;screenwriter&quot;&gt;Narrative Designer: Brittany Williams&lt;/span&gt;
+
+&lt;span id=&quot;implementor&quot;&gt;Lead Programmer: Sarah Hendricks&lt;/span&gt;
+
+&lt;span id=&quot;advisors&quot;&gt;Loom and story concept: Dr. Josh McCoy &amp; Dr. Anne Sullivan&lt;/span&gt;
+
+
+
 
 &lt;span id=&quot;copyright&quot; style=&quot;font-size:24px;&quot;&gt;Loominary is an open-source project that can be found at &lt;b&gt;https://github.com/sarahhendricks/Loominary&lt;/b&gt;&lt;/span&gt;
 
@@ -613,22 +627,28 @@ The blow is swift and her head falls to the ground. You lift her head up and obs
 &lt;blockquote&gt;[[Oedipus]]&lt;/blockquote&gt;
 &lt;blockquote&gt;[[Calibration]]&lt;/blockquote&gt;
 </tw-passagedata>
-<tw-passagedata pid="40" name="Tutorial" tags="" position="2236,1520">A white fog swirls about you...
+<tw-passagedata pid="40" name="Tutorial" tags="" position="2136,940">
+A white fog swirls about you...
 
 In the distance, you hear a trickle of water...
 
 You are shapeless... without form...
 
-Before you is a loom, much like your mother had, and her mother before her. The vertical lines of thread, the &lt;b&gt;warp&lt;/b&gt;, are already wound tight. The &lt;b&gt;reed&lt;/b&gt; remains in the middle with the warp running through its bars. To the side is a stick, the &lt;b&gt;shuttle&lt;/b&gt;, with cutouts in the sides. It is wound with a grey thread. [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;You hold the shuttle above the threads of warp &lt;/span&gt;-&gt;Observe the shuttle]], contemplating it.</tw-passagedata>
-<tw-passagedata pid="41" name="Approach the fountain." tags="" position="3556,2212">The fountain overflows with cool, sparkling water. Its splashes help drown out your thoughts, and gentle bubbles of sweet perfume float through the air.
+Before you is a loom, distant memories make it seem familiar. The vertical lines of thread, the &lt;b&gt;warp&lt;/b&gt;, are already wound tight. An object in the middle has the thread of the warp entwined between it&#39;s bars: This is the &lt;b&gt;reed&lt;/b&gt;. It stands high in the loom, held by the higher of the two rungs. To the side is a stick, the &lt;b&gt;shuttle&lt;/b&gt;, with cutouts in the sides. It is wound with a grey thread. [[&lt;span id=&quot;silver-grey&quot;  style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You place the shuttle on top of the threads&lt;/span&gt;-&gt;Observe the shuttle]] and contemplate it.
+</tw-passagedata>
+<tw-passagedata pid="41" name="Approach the fountain." tags="" position="3392,1555">
+The fountain overflows with cool, sparkling water. Its splashes help drown out your thoughts, and gentle bubbles of sweet perfume float through the air.
 
-On the ground is the golden cup. Etchings decorate its rim. As you pull it close to you, you can see that they are depictions of the journey you have just returned from. 
+On the ground is the golden cup. Etchings decorate its rim. As you pull it close to you, you can see that they are depictions of the journey you have just returned from.
 
 You smile at the drawing of a figure strangling a snake.
 
-[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Dip the cup in the water.&lt;/span&gt;-&gt;Dip the cup in the water.]]
-[[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Dip your fingers in the water.&lt;/span&gt;-&gt;Dip your fingers in the water.]]</tw-passagedata>
-<tw-passagedata pid="42" name="Gaze upwards to the clouds." tags="" position="3048,2188">Up, up, up go the walls, disappearing into the misty clouds. 
+[[&lt;span id=&quot;royal-purple&quot; style=&quot;color:#8600b3;font-weight:bold&quot;&gt;Dip the cup in the water.&lt;/span&gt;-&gt;Dip the cup in the water.]]
+
+[[&lt;span id=&quot;raspberry-purple&quot; style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Dip your fingers in the water.&lt;/span&gt;-&gt;Dip your fingers in the water.]]
+</tw-passagedata>
+<tw-passagedata pid="42" name="Gaze upwards to the clouds." tags="" position="2948,1608">
+Up, up, up go the walls, disappearing into the misty clouds.
 
 You feal tears begin to prick your eyes. They easily overflow the corners and roll down your face.
 
@@ -640,138 +660,152 @@ Your face crumples as the sobs overtake you. You sink to your knees. The clouds 
 
 Suddenly, starting anew doesn&#39;t seem so bad.
 
-[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]]</tw-passagedata>
-<tw-passagedata pid="43" name="Peek outside, through the arches." tags="" position="3336,2336">The water dances around your feet as you peer through the arch. The room you are in is raised above the ground, and the water flows out like a sheet to the land beneath it. 
+[[&lt;span id=&quot;royal-purple&quot; style=&quot;color:#8600b3;font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]]
+</tw-passagedata>
+<tw-passagedata pid="43" name="Peek outside, through the arches." tags="" position="3113,1728">
+The water dances around your feet as you peer through the arch. The room you are in is raised above the ground, and the water flows out like a sheet to the land beneath it.
 
 There is lush greenery as far as the eye can see. A manicured, yet distinctly wild, garden touches the high walls that you stand on. Trees are bright green with a hint of gold. Birds chirp in the distance, and you are overcome with a wave of nostalgia.
 
 It is late summer, and you are nowhere near home.
 
-[[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]]</tw-passagedata>
-<tw-passagedata pid="44" name="Turn around and walk away." tags="" position="3244,2192">You know this room all too well. It is the Hall of Sacrifice, where you were bequeathed your last, and only, quest.
+[[&lt;span id=&quot;raspberry-purple&quot; style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]]
+</tw-passagedata>
+<tw-passagedata pid="44" name="Turn around and walk away." tags="" position="3193,1543">
+You know this room all too well. It is the Hall of Sacrifice, where you were bequeathed your last, and only, quest.
 
 It is too painful to remain here.
 
-You exit through the grand double arches 
+You exit through the grand double arches
 
-You grew up in this palace, high among the clouds. Your father, Zeus, has reined here for millenia. 
+You grew up in this palace, high among the clouds. Your father, Zeus, has reined here for millenia.
 
 You, on the other hand, have just returned after centuries away, far away, after traveling to more lands than you can remember in pursuit of accomplishing the task you were set out with. A desert, a rainforrest, a tundra. Each sear into your brain with the power of Hephaestus&#39; iron.
 
-[[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Walk out to the balcony. &lt;/span&gt;-&gt;Peek outside, through the arches.]]</tw-passagedata>
-<tw-passagedata pid="45" name="You are in a room." tags="" position="3300,2020">You are in a room. The tile floor is cool beneath your feet. Tall arches reach above you, disappearing into the misty heavens. A fountain is before you, its clear waters overflowing its basins and flowing out the open arches where sunlight streams in. Beside the fountain, on the ground, is a golden cup.
+[[&lt;span id=&quot;raspberry-purple&quot; style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;&quot;&gt;Walk out to the balcony. &lt;/span&gt;-&gt;Peek outside, through the arches.]]
+</tw-passagedata>
+<tw-passagedata pid="45" name="You are in a room." tags="" position="3161,1333">
+The fog has cleared.
+
+You are in a room. The tile floor is cool beneath your feet. Tall arches reach above you, disappearing into the misty heavens. A fountain is before you, its clear waters overflowing its basins and flowing out the open arches where sunlight streams in. Beside the fountain, on the ground, is a golden cup.
 
 What will you do?
 
 
-[[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Approach the fountain.&lt;/span&gt;-&gt;Approach the fountain.]]
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;Approach the fountain.&lt;/span&gt;-&gt;Approach the fountain.]]
 
-[[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Gaze upwards to the clouds.&lt;/span&gt;-&gt;Gaze upwards to the clouds.]]
+[[&lt;span id=&quot;purple-pink-blue&quot; style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;&quot;&gt;Gaze upwards to the clouds.&lt;/span&gt;-&gt;Gaze upwards to the clouds.]]
 
-[[&lt;span style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Peek outside, through the arches.&lt;/span&gt;-&gt;Peek outside, through the arches.]]
+[[&lt;span id=&quot;raspberry-purple&quot; style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Peek outside, through the arches.&lt;/span&gt;-&gt;Peek outside, through the arches.]]
 
-[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Turn around and walk away.&lt;/span&gt;-&gt;Turn around and walk away.]]</tw-passagedata>
-<tw-passagedata pid="46" name="Observe the shuttle" tags="" position="2391,1524">You observe the way the thread has been woven around the shuttle, over and under. To the side, you see more shuttles, each wound with a different color.
+[[&lt;span id=&quot;royal-purple&quot; style=&quot;color:#8600b3; font-weight:bold;&quot;&gt;Turn around and walk away.&lt;/span&gt;-&gt;Turn around and walk away.]]
+</tw-passagedata>
+<tw-passagedata pid="46" name="Observe the shuttle" tags="" position="2292,944">
+You observe the way the thread has been woven around the shuttle, over and under. To the side, you see more shuttles, each wound with a different color.
 
-Such care was taken by your mother to never let the lines tangle.
+A nagging thought in your head tells you to never tangle the threads of the shuttles.
 
-You take the shuttle of the grey thread in your hands, and [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;pull it through the gap &lt;/span&gt;-&gt;first grey line]] made by the reed.
+You take the shuttle of the grey thread in your hands, and [[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold&quot;&gt;pull it through the gap &lt;/span&gt;-&gt;first grey line]] made by the reed.
 
-&lt;img src=&quot;GIFs/First_Line_Shuttle_large.gif&quot; &gt;&lt;img src=&quot;First_Line_Side_Shuttle_large.gif&quot; &gt;</tw-passagedata>
-<tw-passagedata pid="47" name="first grey line" tags="" position="2515,1524">The air begins to sparkle and shimmer around you. A feeling of soothing pleasantness perfumes the air.
+&lt;img src=&quot;GIFs/First_Line_Shuttle_large.gif&quot;&gt;&lt;img src=&quot;GIFs/First_Line_Side_Shuttle_large.gif&quot;&gt;
+</tw-passagedata>
+<tw-passagedata pid="47" name="first grey line" tags="" position="2417,944">
+The air begins to sparkle and shimmer around you. A feeling of soothing pleasantness perfumes the air.
 
 You are calm. You are at peace.
 
 The line of thread lies loosely between the warp, the tail close to you and the shuttle close to the reed, so that the thread appears diagonal within the warp.
 
-You lift the reed off its perch and towards yourself, pushing your line of thread as close to you as possible. The thread now lies horizontal. It does not pull the vertical strings tightly towards the center, but it does not lie limply either. The thread is straight and true.
+You lift the reed, with it&#39;s entwined threads or the warp, off its perch and towards yourself, pushing your line of thread as close to you as possible. The thread now lies horizontal. It does not pull the vertical strings tightly towards the center, but it does not lie limply either. The thread is straight and true.
 
 &lt;img src=&quot;GIFs/First_Line_Reed_org.gif&quot; &gt; &lt;img src=&quot;GIFs/First_Line_Side_Reed_large.gif&quot; &gt;
 
-You put the reed on its lower rung, changing the height of the warp threads. [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;You pull the shuttle through the gap made by the reed.&lt;/span&gt;-&gt;learn tabby weave]]</tw-passagedata>
-<tw-passagedata pid="48" name="learn tabby weave" tags="" position="2639,1524">Again, a sense of peace.
+You put the reed on its lower rung, changing the height of the warp threads. [[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You pull the shuttle through the gap made by the reed.&lt;/span&gt;-&gt;learn tabby weave]]
+</tw-passagedata>
+<tw-passagedata pid="48" name="learn tabby weave" tags="" position="2542,944">
+Again, a sense of peace.
 
 Now the diagonal goes the other way. This is done so that there&#39;s enough thread to go over and under the lines of the weft without pulling the first lines too tightly.
 
 You lift the reed from its lower position and again pull it towards you, pushing your new thread so that it lies right next to your earlier one.
 
-&lt;img src=&quot;GIFs/Using_Reed_org.gif&quot; &gt;
+&lt;img src=&quot;GIFs/Using_Reed_large.gif&quot; &gt;
 
-This, your mother taught you, is the &lt;b&gt;Tabby Weave&lt;/b&gt;, the most basic technique for weaving. 
+This, is the &lt;b&gt;Tabby Weave&lt;/b&gt;, the most basic technique for weaving.
 
-You lift the reed back to its high position and [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;pass the shuttle through again.&lt;/span&gt;-&gt;learn about reed]]</tw-passagedata>
-<tw-passagedata pid="49" name="learn about reed" tags="" position="2764,1524">The reed is what changes the over-under pattern of the warp. 
+You lift the reed back to its high position and [[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;pass the shuttle through again.&lt;/span&gt; -&gt;learn warp overexposure]]
+</tw-passagedata>
+<tw-passagedata pid="49" name="learn warp overexposure" tags="" position="2681,942">
+The reed also doubles as a beater, beating down the horizontal threads and helping to keep them nice and close together.
 
-In the high position, every other thread is heald up high, while the other threads are heald down below. It makes a nice, wide space for the shuttle to pass through.
+Your early attempts always showed the vertical threads, because you pulled the horizontal yarn too tightly. You learned over time that keeping your horizontal threads fairly loose would cover most of the vertical ones.
 
-In the low position, the two sets switch. The threads that used to be on the bottom are now up top, while the top threads are on the bottom.
+But in the short term, you just chose pretty vertical threads.
 
-When you were a child, you had no reed at all. You had to go under and over each thread with a needle. Every time you messed up the pattern, you had to undo the weaving until your mistake.
+You look up and see the [[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;fog beginning to clear,&lt;/span&gt; -&gt;fog beginning to clear]] and after changing the reed height, you pull your shuttle through.
+</tw-passagedata>
+<tw-passagedata pid="50" name="fog beginning to clear" tags="" position="2813,942">
+You can begin to make out the tile floor beneath you, but the fog is still too dense to see farther ahead.
 
-The reed, needless to say, makes things a lot easier.
+You look to the side, and see another shuttle, this one with wound with a thread that shifts between pink, purple, and blue. You take it up and [[&lt;span id=&quot;purple-pink-blue&quot; style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;&quot;&gt;pass it through the gap&lt;/span&gt;-&gt;first dawn line]].
+</tw-passagedata>
+<tw-passagedata pid="51" name="first dawn line" tags="" position="2951,948">
+A sense of joy fills you. The mist begins to turn pale purple, and the air becomes warm.
 
-Again, you change the reed. Before [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;passing the shuttle through again&lt;/span&gt;-&gt;learn warp overexposure]], you pinch the weft thread on the end to make sure the edge stays nice.</tw-passagedata>
-<tw-passagedata pid="50" name="learn warp overexposure" tags="" position="2891,1524">The reed also doubles as a beater, helping to keep the horizontal threads nice and close together.
-
-Your early attempts always showed a lot of the warp threads, because you pulled the weft too tightly. You learned over time that keeping your horizontal threads fairly loose would cover most of the warp.
-
-In the short term, you just chose pretty warp threads.
-
-You look up and see the [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;fog beginning to clear&lt;/span&gt;-&gt;fog beginning to clear]], and pull your shuttle through after changing the reed height.</tw-passagedata>
-<tw-passagedata pid="51" name="fog beginning to clear" tags="" position="3016,1524">You can begin to make out the tile floor beneath you, but the fog is still too dense to see farther ahead.
-
-You look to the side, and see another shuttle, this one with wound with a thread that shifts between pink, purple, and blue. You take it up and [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;pass it through the gap&lt;/span&gt;-&gt;first dawn line]].</tw-passagedata>
-<tw-passagedata pid="52" name="first dawn line" tags="" position="3144,1524">A sense of joy fills you. The mist begins to turn pale purple, and the air becomes warm.
-
-The sun begins to pierce [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;through the fog and turn it pink,&lt;/span&gt;-&gt;pierce through the fog]] as you weave with the pink-purple-blue again.</tw-passagedata>
-<tw-passagedata pid="53" name="pierce through the fog" tags="" position="3272,1528">Four lines of grey, two lines of the colors of dawn.
+The sun begins to pierce [[&lt;span id=&quot;purple-pink-blue&quot; style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;&quot;&gt;through the fog and turn it pink,&lt;/span&gt;-&gt;pierce through the fog]] as you weave with the pink-purple-blue again.
+</tw-passagedata>
+<tw-passagedata pid="52" name="pierce through the fog" tags="" position="3112,952">
+Four lines of grey, two lines of the colors of dawn.
 
 The beginnings of a masterpiece.
 
 But now, what will you choose?
 
-[[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Weave with the dawn colors.&lt;/span&gt;-&gt;Weave with the dawn.]]
-[[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Weave with the grey.&lt;/span&gt;-&gt;Weave with the grey.]]</tw-passagedata>
-<tw-passagedata pid="54" name="Weave with the grey." tags="" position="3240,1767">More peace. 
+[[&lt;span id=&quot;purple-pink-blue&quot; style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;&quot;&gt;Weave with the dawn colors.&lt;/span&gt;-&gt;Weave with the dawn.]]
+[[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;Weave with the grey.&lt;/span&gt;-&gt;Weave with the grey.]]
+</tw-passagedata>
+<tw-passagedata pid="53" name="Weave with the grey." tags="" position="3063,1179">
+More peace.
 
 You have not been at peace for a long time. It is odd to feel it now, with so much happening.
 
-The fog lifts a bit more, and you [[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;weave as you wait&lt;/span&gt;-&gt;weave as you wait]].</tw-passagedata>
-<tw-passagedata pid="55" name="Weave with the dawn." tags="" position="3372,1767">More joy.
+The fog lifts a bit more, and you [[&lt;span id=&quot;silver-grey&quot;  style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;weave as you wait.&lt;/span&gt; -&gt;You are in a room.]]
+</tw-passagedata>
+<tw-passagedata pid="54" name="Weave with the dawn." tags="" position="3213,1177">
+More joy.
 
 You have not felt joy in a long time. It is odd to feel it now, with so much happening.
 
-The fog lifts a bit more, and you [[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;weave as you wait&lt;/span&gt;-&gt;weave as you wait]].</tw-passagedata>
-<tw-passagedata pid="56" name="weave as you wait" tags="" position="3296,1892">The fog has cleared. It is time.
-
-What will you do?
-
-[[&lt;span style=&quot;color:#c3c3c3;&quot;&gt;Sit down on the cool grey tile.&lt;/span&gt;-&gt;You are in a room.]]
-[[&lt;span style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text;&quot;&gt;Walk forward into the rising dawn.&lt;/span&gt;-&gt;You are in a room.]]</tw-passagedata>
-<tw-passagedata pid="57" name="Dip the cup in the water." tags="" position="3520,2364">You fill the cup with the fountain&#39;s water and take a sip.
+The fog lifts a bit more, and you [[&lt;span id=&quot;purple-pink-blue&quot; style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;&quot;&gt;weave as you wait.&lt;/span&gt; -&gt;You are in a room.]]
+</tw-passagedata>
+<tw-passagedata pid="55" name="Dip the cup in the water." tags="" position="3420,1784">
+You fill the cup with the fountain&#39;s water and take a sip.
 
 Your parched throat is soothed, and you feel life force rushing into your veins.
 
 You are ready.
 
-[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]] </tw-passagedata>
-<tw-passagedata pid="58" name="Dip your fingers in the water." tags="" position="3656,2368">The water begins to swirl about your fingers. A purple ink seems to spread out from your hand, and within moments the color of the water has enitrely changed. It is a deep purple, with a flash of something every so often. As you peer closer, you can see a watery reflection of galaxies below the surface.
+[[&lt;span id=&quot;royal-purple&quot; style=&quot;color:#8600b3;font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]]
+</tw-passagedata>
+<tw-passagedata pid="56" name="Dip your fingers in the water." tags="" position="3559,1785">
+The water begins to swirl about your fingers. A purple ink seems to spread out from your hand, and within moments the color of the water has enitrely changed. It is a deep purple, with a flash of something every so often. As you peer closer, you can see a watery reflection of galaxies below the surface.
 
 Of course. The Rememberance Basin.
 
-You plunge your head in the water, and immediately you can see for eons across the stars. For a moment your breath has frozen in your lungs. Then, the chilled waters surround the rest of your body. 
+You plunge your head in the water, and immediately you can see for eons across the stars. For a moment your breath has frozen in your lungs. Then, the chilled waters surround the rest of your body.
 
 You are among the stars.
 
-[[&lt;span style=&quot;color:#8600b3;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]] </tw-passagedata>
-<tw-passagedata pid="59" name="Oedipus" tags="" position="1956,580">As your hand reaches to pick up the shuttle once more, an old hand lays itself on yours. You look up to see an old man whose face is kind but tired. In his eyes you can see centuries, you can see snakes, you can see gods fighting among men. 
+[[&lt;span id=&quot;royal-purple&quot; style=&quot;color:#8600b3;font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt; The end]]
+</tw-passagedata>
+<tw-passagedata pid="57" name="Oedipus" tags="" position="1956,580">As your hand reaches to pick up the shuttle once more, an old hand lays itself on yours. You look up to see an old man whose face is kind but tired. In his eyes you can see centuries, you can see snakes, you can see gods fighting among men. 
 
 [[&quot;Please,&quot; He begins. &quot;A great tragedy is going to befall Thebes. I need your help to stop it.&quot; -&gt; Task]]
 
 
 
 </tw-passagedata>
-<tw-passagedata pid="60" name="You nod, ready to do what you must because you can" tags="" position="2083,580">Tiresias nods back at you and waves his staff in the air. A cloud forms and you can hear the faint sound of a baby crying. 
+<tw-passagedata pid="58" name="You nod, ready to do what you must because you can" tags="" position="2083,580">Tiresias nods back at you and waves his staff in the air. A cloud forms and you can hear the faint sound of a baby crying. 
 
 The prophet Tiresias turns back to you. &quot;I will take you to crucial moments in the life of young Oedipus. It is up to you to make decisions that will change his destiny.&quot;
 
@@ -788,10 +822,10 @@ In Laius&#39; eyes you can see a bit of doubt in what he is about to do. Maybe y
 
 [[Abandon]]
 [[Don&#39;t abandon]]</tw-passagedata>
-<tw-passagedata pid="61" name="Abandon" tags="" position="2208,580">parents abandon Oedipus
+<tw-passagedata pid="59" name="Abandon" tags="" position="2208,580">parents abandon Oedipus
 
 [[shepard finds]]</tw-passagedata>
-<tw-passagedata pid="62" name="Don&#39;t abandon" tags="" position="2092,732">((If the player hasn&#39;t done the sequence in the right order show this text))
+<tw-passagedata pid="60" name="Don&#39;t abandon" tags="" position="2092,732">((If the player hasn&#39;t done the sequence in the right order show this text))
 
 Though you try to let the seed of doubt blossom, all it seems to do is make the king feel a sense of dread and guilt. 
 
@@ -812,104 +846,104 @@ Laius looks to the shepherd, tears in his eyes and a smile on his face.
 &quot;Perhaps you are right.&quot; He looks down at Oedipus who beams back up at him. 
 
 [[&quot;I don&#39;t feel like losing my son.&quot; -&gt; The end]] </tw-passagedata>
-<tw-passagedata pid="63" name="shepard finds" tags="" position="2335,580">Shepard finds Oedipus
+<tw-passagedata pid="61" name="shepard finds" tags="" position="2335,580">Shepard finds Oedipus
 
 [[brings to king &amp; queen]]</tw-passagedata>
-<tw-passagedata pid="64" name="brings to king &amp; queen" tags="" position="2459,580">king &amp; queen adopt
+<tw-passagedata pid="62" name="brings to king &amp; queen" tags="" position="2459,580">king &amp; queen adopt
 
 [[grows up]]</tw-passagedata>
-<tw-passagedata pid="65" name="grows up" tags="" position="2583,580">Oedipus grows up
+<tw-passagedata pid="63" name="grows up" tags="" position="2583,580">Oedipus grows up
 
 [[chorus says he&#39;s adopted]]</tw-passagedata>
-<tw-passagedata pid="66" name="chorus says he&#39;s adopted" tags="" position="2708,580">Oedipus doesn&#39;t believe
+<tw-passagedata pid="64" name="chorus says he&#39;s adopted" tags="" position="2708,580">Oedipus doesn&#39;t believe
 
 [[Oedipus goes to oracle]]</tw-passagedata>
-<tw-passagedata pid="67" name="Oedipus goes to oracle" tags="" position="2835,580">Oedipus arrives at oracle of delphi
+<tw-passagedata pid="65" name="Oedipus goes to oracle" tags="" position="2835,580">Oedipus arrives at oracle of delphi
 
 [[Oracle tells prophecy]]</tw-passagedata>
-<tw-passagedata pid="68" name="Oracle tells prophecy" tags="" position="2959,580">Original prophecy
+<tw-passagedata pid="66" name="Oracle tells prophecy" tags="" position="2959,580">Original prophecy
 
 [[Oedipus misunderstands]]</tw-passagedata>
-<tw-passagedata pid="69" name="Oedipus misunderstands" tags="" position="3083,579">Oedipus doesn&#39;t understand the prophecy
+<tw-passagedata pid="67" name="Oedipus misunderstands" tags="" position="3083,579">Oedipus doesn&#39;t understand the prophecy
 
 [[Leaves for neighboring kingdom]]
 [[Stays &amp; decides own fate]]</tw-passagedata>
-<tw-passagedata pid="70" name="Leaves for neighboring kingdom" tags="" position="3208,580">Walking across the land
+<tw-passagedata pid="68" name="Leaves for neighboring kingdom" tags="" position="3208,580">Walking across the land
 
 [[Arrives at crossroads]]</tw-passagedata>
-<tw-passagedata pid="71" name="Stays &amp; decides own fate" tags="" position="3083,704">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="72" name="Arrives at crossroads" tags="" position="3335,580">Meets a man in a charriot, argues about who has right of way
+<tw-passagedata pid="69" name="Stays &amp; decides own fate" tags="" position="3083,704">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="70" name="Arrives at crossroads" tags="" position="3335,580">Meets a man in a charriot, argues about who has right of way
 
 [[Gets into argument]]</tw-passagedata>
-<tw-passagedata pid="73" name="Gets into argument" tags="" position="3459,579">Arguement may become violent
+<tw-passagedata pid="71" name="Gets into argument" tags="" position="3459,579">Arguement may become violent
 
 [[kills the men]]
 [[does not kill the men]]</tw-passagedata>
-<tw-passagedata pid="74" name="kills the men" tags="" position="3583,579">continues on
+<tw-passagedata pid="72" name="kills the men" tags="" position="3583,579">continues on
 
 [[meet sphynx at city limit]]</tw-passagedata>
-<tw-passagedata pid="75" name="does not kill the men" tags="" position="3460,704">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="76" name="meet sphynx at city limit" tags="" position="3708,579">Get sphynx&#39;s riddle
+<tw-passagedata pid="73" name="does not kill the men" tags="" position="3460,704">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="74" name="meet sphynx at city limit" tags="" position="3708,579">Get sphynx&#39;s riddle
 
 [[Answer correctly]]
 [[Answer incorrectly]]</tw-passagedata>
-<tw-passagedata pid="77" name="Answer correctly" tags="" position="3835,579">Sphynx is upset
+<tw-passagedata pid="75" name="Answer correctly" tags="" position="3835,579">Sphynx is upset
 
 [[Sphynx destroys itself]]</tw-passagedata>
-<tw-passagedata pid="78" name="Answer incorrectly" tags="" position="3712,704">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="79" name="Sphynx destroys itself" tags="" position="3959,579">Hey, since we defeated it, we could become king now! And marry the queen!
+<tw-passagedata pid="76" name="Answer incorrectly" tags="" position="3712,704">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="77" name="Sphynx destroys itself" tags="" position="3959,579">Hey, since we defeated it, we could become king now! And marry the queen!
 
 [[accept]]
 [[deny]]</tw-passagedata>
-<tw-passagedata pid="80" name="accept" tags="" position="4083,580">Cool beans
+<tw-passagedata pid="78" name="accept" tags="" position="4083,580">Cool beans
 
 [[Time passes]], we are happy</tw-passagedata>
-<tw-passagedata pid="81" name="deny" tags="" position="3959,704">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="82" name="Time passes" tags="" position="4208,580">All this shit is good
+<tw-passagedata pid="79" name="deny" tags="" position="3959,704">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="80" name="Time passes" tags="" position="4208,580">All this shit is good
 
 [[Plague hits city]]</tw-passagedata>
-<tw-passagedata pid="83" name="Plague hits city" tags="" position="4335,580">Aw shit, all the people are dying
+<tw-passagedata pid="81" name="Plague hits city" tags="" position="4335,580">Aw shit, all the people are dying
 
 [[send uncle to Oracle]]</tw-passagedata>
-<tw-passagedata pid="84" name="send uncle to Oracle" tags="" position="4459,580">uncle goes &amp; asks
+<tw-passagedata pid="82" name="send uncle to Oracle" tags="" position="4459,580">uncle goes &amp; asks
 
 [[Oracle says killer must be taken to justice-&gt;Oracle justice]]</tw-passagedata>
-<tw-passagedata pid="85" name="Oracle justice" tags="" position="4583,580">Oracle says reason plague has occurred is the king&#39;s killer never brought to justice
+<tw-passagedata pid="83" name="Oracle justice" tags="" position="4583,580">Oracle says reason plague has occurred is the king&#39;s killer never brought to justice
 
 Uncle returns to tell
 
 [[Oedipus curses killer]]</tw-passagedata>
-<tw-passagedata pid="86" name="Oedipus curses killer" tags="" position="4708,580">We are so not happy
+<tw-passagedata pid="84" name="Oedipus curses killer" tags="" position="4708,580">We are so not happy
 
 [[Tell Tiresius to find killer]]</tw-passagedata>
-<tw-passagedata pid="87" name="Tell Tiresius to find killer" tags="" position="4835,580">Tiresius does NOT want to do this
+<tw-passagedata pid="85" name="Tell Tiresius to find killer" tags="" position="4835,580">Tiresius does NOT want to do this
 
 [[Tiresius reveals truth]]</tw-passagedata>
-<tw-passagedata pid="88" name="Tiresius reveals truth" tags="" position="4959,580">Tiresius: my dude, you&#39;re adopted
+<tw-passagedata pid="86" name="Tiresius reveals truth" tags="" position="4959,580">Tiresius: my dude, you&#39;re adopted
 
 [[Messenger arrives]]</tw-passagedata>
-<tw-passagedata pid="89" name="things go to shit" tags="" position="5459,580">We are all freaking out. Jocasta leaves. Oedipus follows.
+<tw-passagedata pid="87" name="things go to shit" tags="" position="5459,580">We are all freaking out. Jocasta leaves. Oedipus follows.
 
 [[Jocasta hangs herself]]</tw-passagedata>
-<tw-passagedata pid="90" name="Messenger arrives" tags="" position="5084,580">Guess what the king is dead.
+<tw-passagedata pid="88" name="Messenger arrives" tags="" position="5084,580">Guess what the king is dead.
 
 Oedipus thinks prophecy canceled
 
 [[Will go to funeral]]
 [[Won&#39;t go to funeral]]</tw-passagedata>
-<tw-passagedata pid="91" name="Will go to funeral" tags="" position="5084,720">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="92" name="Won&#39;t go to funeral" tags="" position="5211,580">[[Messenger says old king was father]]</tw-passagedata>
-<tw-passagedata pid="93" name="Messenger says old king was father" tags="" position="5336,580">[[things go to shit]] </tw-passagedata>
-<tw-passagedata pid="94" name="Jocasta hangs herself" tags="" position="5584,580">Aw man this sucks
+<tw-passagedata pid="89" name="Will go to funeral" tags="" position="5084,720">Double-click this passage to edit it.</tw-passagedata>
+<tw-passagedata pid="90" name="Won&#39;t go to funeral" tags="" position="5211,580">[[Messenger says old king was father]]</tw-passagedata>
+<tw-passagedata pid="91" name="Messenger says old king was father" tags="" position="5336,580">[[things go to shit]] </tw-passagedata>
+<tw-passagedata pid="92" name="Jocasta hangs herself" tags="" position="5584,580">Aw man this sucks
 
 [[Oedipus stabs his eyes out]]</tw-passagedata>
-<tw-passagedata pid="95" name="Oedipus stabs his eyes out" tags="" position="5712,580">We are reaaaaally upset.
+<tw-passagedata pid="93" name="Oedipus stabs his eyes out" tags="" position="5712,580">We are reaaaaally upset.
 
 [[Oedipus leaves]]</tw-passagedata>
-<tw-passagedata pid="96" name="Oedipus leaves" tags="" position="5712,728">we are gone gone gone
+<tw-passagedata pid="94" name="Oedipus leaves" tags="" position="5712,728">we are gone gone gone
 
 [[Main Menu]] </tw-passagedata>
-<tw-passagedata pid="97" name=" Task" tags="" position="1956,732">The man puts his hand to his chest and bows his head. 
+<tw-passagedata pid="95" name=" Task" tags="" position="1956,732">The man puts his hand to his chest and bows his head. 
 
 &quot;My name is Tiresias, a prophet gifted visions by the goddess Aphrodite. I have seen many things in my lifetime, and I know that in a few decades a tragedy like no other is going to put Thebes in harm&#39;s way, and destroy a man and his family in the process.&quot;
 
@@ -923,17 +957,17 @@ Tiresias looks to you for an answer.
 
 
 [[You nod, ready to do what you must because you can]]</tw-passagedata>
-<tw-passagedata pid="98" name=" Confirm" tags="" position="1956,880">Tiresias looks at you appalled.
+<tw-passagedata pid="96" name=" Confirm" tags="" position="1956,880">Tiresias looks at you appalled.
 
 &quot;Is that really your decision, you are the only person who can help.&quot;
 
 [[You confirm your choice]]
 
 [[You change your mind. You are ready to help -&gt;You nod, ready to do what you must because you can]] </tw-passagedata>
-<tw-passagedata pid="99" name="You confirm your choice" tags="" position="1952,1036">Tiresias sighs, his form fading as his words leave him.
+<tw-passagedata pid="97" name="You confirm your choice" tags="" position="1952,1036">Tiresias sighs, his form fading as his words leave him.
 
 [[&quot;Then you are not the person I am looking for. -&gt;Main Menu]] </tw-passagedata>
-<tw-passagedata pid="100" name="Welcome" tags="" position="1230,406">&lt;span id=&quot;welcome&quot; class=&quot;text&quot; style=&quot;margin:3em;&quot;&gt;Welcome to Loominary.&lt;/span&gt;
+<tw-passagedata pid="98" name="Welcome" tags="" position="1230,406">&lt;span id=&quot;welcome&quot; class=&quot;text&quot; style=&quot;margin:3em;&quot;&gt;Welcome to Loominary.&lt;/span&gt;
 
 &lt;span id=&quot;summary&quot; class=&quot;text&quot;&gt;This unique gameplay experience will take you through the myths of Medusa, Oedipus, and more.&lt;/span&gt;
 
@@ -941,7 +975,7 @@ Tiresias looks to you for an answer.
 
 
 &lt;script&gt;welcomeSequence(&quot;#welcome&quot;)&lt;/script&gt;</tw-passagedata>
-<tw-passagedata pid="101" name="Calibration" tags="" position="1407,411">&lt;span id=&quot;first&quot; class=&quot;fadeIn&quot; style=&quot;display: none;&quot;&gt;Welcome to Shuttle Callibration.&lt;/span&gt;
+<tw-passagedata pid="99" name="Calibration" tags="" position="1407,411">&lt;span id=&quot;first&quot; class=&quot;fadeIn&quot; style=&quot;display: none;&quot;&gt;Welcome to Shuttle Callibration.&lt;/span&gt;
 
 &lt;span id=&quot;second&quot; class=&quot;fadeIn&quot; style=&quot;display:none;&quot;&gt;Please place the &lt;variable&gt; shuttle on top of the loom.
 &lt;/span&gt;
@@ -952,7 +986,7 @@ Tiresias looks to you for an answer.
 [[&lt;span id=&quot;master&quot; class=&quot;fadeIn&quot; style=&quot;display:none; font-weight:bold;&quot;&gt;If you would like to skip calibration, please place the Master Shuttle on top of the loom.&lt;/span&gt;-&gt;Main Menu]]
 
 &lt;script&gt;fadeIn(&quot;.fadeIn&quot;)&lt;/script&gt;</tw-passagedata>
-<tw-passagedata pid="102" name=" Flirtatious" tags="" position="368,1550">Posieden strides forward, closer. The torches cast his face in a warm glow. He smiles.
+<tw-passagedata pid="100" name=" Flirtatious" tags="" position="368,1550">Posieden strides forward, closer. The torches cast his face in a warm glow. He smiles.
 
 &quot;I have long thought of you, fair priestess,&quot; he says. &quot;No mortal has occupied my mind so much as you. My desire burns for you like no other.&quot;
 
@@ -969,7 +1003,7 @@ Posieden&#39;s hand grabs your arm and spins you around roughly. You stumble and
 [[&lt;span class=&quot;readSpeed&quot; id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;Push yourself away from him. &lt;/span&gt;-&gt; The Escalation]]
 
 </tw-passagedata>
-<tw-passagedata pid="103" name=" The Escalation" tags="" position="555,1552">You square your shoulders and drop the smile.
+<tw-passagedata pid="101" name=" The Escalation" tags="" position="555,1552">You square your shoulders and drop the smile.
 
 &quot;I have told you many times that I am not interested in your offers,&quot; you say coldly. &quot;I serve only Athena. You should leave immediately.&quot;
 
@@ -997,7 +1031,7 @@ $(function () {
 %&gt;
 
 </tw-passagedata>
-<tw-passagedata pid="104" name=" The Coupling" tags="" position="261,1875">You slide your hands up the sea god&#39;s chest to his shoulders.
+<tw-passagedata pid="102" name=" The Coupling" tags="" position="261,1875">You slide your hands up the sea god&#39;s chest to his shoulders.
 
 &quot;I never said that a god wouldn&#39;t do,&quot; you smirk back at him. You raise a hand to stroke a few locks of his sea-swept hair. &quot;Especially one as handsome as you.&quot;
 
@@ -1007,7 +1041,7 @@ He pulls you into a deep, searing kiss. You respond enthusiastically by wrapping
 
 
 &lt;% s.fightStyle = &quot;stones turned&quot; %&gt;</tw-passagedata>
-<tw-passagedata pid="105" name=" The Ravishing" tags="" position="261,2025">Poseidon backs you up against the wall. He grabs the back of your thighs and hoists you up, and you wrap your legs around his waist.
+<tw-passagedata pid="103" name=" The Ravishing" tags="" position="261,2025">Poseidon backs you up against the wall. He grabs the back of your thighs and hoists you up, and you wrap your legs around his waist.
 
 When he finally thrusts inside you, there is searing pain. You gasp and try to push him away, but he only chuckles and thrusts again. 
 
@@ -1018,7 +1052,7 @@ When he finally thrusts inside you, there is searing pain. You gasp and try to p
 &quot;The pain will subside,&quot; he says inbetween grunts. He picks up the pace and a high-pitched scream escapes you. You try to wiggle away from him again, but his strength is far greater than yours. You are trapped.
 
 [[&lt;span id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Tears begin to roll down your face.&lt;/span&gt; -&gt; Athena&#39;s Anger]]</tw-passagedata>
-<tw-passagedata pid="106" name="You take a few steps backwards" tags="" position="554,1690">&lt;% 
+<tw-passagedata pid="104" name="You take a few steps backwards" tags="" position="554,1690">&lt;% 
 var wordcount = 120;
 var timeExpected = (wordcount / s.avgReadSpeed) * 60 * 1000;
 console.log(&#39;time expected in minutes: &#39;,timeExpected); 
