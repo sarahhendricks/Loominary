@@ -72,19 +72,19 @@ $(document).on('showpassage:after', function() {
 //story.state.myObject = {health: 67};
 var tagColors = new Map();
 
-tagColors.set('E2-00-40-84-39-04-02-41-15-90-74-42', "purple-pink-blue");
-tagColors.set('E2-00-40-84-39-04-02-41-14-40-82-9F', "raspberry-purple");
-tagColors.set('E2-00-40-84-39-04-02-41-11-70-A0-F0', "royal-purple");
-tagColors.set('E2-00-40-84-39-04-02-41-14-10-86-46', "silver-grey");
-tagColors.set('E2-00-40-84-39-04-02-41-12-00-9D-58', "pine-green");
-tagColors.set('E2-00-40-84-39-04-02-41-13-30-8F-46', "moss-green");
-tagColors.set('E2-00-40-84-39-04-02-41-11-90-A0-EC', "bright-green-blue");  
-tagColors.set('E2-00-40-84-39-04-02-41-11-80-A1-A9', "dirt-brown");
-tagColors.set('E2-00-40-84-39-04-02-41-11-80-A1-B1', "royal-blue");
-tagColors.set('E2-00-40-84-39-04-02-41-11-80-A1-B2', "golden-yellow");
-tagColors.set('E2-00-40-84-39-04-02-41-11-80-A1-B3', "blood-red");
-tagColors.set('E2-00-40-84-39-04-02-41-11-80-A1-B4', "kelly-green");
-tagColors.set('E2-00-40-84-39-04-02-41-14-20-87-1B', "master");
+tagColors.set('E2-00-40-84-39-04-02-41-15-90-74-42', "purple-pink-blue"); //style="background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-14-40-82-9F', "raspberry-purple"); //style="background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-11-70-A0-F0', "royal-purple"); //style="color:#8600b3; font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-14-10-86-46', "silver-grey"); //style="color:#c3c3c3;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-12-00-9D-58', "pine-green"); //style="color:#227722;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-13-30-8F-46', "moss-green"); // style="color:#8BA367;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-11-90-A0-EC', "bright-green-blue");  //style="background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-11-80-A1-A9', "dirt-brown"); //style="color:#744d25;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-09-20-BB-25', "royal-blue"); //style="color:#0D36CF;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-10-90-A9-AF', "golden-yellow"); //style="color:#FBD00E;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-09-40-BB-21', "blood-red"); //style="color:#DC0E0E;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-13-40-90-13', "kelly-green"); //style="color:#0BB00B;font-weight:bold;"
+tagColors.set('E2-00-40-84-39-04-02-41-14-20-87-1B', "master"); //style="font-weight:bold;"
 
 for (var [key, value] of tagColors) {
 	console.log(key + ' = ' + value);
@@ -110,7 +110,6 @@ $(function () {
 		story.state.currentTag = data.tag;
 		
 		if(story.state.calibrated == true) {
-			
 			//treat as regular click in story -- works!
 			var color = tagColors.get(data.tag);
 			message = { tagId: color};
@@ -118,10 +117,7 @@ $(function () {
 			socket.emit('response', message);
 		}
 		else {
-			
-			//otherwise, we are inside calibration and want to treat this as *setting* a color
-			//get color from story section -- span?
-			//nope, just click on the link that has an ID of 'color' and actually set the color on that screen
+			//otherwise, we are inside calibration and want to treat this as *setting* a color. Actual setting happens inside the local frame.
 			message = { tagId: "color"};
 			$('span[id=\'color\']').click();
 			socket.emit('response', message);
@@ -159,6 +155,7 @@ window.welcomeSequence = function( el ) {
 	});
 }
 
+/* Animation sequence for the credits. */
 window.creditSequence = function( el ) {
 	$("#credits, #screenwriter, #implementor, #advisors, #copyright, #thanks, #redirect").delay(10000).fadeOut(2000, function() {
 		story.show("Main Menu");
@@ -644,11 +641,18 @@ It&#39;s the last thing you hear as your senses stop working and you feel your l
 The blow is swift and her head falls to the ground. You lift her head up and observe it. Her eyes are closed as if she was sleeping, and you can tell that at some point she was beautiful. 
 
 [[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You put her head in a bag and pray for her before flying off to continue your mission. &lt;/span&gt;-&gt;The end]]</tw-passagedata>
-<tw-passagedata pid="39" name="Main Menu" tags="menu" position="1400,608">&lt;center&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Loominary&lt;/span&gt;&lt;/center&gt;
+<tw-passagedata pid="39" name="Main Menu" tags="menu" position="1400,608">
+
+
+
+
+
+
+&lt;center&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Loominary&lt;/span&gt;&lt;/center&gt;
 &lt;center&gt;&lt;blockquote&gt;[[Tutorial]]&lt;/blockquote&gt;&lt;/center&gt;
 &lt;center&gt;&lt;blockquote&gt;[[Medusa&#39;s Laugh]]&lt;/blockquote&gt;&lt;/center&gt;
 &lt;center&gt;&lt;blockquote&gt;[[Oedipus]]&lt;/blockquote&gt;&lt;/center&gt;
-&lt;center&gt;&lt;blockquote&gt;[[Calibration - purple-pink-blue]]&lt;/blockquote&gt;&lt;/center&gt;
+&lt;center&gt;&lt;blockquote&gt;[[Calibration -&gt;Calibration - purple-pink-blue]]&lt;/blockquote&gt;&lt;/center&gt;
 </tw-passagedata>
 <tw-passagedata pid="40" name="Tutorial" tags="" position="2136,940">
 A white fog swirls about you...
@@ -824,7 +828,7 @@ You are among the stars.
 <tw-passagedata pid="57" name="Oedipus" tags="" position="1587,1">
 As your hand reaches to pick up the shuttle once more, an old hand lays itself on yours. You look up to see an old man whose face is kind but tired. In his eyes you can see centuries, you can see snakes, you can see gods fighting among men.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;&quot;Please,&quot; he begins. &quot;A great tragedy is going to befall Thebes. I need your help to stop it.&quot;&lt;/span&gt; -&gt; Task]]
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;&quot;Please,&quot; he begins. &quot;A great tragedy is going to befall Thebes. I need your help to stop it.&quot;&lt;/span&gt; -&gt; Task]]
 
 
 
@@ -834,7 +838,7 @@ Tiresias nods back at you and waves his staff in the air. A cloud forms and you 
 
 The prophet Tiresias turns back to you. &quot;I will take you to crucial moments in the life of young Oedipus. It is up to you to make decisions that will change his destiny.&quot;
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;You nod, and Tiresias walks into the clouds.&lt;/span&gt; -&gt; Begin quest]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;You nod, and you both turn to the clouds.&lt;/span&gt; -&gt; Begin quest]]
 
 </tw-passagedata>
 <tw-passagedata pid="59" name="Abandon" tags="" position="2099,0">
@@ -851,9 +855,17 @@ The shepherd looks at tiny Oedipus, voice sweet and eyes curious, and knows he c
 
 Though you try to let the seed of doubt blossom, all it seems to do is make the king feel a sense of dread and guilt.
 
-&quot;I don&#39;t think it&#39;ll work this time around my friend.&quot; Tiresias states. &quot;The words of the oracle are too fresh in his mind, we must find another way.&quot;
+You feel a hand on your shoulder.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;Abandon the baby.&lt;/span&gt; -&gt;Abandon]]
+&quot;I don&#39;t think it will work this time around, my friend,&quot; Tiresias says. &quot;The words of the oracle are too fresh in his mind. We must find another way. Something else, something small, must change first in Oedipus&#39; story, but that change could be at the very end of his tale for all we know.&quot;
+
+You sigh. Tiresias pats your shoulder comfortingly.
+
+&quot;Slow and steady, my friend. It takes a lot to change fate, especially with the gods so entrenched in their ways. A smaller change elsewhere in the story, perhaps, will allow us to make this change another time.&quot;
+
+There is only one direction you can take now.
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;style=&quot;color:#DC0E0E;font-weight:bold;font-style:italic;&quot;&gt;Abandon the baby.&lt;/span&gt; -&gt;Abandon]]
 
 ((If player has met all the other win conditions, show this text))
 
@@ -1069,23 +1081,23 @@ Tiresias gently puts his hand on the loom, caressing the yarn on the warp.
 
 Tiresias looks to you for an answer.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;You refuse, it is too much responsibility.&lt;/span&gt; -&gt; Confirm]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;You refuse, it is too much responsibility.&lt;/span&gt; -&gt; Confirm]]
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;You nod, ready to do what you must because you can.&lt;/span&gt; -&gt;You nod, ready to do what you must because you can]]
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;You nod, ready to do what you must because you can.&lt;/span&gt; -&gt;You nod, ready to do what you must because you can]]
 </tw-passagedata>
 <tw-passagedata pid="95" name=" Confirm" tags="" position="1746,136">
 Tiresias looks at you appalled.
 
 &quot;Is that really your decision? You are the only person who can help.&quot;
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;You confirm your choice.&lt;/span&gt; -&gt;You confirm your choice]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;You confirm your choice.&lt;/span&gt; -&gt;You confirm your choice]]
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;You change your mind. You are ready to help.&lt;/span&gt; -&gt;You nod, ready to do what you must because you can]]
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;You change your mind. You are ready to help.&lt;/span&gt; -&gt;You nod, ready to do what you must because you can]]
 </tw-passagedata>
 <tw-passagedata pid="96" name="You confirm your choice" tags="" position="1740,263">
 Tiresias sighs, his form fading as his words leave him.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;&quot;Then you are not the person I am looking for.&quot;&lt;/span&gt; -&gt;The end]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;Then you are not the person I am looking for.&quot;&lt;/span&gt; -&gt;The end]]
 </tw-passagedata>
 <tw-passagedata pid="97" name="And as predicted, they adopt the child as their own." tags="" position="2486,0">
 Tiresias waves his staff once more and the clouds swirl as you see pieces of Oedipus&#39; childhood.
@@ -1107,9 +1119,9 @@ Then King Laius speaks. &quot;Have you ever known the oracle of Delphi to be wro
 
 In the king&#39;s eyes you can see a bit of doubt in what he is about to do. Maybe you can make the thought grow bigger.
 
-[[&lt;span id=&quot;&quot; style=&quot;font-style:italic;&quot;&gt;Abandon the baby.&lt;/span&gt;-&gt;Abandon]]
+[[&lt;span id=&quot;blood-red&quot; style=&quot;style=&quot;color:#DC0E0E;font-weight:bold;font-style:italic;&quot;&gt;Abandon the baby.&lt;/span&gt;-&gt;Abandon]]
 
-[[&lt;span id=&quot;&quot; style=&quot;font-style:italic;&quot;&gt;Don&#39;t abandon the baby.&lt;/span&gt;-&gt;Don&#39;t abandon]]
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;font-style:italic;&quot;&gt;Don&#39;t abandon the baby.&lt;/span&gt;-&gt;Don&#39;t abandon]]
 </tw-passagedata>
 <tw-passagedata pid="99" name="They give each other weary glances." tags="" position="2611,150">
 The woman turns back to him.
@@ -1133,7 +1145,7 @@ Oedipus backs away from the group slowly before turning and running off. He need
 
 &lt;script&gt;welcomeSequence(&quot;#welcome&quot;)&lt;/script&gt;</tw-passagedata>
 <tw-passagedata pid="101" name="Calibration - purple-pink-blue" tags="" position="198,18">&lt;% s.calibrated = false %&gt;
-&lt;%= s.calibrated%&gt;
+
 &lt;span class=&quot;fadeIn&quot; style=&quot;display: none;&quot;&gt;Welcome to Shuttle Callibration.&lt;/span&gt;
 
 [[&lt;span id=&quot;color&quot; class=&quot;fadeIn&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the pruple-pink-blue yarn on top of the loom.&lt;/span&gt; -&gt;raspberry-purple]]
@@ -1240,8 +1252,11 @@ He towers over you and you feel the first stirrings of panic. &quot;Surely you w
 &lt;% setTimeout(function() { console.log(&#39;Time expected: &#39;, timeExpected); fadeOut(&#39;.fadeout&#39;); }, timeExpected);  
 %&gt;
 </tw-passagedata>
-<tw-passagedata pid="107" name="raspberry-purple" tags="" position="350,21">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the raspberry-purple yarn on top of the loom.&lt;/span&gt; -&gt;royal-purple]]
+<tw-passagedata pid="107" name="raspberry-purple" tags="" position="350,21">&lt;%= s.tags.colors %&gt;
+&lt;%= s.currentTag %&gt;
+
+
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the raspberry-purple yarn on top of the loom.&lt;/span&gt; -&gt;royal-purple]]
 
 
 &lt;%
@@ -1254,7 +1269,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="108" name="royal-purple" tags="" position="487,20">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the royal-purple yarn on top of the loom.&lt;/span&gt; -&gt;silver-grey]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the royal-purple yarn on top of the loom.&lt;/span&gt; -&gt;silver-grey]]
 
 
 &lt;%
@@ -1267,7 +1282,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="109" name="silver-grey" tags="" position="624,19">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the silver-grey yarn on top of the loom.&lt;/span&gt; -&gt;pine-green]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the silver-grey yarn on top of the loom.&lt;/span&gt; -&gt;pine-green]]
 
 
 &lt;%
@@ -1280,7 +1295,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="110" name="pine-green" tags="" position="760,24">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the pine-green yarn on top of the loom.&lt;/span&gt; -&gt;moss-green]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the pine-green yarn on top of the loom.&lt;/span&gt; -&gt;moss-green]]
 
 
 &lt;%
@@ -1293,7 +1308,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="111" name="moss-green" tags="" position="885.0001,26">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the moss-green yarn on top of the loom.&lt;/span&gt; -&gt;bright-green-blue]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the moss-green yarn on top of the loom.&lt;/span&gt; -&gt;bright-green-blue]]
 
 
 &lt;%
@@ -1306,7 +1321,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="112" name="bright-green-blue" tags="" position="1010.0002,25">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the bright-green-blue yarn on top of the loom.&lt;/span&gt; -&gt;dirt-brown]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the bright-green-blue yarn on top of the loom.&lt;/span&gt; -&gt;dirt-brown]]
 
 
 &lt;%
@@ -1319,7 +1334,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="113" name="dirt-brown" tags="" position="1139,23">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the dirt-brown yarn on top of the loom.&lt;/span&gt; -&gt;kelly-green]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the dirt-brown yarn on top of the loom.&lt;/span&gt; -&gt;kelly-green]]
 
 
 &lt;%
@@ -1332,7 +1347,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="114" name="kelly-green" tags="" position="1264.0001,24">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the bright kelly-green yarn on top of the loom.&lt;/span&gt; -&gt;royal-blue]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the bright kelly-green yarn on top of the loom.&lt;/span&gt; -&gt;royal-blue]]
 
 
 &lt;%
@@ -1345,7 +1360,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="115" name="royal-blue" tags="" position="1391,28">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the royal-blue yarn on top of the loom.&lt;/span&gt; -&gt;blood-red]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the royal-blue yarn on top of the loom.&lt;/span&gt; -&gt;blood-red]]
 
 
 &lt;%
@@ -1358,7 +1373,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="116" name="blood-red" tags="" position="1391,178">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the blood-red yarn on top of the loom.&lt;/span&gt; -&gt;golden-yellow]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the blood-red yarn on top of the loom.&lt;/span&gt; -&gt;golden-yellow]]
 
 
 &lt;%
@@ -1371,7 +1386,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="117" name="golden-yellow" tags="" position="1391,328">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the golden-yellow yarn on top of the loom.&lt;/span&gt; -&gt;master]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the golden-yellow yarn on top of the loom.&lt;/span&gt; -&gt;master]]
 
 
 &lt;%
@@ -1384,7 +1399,7 @@ $(function () {
 });
 %&gt;</tw-passagedata>
 <tw-passagedata pid="118" name="master" tags="" position="1391,478">
-[[&lt;span id=&quot;color&quot; style=&quot;display:none;&quot;&gt;Finally, please place the shuttle with the word &quot;MASTER&quot; on top of the loom.&lt;/span&gt; -&gt;Main Menu]]
+[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Finally, please place the shuttle with the word &quot;MASTER&quot; on top of the loom.&lt;/span&gt; -&gt;Main Menu]]
 
 Thank you.
 
@@ -1395,6 +1410,7 @@ $(function () {
 		console.log(s.tags.colors);
 		s.tags.colors.set(s.currentTag, &quot;master&quot;);
 		console.log(s.tags.colors);
+		s.calibrated = true;
 	});
 });
 %&gt;</tw-passagedata>
