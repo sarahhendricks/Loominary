@@ -60,6 +60,7 @@ a {
 
 
 
+
 </style><script role="script" id="twine-user-script" type="text/twine-javascript">/* Fade in and fade out functions for Twine passages. */
 $(document).on('hidepassage', function() {
 	$('#passage').addClass('passage-in');
@@ -67,6 +68,14 @@ $(document).on('hidepassage', function() {
 $(document).on('showpassage:after', function() {
 	$('#passage').removeClass('passage-in');
 });
+
+
+//Variables for Oedipus story
+story.state.goToFuneral = false;
+story.state.killLaius = true;
+story.state.talksToParents = false;
+story.state.abandon = true;
+
 
 /* This is the initial calibration for the shuttle tags and colors. The shuttle tags have been hard-coded from trials, but are configurable via the calibration sequence. */
 //story.state.myObject = {health: 67};
@@ -148,7 +157,7 @@ window.welcomeSequence = function( el ) {
 		$("#summary").delay(1000).fadeIn(2000, function() {
 			$("#instructions").delay(1000).fadeIn(2000, function() {
 				$("#welcome, #summary, #instructions").delay(5000).fadeOut(2000, function() {
-					story.show("Calibration");
+					story.show("Calibration - purple-pink-blue");
 				});
 			});
 		});
@@ -161,6 +170,7 @@ window.creditSequence = function( el ) {
 		story.show("Main Menu");
 	});
 }
+
 
 
 
@@ -506,13 +516,13 @@ From that glowing sky, Hermes, the messenger of the gods, floats down. His brill
 
 [[&lt;span id=&quot;dirt-brown&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt;You know that this is the best opportunity to strike. &lt;/span&gt; -&gt; The Slumber 2]]
 </tw-passagedata>
-<tw-passagedata pid="23" name="The end" tags="" position="2064,2244">
+<tw-passagedata pid="23" name="The end" tags="" position="2063.3333333333335,2243.3333333333335">
 
-&lt;span id=&quot;thanks&quot; style=&quot;font-weight:bold;&quot;&gt;Thanks for playing!&lt;/span&gt;
+&lt;center&gt;&lt;span id=&quot;thanks&quot; style=&quot;font-weight:bold;&quot;&gt;Thanks for playing!&lt;/span&gt;&lt;/center&gt;
 
-&lt;span id=&quot;redirect&quot;&gt;You will be redirected to the homepage in a few moments...&lt;/span&gt;
+&lt;center&gt;&lt;span id=&quot;redirect&quot;&gt;You will be redirected to the homepage in a few moments...&lt;/span&gt;&lt;/center&gt;
 
-
+&lt;center&gt;&lt;span id=&quot;thanks&quot; style=&quot;font-weight:bold;&quot;&gt;Please take this time to cut all shuttles free from the loom, leaving 2-inch tails. These tails will be tied off when the scarf is complete. &lt;/span&gt;&lt;/center&gt;
 
 
 &lt;span id=&quot;credits&quot; style=&quot;font-weight:bold;&quot;&gt;Credits&lt;/span&gt;
@@ -641,18 +651,15 @@ It&#39;s the last thing you hear as your senses stop working and you feel your l
 The blow is swift and her head falls to the ground. You lift her head up and observe it. Her eyes are closed as if she was sleeping, and you can tell that at some point she was beautiful. 
 
 [[&lt;span id=&quot;silver-grey&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt;You put her head in a bag and pray for her before flying off to continue your mission. &lt;/span&gt;-&gt;The end]]</tw-passagedata>
-<tw-passagedata pid="39" name="Main Menu" tags="menu" position="1400,608">
-
-
-
-
-
-
-&lt;center&gt;&lt;span style=&quot;font-weight:bold;&quot;&gt;Loominary&lt;/span&gt;&lt;/center&gt;
-&lt;center&gt;&lt;blockquote&gt;[[Tutorial]]&lt;/blockquote&gt;&lt;/center&gt;
-&lt;center&gt;&lt;blockquote&gt;[[Medusa&#39;s Laugh]]&lt;/blockquote&gt;&lt;/center&gt;
-&lt;center&gt;&lt;blockquote&gt;[[Oedipus]]&lt;/blockquote&gt;&lt;/center&gt;
-&lt;center&gt;&lt;blockquote&gt;[[Calibration -&gt;Calibration - purple-pink-blue]]&lt;/blockquote&gt;&lt;/center&gt;
+<tw-passagedata pid="39" name="Main Menu" tags="menu" position="1400,608">&lt;center&gt;&lt;span style=&quot;font-size:48px;&quot;&gt;Loominary&lt;/span&gt;&lt;/center&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;center&gt;[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;Tutorial&lt;/span&gt;-&gt;Tutorial]]&lt;/center&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;center&gt;[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;Medusa&#39;s Laugh&lt;/span&gt;-&gt;Medusa&#39;s Laugh]]&lt;/center&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;center&gt;[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;Oedipus&#39; Fate&lt;/span&gt;-&gt;Oedipus]]&lt;/center&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;center&gt;[[&lt;span id=&quot;master&quot; style=&quot;font-weight:bold;&quot;&gt;Calibration (MASTER)&lt;/span&gt; -&gt;Calibration - purple-pink-blue]]&lt;/center&gt;
 </tw-passagedata>
 <tw-passagedata pid="40" name="Tutorial" tags="" position="2136,940">
 A white fog swirls about you...
@@ -825,7 +832,7 @@ You are among the stars.
 
 [[&lt;span id=&quot;royal-purple&quot; style=&quot;color:#8600b3;font-weight:bold;&quot;&gt;Begin your journey.&lt;/span&gt;-&gt;The end]]
 </tw-passagedata>
-<tw-passagedata pid="57" name="Oedipus" tags="" position="1587,1">
+<tw-passagedata pid="57" name="Oedipus" tags="" position="1783.3333333333335,0">
 As your hand reaches to pick up the shuttle once more, an old hand lays itself on yours. You look up to see an old man whose face is kind but tired. In his eyes you can see centuries, you can see snakes, you can see gods fighting among men.
 
 [[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;&quot;Please,&quot; he begins. &quot;A great tragedy is going to befall Thebes. I need your help to stop it.&quot;&lt;/span&gt; -&gt; Task]]
@@ -833,42 +840,25 @@ As your hand reaches to pick up the shuttle once more, an old hand lays itself o
 
 
 </tw-passagedata>
-<tw-passagedata pid="58" name="You nod, ready to do what you must because you can" tags="" position="1849,0">
+<tw-passagedata pid="58" name="You nod, ready to do what you must because you can" tags="" position="1955,536.6666666666667">
 Tiresias nods back at you and waves his staff in the air. A cloud forms and you can hear the faint sound of a baby crying.
 
-The prophet Tiresias turns back to you. &quot;I will take you to crucial moments in the life of young Oedipus. It is up to you to make decisions that will change his destiny.&quot;
+He turns back to you. &quot;I will take you to crucial moments in the life of Oedipus. It is up to you to make decisions that will change his destiny.&quot;
 
 [[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;You nod, and you both turn to the clouds.&lt;/span&gt; -&gt; Begin quest]]
 
 </tw-passagedata>
-<tw-passagedata pid="59" name="Abandon" tags="" position="2099,0">
+<tw-passagedata pid="59" name="Abandon" tags="" position="3086.666666666667,366.6666666666667">
 Laius looks into the bundle of cloth one more time before turning away.
 
-&quot;Take it away. I will pray to the gods for mercy another day.&quot; Laius sweeps out of the room, back stiff and pace a bit faster than it should be.
+&quot;Take it away. I will pray to the gods for mercy another day.&quot; The king sweeps out of the room, back stiff and pace a bit faster than it should be.
 
 The shepherd looks at tiny Oedipus, voice sweet and eyes curious, and knows he cannot follow the orders of the king and queen.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;He decides to save the boy.&lt;/span&gt;-&gt;He decides to save the boy]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;He decides to save the boy.&lt;/span&gt;-&gt;He decides to save the boy]]
 </tw-passagedata>
-<tw-passagedata pid="60" name="Don&#39;t abandon" tags="" position="2023,141">
-((If the player hasn&#39;t done the sequence in the right order show this text))
-
-Though you try to let the seed of doubt blossom, all it seems to do is make the king feel a sense of dread and guilt.
-
-You feel a hand on your shoulder.
-
-&quot;I don&#39;t think it will work this time around, my friend,&quot; Tiresias says. &quot;The words of the oracle are too fresh in his mind. We must find another way. Something else, something small, must change first in Oedipus&#39; story, but that change could be at the very end of his tale for all we know.&quot;
-
-You sigh. Tiresias pats your shoulder comfortingly.
-
-&quot;Slow and steady, my friend. It takes a lot to change fate, especially with the gods so entrenched in their ways. A smaller change elsewhere in the story, perhaps, will allow us to make this change another time.&quot;
-
-There is only one direction you can take now.
-
-[[&lt;span id=&quot;blood-red&quot; style=&quot;style=&quot;color:#DC0E0E;font-weight:bold;font-style:italic;&quot;&gt;Abandon the baby.&lt;/span&gt; -&gt;Abandon]]
-
-((If player has met all the other win conditions, show this text))
-
+<tw-passagedata pid="60" name="Don&#39;t abandon" tags="" position="2848.3333333333335,373.33333333333337">&lt;% if (s.talkToParents == true) { 
+	s.abandon = false; %&gt;
 &quot;Let me see him. Let me see my son one last time.&quot; Laius reaches for the bundle in the shepherd&#39;s arms and cradles it close to his chest.  The small boy in his arms coos and tries to grab at his beard.
 
 The king smiles sweetly at the boy and gently pinches his cheek. The shepherd takes the opportunity to speak.
@@ -879,20 +869,34 @@ Laius looks to the shepherd, tears in his eyes and a smile on his face.
 
 &quot;Perhaps you are right.&quot; He looks down at Oedipus who beams back up at him.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;&quot;I don&#39;t feel like losing my son.&quot;&lt;/span&gt; -&gt;The end]]
-</tw-passagedata>
-<tw-passagedata pid="61" name="He decides to save the boy" tags="" position="2224,0">
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;&quot;I don&#39;t want to lose my son,&quot; he whispers.&lt;/span&gt; -&gt;Completed story]]
+
+&lt;% }
+	else { %&gt;
+	
+Though you try to let the seed of doubt blossom, all it seems to do is make the king feel a sense of dread and guilt.
+
+You feel a hand on your shoulder.
+
+&quot;I don&#39;t think it will work this time around, my friend,&quot; Tiresias says. &quot;The words of the oracle are too fresh in his mind. We must find another way. Something else, something small, must change first in Oedipus&#39; story, but that change could be at the very end of his tale for all we know.&quot;
+
+There is only one direction you can take now.
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;font-style:italic;&quot;&gt;Abandon the baby.&lt;/span&gt; -&gt;Abandon]]
+
+&lt;% } %&gt;</tw-passagedata>
+<tw-passagedata pid="61" name="He decides to save the boy" tags="" position="2958.3333333333335,556.6666666666667">
 The shepherd, knowing a friend that could give Oedipus shelter, journeys to the neighboring city Corinth to meet them. After greetings and pleseantries, the shepherd tells his friend of young Oedipus and asks if they can provide him shelter.
 
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;His friend agrees.&lt;/span&gt; -&gt;grows up]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;His friend agrees.&lt;/span&gt; -&gt;grows up]]
 </tw-passagedata>
-<tw-passagedata pid="62" name="grows up" tags="" position="2349,0">
+<tw-passagedata pid="62" name="grows up" tags="" position="2955,720">
 The friend of the shepherd, after taking the boy in, decides to see the king and queen of Corinth. There have been whispers in the city that Queen Merope has had a difficult time birthing an heir. They are kind, and will surely take in a child in need.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;And as predicted, they adopt the child as their own.&lt;/span&gt; -&gt;And as predicted, they adopt the child as their own.]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;And as predicted, they adopt the child as their own.&lt;/span&gt; -&gt;And as predicted, they adopt the child as their own.]]
 </tw-passagedata>
-<tw-passagedata pid="63" name="chorus says he&#39;s adopted" tags="" position="2611,0">
+<tw-passagedata pid="63" name="chorus says he&#39;s adopted" tags="" position="3760,191.66666666666669">
 The clouds dissapate and you see the royal court. Dozens of people are gathered, talking and drinking together. On a large long table there is a sprawling feast with the most delectable food. A voice snaps you out of your hungry gaze.
 
 &quot;What did you say?&quot; Oedipus looks to the cluster of people near him. While the dinner being held by the court is boisterous, he was still able to overhear the conversation of the city&#39;s wealthiest artisans.
@@ -903,9 +907,9 @@ The clouds dissapate and you see the royal court. Dozens of people are gathered,
 
 &quot;You said something else. Do not be afraid my countrymen, please speak freely,&quot; Oedipus pleads as he draws close to the group.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;They give each other weary glances.&lt;/span&gt; -&gt;They give each other weary glances.]]
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;They give each other weary glances.&lt;/span&gt; -&gt;They give each other weary glances.]]
 </tw-passagedata>
-<tw-passagedata pid="64" name="Oedipus goes to oracle" tags="" position="2736,0">
+<tw-passagedata pid="64" name="Oedipus goes to oracle" tags="" position="3776.666666666667,471.6666666666667">
 After a day&#39;s travel, Oedipus finaly arrives at the temple of the oracle. His mind is swimming with confusion and fear. His heart dances like fire in the wind.
 
 He cautiously enters the temple. Ribbons of smoke wrap around his body as he moves closer to the priestess. Stone lions stand guard at her side as she sits on a stone throne, wraped fine cloth.
@@ -914,9 +918,9 @@ Her words flow from her mouth like a sigh. &quot;Hello Oedipus. It seems too soo
 
 &quot;Pythia, I thank you for allowing me your prescence.&quot; Oedipus kneels before the priestess and presents his offerings to the gods. &quot;I have heard the whispers and gossip of my countrymen, but I need to know the truth. Tell me about my family.&quot;
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;&quot;And it shall be done,&quot; Pythia says.&lt;/span&gt; -&gt;Oracle tells prophecy]]
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;&quot;And it shall be done,&quot; Pythia says.&lt;/span&gt; -&gt;Oracle tells prophecy]]
 </tw-passagedata>
-<tw-passagedata pid="65" name="Oracle tells prophecy" tags="" position="2861,0">
+<tw-passagedata pid="65" name="Oracle tells prophecy" tags="" position="3783.3333333333335,606.6666666666667">
 Pythia&#39;s eyes roll to the back of her head as the smoke from the small chasm beneath her feet wraps itself in her robes. From a vase nearby she picks up a laurel branch and stirs the smoke.
 
 The sound of a distant battle, the screams of woman, and the crying of a child echo from the chasm. In the smoke the figure of a creature appears for a moment, then vanishes.
@@ -927,179 +931,426 @@ The sound of a distant battle, the screams of woman, and the crying of a child e
 
 Oedipus is shocked into silence as the oracle comes back from her trance.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;&quot;I am sorry to say, but this is the fate for you and your blood.&quot; Pythia caresses the smoke in slow circles.&lt;/span&gt; -&gt;Oedipus misunderstands]]
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;&quot;I am sorry to say, but this is the fate for you and your blood.&quot; Pythia caresses the smoke in slow circles.&lt;/span&gt; -&gt;Oedipus misunderstands]]
 </tw-passagedata>
-<tw-passagedata pid="66" name="Oedipus misunderstands" tags="" position="2986,0">
+<tw-passagedata pid="66" name="Oedipus misunderstands" tags="" position="3790,770">
 Oedipus leaves the temple in a daze. It isn&#39;t until he breathes in fresh air that he realizes the gravity of what the oracle has told him. He sits on the stairs of the temple and starts to think.
 
 &quot;The poor boy has just heard something astonishing.&quot; Tiresias looks to you and then the loom. &quot;His thoughts are a mess, you may be able to sway him.&quot;
 
-[[&lt;span style=&quot;font-style:italic;&quot;&gt;It might be best to leave this city.&lt;/span&gt; -&gt;Leaves for neighboring kingdom]]
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;font-style:italic;&quot;&gt;It might be best to leave this city.&lt;/span&gt; -&gt;Leaves for neighboring kingdom]]
 
-[[&lt;span id=&quot;&quot; style=&quot;font-style:italic;&quot;&gt;Stay and talk to the king and queen - surely they can help.&lt;/span&gt; -&gt;Stays &amp; decides own fate]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;font-style:italic;&quot;&gt;Stay and talk to the king and queen - surely they can help.&lt;/span&gt; -&gt;Stays &amp; decides own fate]]
 </tw-passagedata>
-<tw-passagedata pid="67" name="Leaves for neighboring kingdom" tags="" position="3111,0">
-Walking across the land
+<tw-passagedata pid="67" name="Leaves for neighboring kingdom" tags="" position="3856.666666666667,1155">
+Oedipus&#39; guilt only strengthens as he sneaks around his home trying to gather provisions. He takes a small pouch of gold, some bits of food, and a walking stick for his journey.
 
-[[Arrives at crossroads]]
+He is just about to leave when he remembers his sword. His father gifted it to him when he was a young boy and it has been his companion ever since.
+
+Oedipus takes it and fastens it to his side. When the road isn&#39;t so kind, it will remind him why he left in the first place. 
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;When it is dark, he leaves a note on his bed saying goodbye to his parents and leaves.&lt;/span&gt; -&gt;Arrives at crossroads]]
 </tw-passagedata>
-<tw-passagedata pid="68" name="Stays &amp; decides own fate" tags="" position="2987,125">
-((If the player took the right paths previously))
-
+<tw-passagedata pid="68" name="Stays &amp; decides own fate" tags="" position="3675,1013.3333333333334">&lt;% if (s.killLaius == false) { 
+	s.talkToParents = true; %&gt;
 Oedipus breathes deeply the late afternoon air and stands. His mother taught him to be kind. His father taught him to be brave. He will not let their wisdom go to waste.
 
-He starts walking off towards their kingdom, his kingdom. He will decide his own fate.
+He starts walking off towards corinth. Their kingdom. His kingdom. [[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;He will decide his own fate. &lt;/span&gt;-&gt;Talk with parents]]
 
-(?????????????)
-
-((If player hasn&#39;t done the right paths yet.))
-
+&lt;% }
+	else { %&gt;
 As much as the nagging feeling in his heart tells him that everything will be fine if he just goes to his family, Oedipus is still scared. To betray his loved ones in such horrible ways makes bile rise in his throat.
 
-He can&#39;t stay here.
-He has to protect them.
+&quot;It doesn&#39;t seem to have worked this time either.&quot; Tiresias shakes his head slowly. You sense the panic within Oedipus&#39; heart.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;He&#39;ll leave immediately.&lt;/span&gt; -&gt;Arrives at crossroads]]
+&quot;He fears he will be lead down a terrible path to harm his loved ones,&quot; Tiresias says. &quot;Very few have the strength to face that.&quot;
+
+You sigh. Tiresias pats your shoulder comfortingly.
+
+&quot;Slow and steady, my friend. It takes a lot to change fate, especially with the gods so entrenched in their ways. A smaller change elsewhere in the story, perhaps, will allow us to make this change another time.&quot;
+
+You gaze at the vision. Oedipus runs back to Corinth.
+
+He can&#39;t stay here. He has to protect them.
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;font-style:italic;&quot;&gt;He&#39;ll leave immediately.&lt;/span&gt; -&gt;Leaves for neighboring kingdom]]
+
+&lt;% } %&gt;
 </tw-passagedata>
-<tw-passagedata pid="69" name="Arrives at crossroads" tags="" position="3236,0">
-After a few days journey. Oedipus finds himself at a crossroads.
+<tw-passagedata pid="69" name="Arrives at crossroads" tags="" position="4133.333333333334,618.3333333333334">&lt;% if (s.talkToParents == false) { %&gt;
+It takes Oedipus two days to gain substantial distance from Corinth as he waffles in his decision. For every three kilometers the prince travels, he turns around and travels one back. But the knocking of the sword against his body reminds him of why he left, and he turns around once again and moves on.
 
-[[Gets into argument]]
+On the third day, he is slowly marching away from the city, choking the grip of the sword when he wants to turn back. He looks back often, but does not walk back towards his home.
+
+On the fourth and fifth days, the pain in his heart lifts a little. He is able to move well outside of the boundries of Corinth.
+
+&lt;% } %&gt;
+
+It is while Oedipus is traveling through Phocis that he comes to a crossroads. The left goes to the oracle, the right to Daulis, and straight through to Thebes. The path to Corinth sits behind him, long and winding.
+
+The sound of horses catches his attention. Oedipus shades his eyes against the harsh sun and sees [[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;what appears to be two guards and a chariot.&lt;/span&gt; -&gt;Gets into argument]]
 </tw-passagedata>
-<tw-passagedata pid="70" name="Gets into argument" tags="" position="3361,0">
-Arguement may become violent
+<tw-passagedata pid="70" name="Gets into argument" tags="" position="4140,773.3333333333334">
+He stares at the men, sizing them up for a few moments, before the man driving the chariot squares his shoulders.
 
-[[kills the men]]
-[[does not kill the men]]
+&quot;I am sure you are aware of who you are standing in front of. Make way, your insolence will not be tolerated!&quot; the driver bellows at Oedipus. The man in the chariot behind him looks on.
+
+Oedipus frowns. &quot;Surely, my countrymen, we can cross paths without strife,&quot; he says. &quot;I also have influence beyond this area, and I am insulted at your choice of words.&quot; He makes his stance wider as he stares down the driver. The soliders next to the chariot seem to be growing restless.
+
+The driver grips his whip a bit tighter.
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;But it may just be easier to let them pass.&lt;/span&gt; -&gt;does not kill the men]]
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;Oedipus is young, he can easily take these men on.&lt;/span&gt; -&gt;kills the men]]
+
+
 </tw-passagedata>
-<tw-passagedata pid="71" name="kills the men" tags="" position="3486,0">
-continues on
+<tw-passagedata pid="71" name="kills the men" tags="" position="4241.666666666667,1263.3333333333335">
+&lt;% /*This is a fight scene. Boy howdy is there some fighting in this part right here. Dirt is kicked up, names are called, swords clash. It&#39;s not pretty, and surely inappropriate for most audiences. So let us move on to the next event shall we? */ %&gt;
 
-[[meet sphynx at city limit]]
+Oedipus rips his sword from its sheath and lunges at the man in the charriot. He&#39;s about to swing at the noble&#39;s head when the vision freezes.
+
+You turn to Tiresias. There are tears rolling down his cheeks.
+
+&quot;I am sorry,&quot; he murmurs. &quot;Laius and I were friends. I know this story, but to see him come to such an end yet again...&quot; He gently dabs at his eyes with the end of his robes.
+
+The clouds swirl. When they clear, you see Oedipus standing, breathing heavy and covered in blood. He is surrounded by the bodies of the soldiers, the driver, and the man in the back of the chariot. He rips a piece of cloth from the noble&#39;s robes and uses it to wipe his face and clean his sword.
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;Justice served, he turns and heads for Thebes.&lt;/span&gt; -&gt;meet sphynx at city limit]]
 </tw-passagedata>
-<tw-passagedata pid="72" name="does not kill the men" tags="" position="3361,125">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="73" name="meet sphynx at city limit" tags="" position="3611,0">
-Get sphynx&#39;s riddle
+<tw-passagedata pid="72" name="does not kill the men" tags="" position="4090,1135">&lt;% if (s.goToFuneral == true) { %&gt;
 
-[[Answer correctly]]
-[[Answer incorrectly]]
+&quot;I was only doing a bit of sight-seeing gentlemen. I didn&#39;t wish to cross anyone today.&quot; Oedipus steps to the side of the chariot and the men pass.
+
+Oedipus and the well-dressed man&#39;s eyes meet. The man nods at him.
+
+&quot;I wish you safe travels young man,&quot; he says.
+
+&quot;And for you the same,&quot; Oedipus nods back.
+
+&lt;% s.killLaius = false %&gt;
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;They continue on their respective journeys.&lt;/span&gt; -&gt;meet sphynx at city limit]]
+
+&lt;% }
+	else { %&gt;
+	
+Oedipus silently moves out of the way and the procession begins to trudge past him.
+
+The man in the back of the chariot looks at the prince, takes the driver&#39;s whip, and lashes Oedipus below his left eye.
+
+&quot;Remember your place next time,&quot; the well-dressed man says.
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;Oedipus&#39; vision clouds with red.&lt;/span&gt; -&gt;kills the men]]
+
+&lt;% } %&gt;</tw-passagedata>
+<tw-passagedata pid="73" name="meet sphynx at city limit" tags="" position="4668.333333333334,300">The path to Thebes takes him through a mountainous area. Oedipus&#39; knees tremble as he climbs over the rocks. He&#39;s running low on water, and he has more cuts and scrapes than he has ever had before.
+
+Oedipus climbs to the top of a rocky hill, and he can finally see the city of Thebes. It glitters in the warm afternoon light. A movement at the base of the hill catches Oedipus&#39; eye. In a small cave, Oedipus sees something strange.
+
+Surrounded by bones, this thing seems to have the body of a lion and the head of a woman. The feathers on its wings ruffle as it licks the deep red off of its paws. When Oedipus draws closer, it stops, looks at him, and begins to speak.
+
+&quot;Welcome, traveler. I am the Sphynx. If you wish to pass you must answer my riddle.&quot; 
+
+Its voice is calming, which makes Oedipus&#39; heart race.
+
+&quot;And if I don&#39;t?&quot; he asks. His hand tightens on his sword.
+
+&quot;You die,&quot; the spynx says simply. It grins, and Oedipus realizes that the red coating its paws and lips is blood.
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;Oedipus nods. Anything to get away from another fight.&lt;/span&gt; -&gt; The Riddle]]
 </tw-passagedata>
-<tw-passagedata pid="74" name="Answer correctly" tags="" position="3736,0">
-Sphynx is upset
+<tw-passagedata pid="74" name="Answer correctly" tags="" position="4812,636">
+&quot;What? You...&quot; The monster&#39;s face spasms into a grimace and lets out a low moan.
 
-[[Sphynx destroys itself]]
+Oedipus steps back from the creature, back towards the road.
+
+&quot;But how?&quot; the creature cries. &quot;No one has answered my riddle correctly. I have destroyed hundreds of men with them! How could you have defeated me? No!&quot; 
+
+The Sphynx lunges at Oedipus. He braces himself. Just before impact, the creature rears up and flies high into the air. Oedipus watches it with his sword ready. It flys into the distance before it quickly dives down. Too quickly.
+
+You hear a crash, folllowed by a faint cry from an animal.
+
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;Oedipus stands dumbfounded for a moment, before sheathing his sword and continuing on his journey.&lt;/span&gt; -&gt;Sphynx destroys itself]]
 </tw-passagedata>
-<tw-passagedata pid="75" name="Answer incorrectly" tags="" position="3613,125">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="76" name="Sphynx destroys itself" tags="" position="3861,0">
-Hey, since we defeated it, we could become king now! And marry the queen!
+<tw-passagedata pid="75" name="Answer incorrectly" tags="" position="4552,644">
+&quot;My my, that is definitely not the correct answer. I&#39;m afraid this is my win.&quot; The Sphynx walks over to Oedipus licking its lips.
 
-[[accept]]
-[[deny]]
+&quot;No wait, please! I can try again! I-&quot;
+
+Just as the Sphynx pounces, the vision comes to a halt.
+
+&quot;Riddles are tricky,&quot; Tiresias says. &quot;Unfortunately for you, the gods love them. We must get this right to move Oedipus forward.&quot; Tiresias waves his cane and the clouds swirl.
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;You are taken back to where Oedipus must answer the riddle.&lt;/span&gt; -&gt; The Riddle]]
 </tw-passagedata>
-<tw-passagedata pid="77" name="accept" tags="" position="3986,0">
-Cool beans
+<tw-passagedata pid="76" name="Sphynx destroys itself" tags="" position="4635,811.6666666666667">
+When Oedipus enters the city of Thebes, it is in chaos. A man on horseback trots through the town yelling the news.
 
-[[Time passes]], we are happy
+&lt;% if (s.killLaius == true) { %&gt;
+&quot;A highway man has slain our great King Laius!&quot;
+
+&lt;% } else { %&gt;
+&quot;The Sphynx has taken its life, and with it our king&#39;s!&quot;
+&lt;% } %&gt;
+
+Whispers and cries swirl around Oedipus as he walks further into the city. Confusion and sorrow pour off the people, and he feels he must do something.
+
+He decides to stay in the city for awhile. He stays at an inn close by to learn of any news happening within the royal family.
+
+In the days since the death of Laius, his brother Creon has taken over as temporary king. But since Queen Jocasta has not birthed an heir, they will need to find a suitor that can carry on the family line. They also talk of the man who defeated the Sphynx and finally brought its tyranny to an end.
+
+Some of the citizens realize that the description of the Sphynx&#39;s killer and Oedipus&#39; image match. They immediately take him to see Creon.
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;The royal family throws him a feast in celebration.&lt;/span&gt; -&gt; Crowning the Sphynx Killer]]
 </tw-passagedata>
-<tw-passagedata pid="78" name="deny" tags="" position="3864,125">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="79" name="Time passes" tags="" position="4111,0">
-All this shit is good
+<tw-passagedata pid="77" name="accept" tags="" position="4723.333333333334,1131.6666666666667">
+&lt;% if (s.talkToParents != true) { %&gt;
+Oedipus starts to wonder. Maybe this is the fresh start he needs. Maybe if he stays in Thebes he will never fulfill the prophecy and he will have beaten fate.
 
-[[Plague hits city]]
+&lt;% } %&gt;
+
+&quot;If you will have me, I would be honored to take you as my wife.&quot; Oedipus kisses Jocasta&#39;s hands as the crowd cheers.
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;They smile at each other, and the feast resumes.&lt;/span&gt;-&gt;Time passes]]
 </tw-passagedata>
-<tw-passagedata pid="80" name="Plague hits city" tags="" position="4236,0">
-Aw shit, all the people are dying
+<tw-passagedata pid="78" name="deny" tags="" position="4512,1136">
+&lt;% if (s.talkToParents == true) { %&gt;
 
-[[send uncle to Oracle]]
+&quot;I&#39;m sorry, this was only meant to be a short trip. I must return to my family in Corinth.&quot; Oedipus says, moving his hands away from the queen&#39;s.
+
+&lt;% } else { %&gt;
+&quot;While you are a sight to behold, my lady, to take over a whole kingdom so suddenly is too daunting a task.&quot; Oedipus says, moving his hands away from the queen&#39;s.
+&lt;% } %&gt;
+
+&quot;Nonsense Oedipus,&quot; Creon bellows. &quot;You have shown courage and kindness in your time here. We need that type of leadership now more than ever. Isn&#39;t that right?&quot;
+
+The crowd cheers as Jocasta takes his hand in hers once more.
+
+Tiresias shakes his head and turns to you. &quot;Fate has too strong a pull here. I don&#39;t think anything could have swayed these events.
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;We&#39;ll just have to find another opportunity,&quot; he says.&lt;/span&gt; -&gt;Time passes]]
 </tw-passagedata>
-<tw-passagedata pid="81" name="send uncle to Oracle" tags="" position="4361,0">
-uncle goes &amp; asks
+<tw-passagedata pid="79" name="Time passes" tags="" position="4604,1316">
+The clouds swirl and you can see visions of the new king&#39;s life.
 
-[[Oracle says killer must be taken to justice-&gt;Oracle justice]]
+Oedipus is a great ruler, and a great father.
+
+He teaches his two sons how to fight and lead men into battle.
+
+He dances with his daughters to the music in the courtyard.
+
+He showers his wife in gifts and love and she does the same.
+
+He gains the respect of Creon and the people.
+
+He is happy, but the gods are not.
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;They know of his sin, and they will make him pay for it.&lt;/span&gt; -&gt;Plague hits city]]
 </tw-passagedata>
-<tw-passagedata pid="82" name="Oracle justice" tags="" position="4486,0">
-Oracle says reason plague has occurred is the king&#39;s killer never brought to justice
+<tw-passagedata pid="80" name="Plague hits city" tags="" position="5124,332">
+Years after his rise to the throne, the people of Thebes start to slowly die. A sickness the likes they have never seen puts the city in a state of decay. No matter what he does, Oedipus cannot seem to solve the crisis.
 
-Uncle returns to tell
+Pits full of corpses fill quickly. Just like when he first arrived, Oedipus sees the city in chaos.
 
-[[Oedipus curses killer]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;After some discussion, he sends Creon to see the oracle.&lt;/span&gt; -&gt;send uncle to Oracle]]
 </tw-passagedata>
-<tw-passagedata pid="83" name="Oedipus curses killer" tags="" position="4611,0">
-We are so not happy
+<tw-passagedata pid="81" name="send uncle to Oracle" tags="" position="5132,460">
+When Creon comes back, his face is pale with worry.
 
-[[Tell Tiresius to find killer]]
+&quot;The oracle has told me that this sickness is due to the death of King Laius,&quot; Creon says as he stands before Oedipus and Jocasta, his voice low.
+
+&lt;% if (s.killLaius == false) { %&gt;
+&quot;Was it not the sphynx that killed the king? Is it not dead?&quot; Oedipus asks.
+
+&quot;That I do not know, my lord.&quot; Creon answers.
+
+&lt;% } else { %&gt;
+&quot;Was the murderer never brought to justice?&quot; Oedipus asks, incredulous.
+
+&quot;No my lord, he was never found.&quot; Creon says.
+
+&lt;% } %&gt;
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;To think one person can cause a whole city to suffer,&quot; Oedipus mutters.&lt;/span&gt; -&gt;Oedipus curses killer]]
 </tw-passagedata>
-<tw-passagedata pid="84" name="Tell Tiresius to find killer" tags="" position="4736,0">
-Tiresius does NOT want to do this
+<tw-passagedata pid="82" name="Oedipus curses killer" tags="" position="5136,592">
+Oedipus stands and yells to the gods:
+&quot;May a curse be brought down upon the man who caused this suffering! May he feel all the sorrow of my people ten fold!&quot;
 
-[[Tiresius reveals truth]]
+His voice echoes as he walks away from his throne. At your side you see Tiresias clench his eyes and turn away from the vision, as if it brings him pain.
+
+Looking back, you see that Oedipus is now in the courtyard, approaching the same man who stands at your side. Tiresias bows before the king.
+
+&quot;Tiresias,&quot; Oedipus says. &quot;Thebes is suffering and I need to know how to end it. Please, use your gift from the gods and find out the truth.&quot;
+
+&quot;Of course my lord,&quot; the old man responds.
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;The prohpet closes his eyes and a low hum shakes the earth.&lt;/span&gt; -&gt;Tiresius reveals truth]]
 </tw-passagedata>
-<tw-passagedata pid="85" name="Tiresius reveals truth" tags="" position="4861,0">
-Tiresius: my dude, you&#39;re adopted
+<tw-passagedata pid="83" name="Tiresius reveals truth" tags="" position="5144,736">
+Tiresias&#39; eyes snap open, and looks to Oedipus in horror.
+His trembling makes him stutter. &quot;O-oh gods. M-m-my lord I...I don&#39;t know how to say this.&quot;
 
-[[Messenger arrives]]
+Oedipus grabs the man&#39;s shoulders to steady him. &quot;Please, Tiresias, tell me what the gods have told you.&quot;
+
+&quot;My king- My king you are not a true Corinthian.&quot;
+
+&lt;% if (s.talkToParents == true) { %&gt;
+&quot;I know this Laius, what does this have to do with the plague on Thebes?&quot; Oedipus gently shakes the man.
+
+&lt;% } else { %&gt;
+Oedipus takes a step away from the prophet. &quot;What are you implying Tiresias?&quot;
+
+&lt;% } %&gt;
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;Sir, I-&quot; Tiresias begins, but he is cut off by the sound of running feet.&lt;/span&gt; -&gt;Messenger arrives]]
 </tw-passagedata>
-<tw-passagedata pid="86" name="things go to shit" tags="" position="5362,0">
-We are all freaking out. Jocasta leaves. Oedipus follows.
+<tw-passagedata pid="84" name="Messenger arrives" tags="" position="5146.666666666667,915">
+A messenger bursts into the courtyard, sliding to a stop when he reaches Oedipus&#39; side.
 
-[[Jocasta hangs herself]]
+&quot;My leige, a message from Corinth. King Polybus has passed away. It happened in his sleep two days ago. Lady Merope knows of your prescence here, and she wishes for you to come back and attend the funeral.&quot;
+
+Oedipus&#39; mind reels. After everything that&#39;s happened, he feels it is his duty to stay in Thebes and fix his kingdom. But this is also the man who raised and loved him.
+
+&lt;% if (s.talkToParents == true) { %&gt;
+Despite not being his blood, Polybus loved him as a true father would. And his adoptive mother could use him at her side.
+
+&lt;% } else { %&gt;
+In the back of his mind, he couldn&#39;t help feel some relief. The oracle was wrong. He was nowhere near his father when he died. Maybe seeing his mother in this case would be fine.
+&lt;% } %&gt;
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;&quot;Tell her I will go to the funeral,&quot; Oedipus says.&lt;/span&gt; -&gt;Will go to funeral]]
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;&quot;Send her my condolences, I have my kingdom to worry about.&quot; Oedipus turns back towards Tiresias.&lt;/span&gt; -&gt;Won&#39;t go to funeral]]
 </tw-passagedata>
-<tw-passagedata pid="87" name="Messenger arrives" tags="" position="4986,0">
-Guess what the king is dead.
+<tw-passagedata pid="85" name="Will go to funeral" tags="" position="4984,1088">
+&lt;% s.goToFuneral = true %&gt;
 
-Oedipus thinks prophecy canceled
+&quot;Excellent sir, I will tell Lady Merope immediately. This must be a very difficult decision for you, what with the city in this state and your birth father&#39;s death still a mystery,&quot; the messenger says.
 
-[[Will go to funeral]]
-[[Won&#39;t go to funeral]]
+&lt;% if (s.talksToParents == true) { %&gt;
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;Oedipus becomes very still. &quot;What did you just say?&quot; he asks.&lt;/span&gt; -&gt;Messenger says old king was father]]
+
+&lt;% } else { %&gt;
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;You just said my father just died in his sleep. Where is the mystery in that?&quot; Oedipus asks.&lt;/span&gt; -&gt;Messenger says old king was father]]
+
+&lt;% } %&gt;</tw-passagedata>
+<tw-passagedata pid="86" name="Won&#39;t go to funeral" tags="" position="5328,1076">
+&quot;I&#39;m sorry to hear that sir, I will tell Lady Merope immediately. Your choice is understandable, what with the city in this state and your birth father&#39;s death still a mystery.&quot; The messenger says.&quot;
+
+&lt;% if (s.talksToParents == true) { %&gt;
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;Oedipus becomes very still. &quot;What did you just say?&quot; he asks.&lt;/span&gt; -&gt;Messenger says old king was father]]
+
+&lt;% } else { %&gt;
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;You just said my father just died in his sleep. Where is the mystery in that?&quot; Oedipus asks.&lt;/span&gt; -&gt;Messenger says old king was father]]
+
+&lt;% } %&gt;</tw-passagedata>
+<tw-passagedata pid="87" name="Messenger says old king was father" tags="" position="5164,1272">
+From the corner of his eye Oedipus sees Jocasta enter with a few people from the court. The messenger begins to stammer.
+
+&quot;Well it is common knowledge, my liege, that the queen and king of Corinth adopted you when you were just a babe. That a shepherd brought you here...From Thebes...&quot; the messenger&#39;s voice falters at the end of his sentence. The courtyard is still and silent.
+
+Oedipus turns to the old prophet. &quot;Tiresias?&quot;
+
+Tiresias breathes deep and turns toward Oedipus. &quot;Both you and your father heard a prophecy from the oracle of Delphi. And when faced with that truth, you both took actions to ensure it never happened. However, those actions simply made sure everything went according to plan.&quot;
+
+The king looks first at his children, then at Jocasta. As the court whispers around her, the queen&#39;s eyes start to bubble with tears.
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;Her scream echoes through the courtyard as she flees.&lt;/span&gt; -&gt;Jocasta hangs herself]]
+
 </tw-passagedata>
-<tw-passagedata pid="88" name="Will go to funeral" tags="" position="4986,141">Double-click this passage to edit it.</tw-passagedata>
-<tw-passagedata pid="89" name="Won&#39;t go to funeral" tags="" position="5112,0">[[Messenger says old king was father]]</tw-passagedata>
-<tw-passagedata pid="90" name="Messenger says old king was father" tags="" position="5237,0">[[things go to shit]] </tw-passagedata>
-<tw-passagedata pid="91" name="Jocasta hangs herself" tags="" position="5487,0">
-Aw man this sucks
+<tw-passagedata pid="88" name="Jocasta hangs herself" tags="" position="5171.666666666667,1403.3333333333335">
+The clouds turn thunderous as the uproar continues in the courtyard.
 
-[[Oedipus stabs his eyes out]]
-</tw-passagedata>
-<tw-passagedata pid="92" name="Oedipus stabs his eyes out" tags="" position="5612,0">
-We are reaaaaally upset.
+&quot;To see this all happen again is devastating.&quot; Tiresias trembles as the vision blurs and you see Oedipus run to the Queen&#39;s chambers.
 
-[[Oedipus leaves]]
-</tw-passagedata>
-<tw-passagedata pid="93" name="Oedipus leaves" tags="" position="5612,150">
-we are gone gone gone
+At first it looks like she&#39;s floating. Then Oedipus looks up to see that she has made quick work of the bedding in their chambers. Her head lulls to one side as she hangs by her neck from the bed post.
 
-[[Main Menu]]
+Oedipus collapses, clutching his mother and sobbing into her dress.
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;He looks up and grabs the pins in her dress.&lt;/span&gt; -&gt;Oedipus stabs his eyes out]]
 </tw-passagedata>
-<tw-passagedata pid="94" name=" Task" tags="" position="1724,0">
+<tw-passagedata pid="89" name="Oedipus stabs his eyes out" tags="" position="5168,1540">
+Just as Oedipus is about the plunge the pin into his eyes, the vision stops.
+
+&quot;I&#39;m sorry, I cannot watch it again.&quot; Tiresias moves in front of the clouds to talk to you.
+
+&quot;We couldn&#39;t do it this time, but I stil believe in you. I know that you have the power to make things better.&quot; Tiresias gently touches the threads of the loom.
+
+&lt;% if (s.talkToParents == true) { %&gt;
+
+&quot;You are nearly there,&quot; Tiresias says. &quot;I can feel it. The story is already so different in so many ways. Oedipus has become a kind, strong man. Rather than avoiding his fate, he takes responsibility for his own actions.&quot;
+
+&lt;% } else if (s.killLaius == false) { %&gt;
+
+&quot;First, you helped Oedipus to show kindness and compassion to his adopted family, even though he was never able to carry out his plans. Then, you helped him avoid being controlled by his anger and allowed the King Laius to pass by. You are slowly, but surely, changing his fate.&quot;
+
+&lt;% } else if (s.goToFuneral == true) { %&gt;
+ 
+&quot;In here I feel that you have already set things in motion. You have influenced something in that man&#39;s life. The gods have allowed you the small change of Oedipus planning to pay his respects to his deceased adopted father; now, perhaps, you can make a larger change when we go through the story again.&quot;
+
+&lt;% } %&gt;
+
+
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;Tiresias moves away from view and the clouds clear once more.&lt;/span&gt; -&gt;Oedipus leaves]]
+</tw-passagedata>
+<tw-passagedata pid="90" name="Oedipus leaves" tags="" position="5176,1680">
+In the vision you see Oedipus, head and eyes wrapped in soaked bandages, with his daughter Antigone in tow.
+
+&quot;Come my child. If you must follow me, then do it quickly. Thebes will be better without us.&quot;
+
+They walk into the distance with nothing but the clothes on their backs.
+
+The clouds swirl once again. Tiresias turns to you.
+
+&quot;Do not give up on Oedipus. If you believe that this story has a happy ending, then take up your shuttles. You can change his fate.&quot;
+
+Tiresias smiles at you. &quot;You are free to take a break and come back to this task later - your choices that you have made will remain. Of course, if you would like to try again now, there is no time like the present.&quot;
+
+What will you do?
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;Begin the tale of Oedipus again.&lt;/span&gt;-&gt;You nod, ready to do what you must because you can]]
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;Take a moment to rest.&lt;/span&gt; -&gt;Main Menu]]
+</tw-passagedata>
+<tw-passagedata pid="91" name=" Task" tags="" position="1821.6666666666667,175">
 The man puts his hand to his chest and bows his head.
 
-&quot;My name is Tiresias, a prophet gifted visions by the goddess Aphrodite. I have seen many things in my lifetime, and I know that in a few decades a tragedy like no other is going to put Thebes in harm&#39;s way, and destroy a man and his family in the process.&quot;
+&quot;My name is Tiresias, a prophet gifted visions by the goddess Aphrodite. I have seen many things in my lifetime, and I know that a tragedy like no other is going to put Thebes in harm&#39;s way, and destroy a man and his family in the process.&quot;
 
 Tiresias gently puts his hand on the loom, caressing the yarn on the warp.
 
-&quot;But I think you can help me. The gods have given you a gift as well. This loom, these strings, they are not ordinary; the gods have given you these strings of fate. Use them and end the curse of Thebes by helping Oedipus change his destiny.&quot;
+&quot;But I think you can help me. The gods have given you a gift as well. This loom, these strings, they are not ordinary; the gods have given you these strings of fate. Use them to end the curse of Thebes by helping Oedipus change his destiny.&quot;
 
-Tiresias looks to you for an answer.
+His eyes harden for a moment. &quot;Know that this is not an easy task,&quot; he warns. &quot;The gods will not let you change someone&#39;s destiny outright, but they will accept small changes to a story over time. If you remain patient and slowly guide the chracters to goodness, I know you can save this man from his predetermined fate.&quot;
 
-[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;You refuse, it is too much responsibility.&lt;/span&gt; -&gt; Confirm]]
+&quot;So? Will you accept this task?&quot; Tiresias looks to you for an answer.
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;You refuse; it is too much responsibility.&lt;/span&gt; -&gt; Confirm]]
 
 [[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;You nod, ready to do what you must because you can.&lt;/span&gt; -&gt;You nod, ready to do what you must because you can]]
 </tw-passagedata>
-<tw-passagedata pid="95" name=" Confirm" tags="" position="1746,136">
-Tiresias looks at you appalled.
+<tw-passagedata pid="92" name=" Confirm" tags="" position="1700,371.6666666666667">
+Tiresias&#39; eyebrows raise.
 
-&quot;Is that really your decision? You are the only person who can help.&quot;
+&quot;Is that really your decision? You are the only person I know of who can help.&quot;
 
-[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;You confirm your choice.&lt;/span&gt; -&gt;You confirm your choice]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;You decline again; you are too tired to take this on right now.&lt;/span&gt; -&gt;You confirm your choice]]
 
-[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;You change your mind. You are ready to help.&lt;/span&gt; -&gt;You nod, ready to do what you must because you can]]
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;You change your mind. No matter how long it takes, you are ready to help.&lt;/span&gt; -&gt;You nod, ready to do what you must because you can]]
 </tw-passagedata>
-<tw-passagedata pid="96" name="You confirm your choice" tags="" position="1740,263">
-Tiresias sighs, his form fading as his words leave him.
+<tw-passagedata pid="93" name="You confirm your choice" tags="" position="1703.3333333333335,516.6666666666667">
+Tiresias sighs, his form fading as he speaks.
 
-[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;Then you are not the person I am looking for.&quot;&lt;/span&gt; -&gt;The end]]
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;Then you are not the person I am looking for,&quot; he says.&lt;/span&gt; -&gt;Main Menu]]
 </tw-passagedata>
-<tw-passagedata pid="97" name="And as predicted, they adopt the child as their own." tags="" position="2486,0">
+<tw-passagedata pid="94" name="And as predicted, they adopt the child as their own." tags="" position="3756.666666666667,50">
 Tiresias waves his staff once more and the clouds swirl as you see pieces of Oedipus&#39; childhood.
 
 Polybus and Merope love Oedipus unconditionally.
@@ -1108,9 +1359,9 @@ The Queen is careful to shower her son with love and kindness; while he grows up
 
 The King teaches him the arts of war and law; his silver tongue and iron sword have made him sure that he could handle himself in any situation.
 
-The people of Corinth are delighted by Oedipus. They know that he will end up becoming a great leader for their city, [[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;despite not being of the royal family&#39;s blood.&lt;/span&gt; -&gt;chorus says he&#39;s adopted]]
+The people of Corinth are delighted by Oedipus. They know that he will end up becoming a great leader for their city, [[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;despite not being of the royal family&#39;s blood.&lt;/span&gt; -&gt;chorus says he&#39;s adopted]]
 </tw-passagedata>
-<tw-passagedata pid="98" name=" Begin quest" tags="" position="1974,0">
+<tw-passagedata pid="95" name=" Begin quest" tags="" position="2936.666666666667,106.66666666666667">
 The cloud dissipates and you see a man. By his clothes you can tell he is a noble. With him is another man, slightly younger, carrying a long staff in one hand and a bundle in the other. They are speaking to each other as they walk.
 
 First the man with the staff says, &quot;King Laius, are you sure this is what you want? This child, Oedipus, was just born and now you are ready to take him from this world? You have already pierced his ankles through so he cannot crawl. Why make this child suffer more?&quot;
@@ -1119,11 +1370,11 @@ Then King Laius speaks. &quot;Have you ever known the oracle of Delphi to be wro
 
 In the king&#39;s eyes you can see a bit of doubt in what he is about to do. Maybe you can make the thought grow bigger.
 
-[[&lt;span id=&quot;blood-red&quot; style=&quot;style=&quot;color:#DC0E0E;font-weight:bold;font-style:italic;&quot;&gt;Abandon the baby.&lt;/span&gt;-&gt;Abandon]]
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;font-style:italic;&quot;&gt;Abandon the baby.&lt;/span&gt;-&gt;Abandon]]
 
 [[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;font-style:italic;&quot;&gt;Don&#39;t abandon the baby.&lt;/span&gt;-&gt;Don&#39;t abandon]]
 </tw-passagedata>
-<tw-passagedata pid="99" name="They give each other weary glances." tags="" position="2611,150">
+<tw-passagedata pid="96" name="They give each other weary glances." tags="" position="3768.3333333333335,330">
 The woman turns back to him.
 
 &quot;Let me tell you a story, dear,&quot; she says as she clasps Oedipus&#39; hand in her own.
@@ -1134,25 +1385,22 @@ The story is about Oedipus. Many years ago, she says, he was brought to Corinth 
 
 Oedipus backs away from the group slowly before turning and running off. He needs to know the truth, but he has doubts that his parents will give it to him.
 
-[[&lt;span id=&quot;&quot; style=&quot;&quot;&gt;He needs to see the oracle.&lt;/span&gt; -&gt;Oedipus goes to oracle]]
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;He needs to see the oracle.&lt;/span&gt; -&gt;Oedipus goes to oracle]]
 </tw-passagedata>
-<tw-passagedata pid="100" name="Welcome" tags="" position="21,13">&lt;span id=&quot;welcome&quot; class=&quot;text&quot; style=&quot;margin:3em;&quot;&gt;Welcome to Loominary.&lt;/span&gt;
+<tw-passagedata pid="97" name="Welcome" tags="" position="20,11.666666666666668">&lt;span id=&quot;welcome&quot; class=&quot;text&quot;&gt;Welcome to Loominary.&lt;/span&gt;
 
 &lt;span id=&quot;summary&quot; class=&quot;text&quot;&gt;This unique gameplay experience will take you through the myths of Medusa, Oedipus, and more.&lt;/span&gt;
 
-&lt;span id=&quot;instructions&quot; class=&quot;text&quot;&gt;But before you go on your journey, there are some tasks we must complete...&lt;/span&gt;
+&lt;span id=&quot;instructions&quot; class=&quot;text&quot;&gt;But before you go on your journey, there is one thing you must do...&lt;/span&gt;
 
 
 &lt;script&gt;welcomeSequence(&quot;#welcome&quot;)&lt;/script&gt;</tw-passagedata>
-<tw-passagedata pid="101" name="Calibration - purple-pink-blue" tags="" position="198,18">&lt;% s.calibrated = false %&gt;
+<tw-passagedata pid="98" name="Calibration - purple-pink-blue" tags="" position="198,18">&lt;% s.calibrated = false %&gt;
 
-&lt;span class=&quot;fadeIn&quot; style=&quot;display: none;&quot;&gt;Welcome to Shuttle Callibration.&lt;/span&gt;
+&lt;b&gt;Welcome to Shuttle Callibration.&lt;/b&gt;
 
-[[&lt;span id=&quot;color&quot; class=&quot;fadeIn&quot; style=&quot;display:none;&quot;&gt;Please place the shuttle with the pruple-pink-blue yarn on top of the loom.&lt;/span&gt; -&gt;raspberry-purple]]
+Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;background-image:linear-gradient(to right, #d4359f, #3b85ce, #d4359f); color:transparent; background-clip: text;-webkit-background-clip: text; font-weight:bold;&quot;&gt; purple-pink-blue yarn &lt;/span&gt; -&gt;raspberry-purple]]on top of the loom.
 
-
-
-&lt;script&gt;fadeIn(&quot;.fadeIn&quot;)&lt;/script&gt;
 
 &lt;%
 $(function () {
@@ -1163,7 +1411,7 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="102" name=" Flirtatious" tags="" position="368,1550">Posieden strides forward, closer. The torches cast his face in a warm glow. He smiles.
+<tw-passagedata pid="99" name=" Flirtatious" tags="" position="368,1550">Posieden strides forward, closer. The torches cast his face in a warm glow. He smiles.
 
 &quot;I have long thought of you, fair priestess,&quot; he says. &quot;No mortal has occupied my mind so much as you. My desire burns for you like no other.&quot;
 
@@ -1180,7 +1428,7 @@ Posieden&#39;s hand grabs your arm and spins you around roughly. You stumble and
 [[&lt;span class=&quot;readSpeed&quot; id=&quot;pine-green&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt;Push yourself away from him. &lt;/span&gt;-&gt; The Escalation]]
 
 </tw-passagedata>
-<tw-passagedata pid="103" name=" The Escalation" tags="" position="555,1552">You square your shoulders and drop the smile.
+<tw-passagedata pid="100" name=" The Escalation" tags="" position="555,1552">You square your shoulders and drop the smile.
 
 &quot;I have told you many times that I am not interested in your offers,&quot; you say coldly. &quot;I serve only Athena. You should leave immediately.&quot;
 
@@ -1208,7 +1456,7 @@ $(function () {
 %&gt;
 
 </tw-passagedata>
-<tw-passagedata pid="104" name=" The Coupling" tags="" position="261,1875">You slide your hands up the sea god&#39;s chest to his shoulders.
+<tw-passagedata pid="101" name=" The Coupling" tags="" position="261,1875">You slide your hands up the sea god&#39;s chest to his shoulders.
 
 &quot;I never said that a god wouldn&#39;t do,&quot; you smirk back at him. You raise a hand to stroke a few locks of his sea-swept hair. &quot;Especially one as handsome as you.&quot;
 
@@ -1218,7 +1466,7 @@ He pulls you into a deep, searing kiss. You respond enthusiastically by wrapping
 
 
 &lt;% s.fightStyle = &quot;stones turned&quot; %&gt;</tw-passagedata>
-<tw-passagedata pid="105" name=" The Ravishing" tags="" position="261,2025">Poseidon backs you up against the wall. He grabs the back of your thighs and hoists you up, and you wrap your legs around his waist.
+<tw-passagedata pid="102" name=" The Ravishing" tags="" position="261,2025">Poseidon backs you up against the wall. He grabs the back of your thighs and hoists you up, and you wrap your legs around his waist.
 
 When he finally thrusts inside you, there is searing pain. You gasp and try to push him away, but he only chuckles and thrusts again. 
 
@@ -1229,7 +1477,7 @@ When he finally thrusts inside you, there is searing pain. You gasp and try to p
 &quot;The pain will subside,&quot; he says inbetween grunts. He picks up the pace and a high-pitched scream escapes you. You try to wiggle away from him again, but his strength is far greater than yours. You are trapped.
 
 [[&lt;span id=&quot;bright-green-blue&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;Tears begin to roll down your face.&lt;/span&gt; -&gt; Athena&#39;s Anger]]</tw-passagedata>
-<tw-passagedata pid="106" name="You take a few steps backwards" tags="" position="554,1690">&lt;% 
+<tw-passagedata pid="103" name="You take a few steps backwards" tags="" position="554,1690">&lt;% 
 var wordcount = 120;
 var timeExpected = (wordcount / s.avgReadSpeed) * 60 * 1000;
 console.log(&#39;time expected in minutes: &#39;,timeExpected); 
@@ -1252,11 +1500,7 @@ He towers over you and you feel the first stirrings of panic. &quot;Surely you w
 &lt;% setTimeout(function() { console.log(&#39;Time expected: &#39;, timeExpected); fadeOut(&#39;.fadeout&#39;); }, timeExpected);  
 %&gt;
 </tw-passagedata>
-<tw-passagedata pid="107" name="raspberry-purple" tags="" position="350,21">&lt;%= s.tags.colors %&gt;
-&lt;%= s.currentTag %&gt;
-
-
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the raspberry-purple yarn on top of the loom.&lt;/span&gt; -&gt;royal-purple]]
+<tw-passagedata pid="104" name="raspberry-purple" tags="" position="350,21">Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;background-image:linear-gradient(to right, #800060, #e60039, #800060); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt; raspberry-purple yarn&lt;/span&gt; -&gt;royal-purple]] on top of the loom.
 
 
 &lt;%
@@ -1268,8 +1512,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="108" name="royal-purple" tags="" position="487,20">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the royal-purple yarn on top of the loom.&lt;/span&gt; -&gt;silver-grey]]
+<tw-passagedata pid="105" name="royal-purple" tags="" position="487,20">
+Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;color:#8600b3; font-weight:bold;&quot;&gt; royal-purple yarn &lt;/span&gt; -&gt;silver-grey]]on top of the loom.
 
 
 &lt;%
@@ -1281,8 +1525,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="109" name="silver-grey" tags="" position="624,19">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the silver-grey yarn on top of the loom.&lt;/span&gt; -&gt;pine-green]]
+<tw-passagedata pid="106" name="silver-grey" tags="" position="624,19">
+Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;color:#c3c3c3;font-weight:bold;&quot;&gt; silver-grey yarn &lt;/span&gt; -&gt;pine-green]]on top of the loom.
 
 
 &lt;%
@@ -1294,8 +1538,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="110" name="pine-green" tags="" position="760,24">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the pine-green yarn on top of the loom.&lt;/span&gt; -&gt;moss-green]]
+<tw-passagedata pid="107" name="pine-green" tags="" position="760,24">
+Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;color:#227722;font-weight:bold;&quot;&gt; pine-green yarn &lt;/span&gt; -&gt;moss-green]]on top of the loom.
 
 
 &lt;%
@@ -1307,8 +1551,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="111" name="moss-green" tags="" position="885.0001,26">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the moss-green yarn on top of the loom.&lt;/span&gt; -&gt;bright-green-blue]]
+<tw-passagedata pid="108" name="moss-green" tags="" position="885,26">
+Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;color:#8BA367;font-weight:bold;&quot;&gt; moss-green yarn &lt;/span&gt; -&gt;bright-green-blue]]on top of the loom.
 
 
 &lt;%
@@ -1320,8 +1564,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="112" name="bright-green-blue" tags="" position="1010.0002,25">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the bright-green-blue yarn on top of the loom.&lt;/span&gt; -&gt;dirt-brown]]
+<tw-passagedata pid="109" name="bright-green-blue" tags="" position="1010,25">
+Please place the shuttle with the [[&lt;span id=&quot;color&quot; style=&quot;background-image:linear-gradient(to right, #76C454, #13A3B3, #76C454); color:transparent; background-clip: text;-webkit-background-clip: text;font-weight:bold;&quot;&gt;bright-green-blue yarn&lt;/span&gt; -&gt;dirt-brown]] on top of the loom.
 
 
 &lt;%
@@ -1333,8 +1577,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="113" name="dirt-brown" tags="" position="1139,23">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the dirt-brown yarn on top of the loom.&lt;/span&gt; -&gt;kelly-green]]
+<tw-passagedata pid="110" name="dirt-brown" tags="" position="1139,23">
+Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;color:#744d25;font-weight:bold;&quot;&gt; dirt-brown yarn &lt;/span&gt; -&gt;kelly-green]]on top of the loom.
 
 
 &lt;%
@@ -1346,8 +1590,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="114" name="kelly-green" tags="" position="1264.0001,24">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the bright kelly-green yarn on top of the loom.&lt;/span&gt; -&gt;royal-blue]]
+<tw-passagedata pid="111" name="kelly-green" tags="" position="1264,24">
+Please place the shuttle with the [[&lt;span id=&quot;color&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;bright kelly-green yarn &lt;/span&gt; -&gt;royal-blue]]on top of the loom.
 
 
 &lt;%
@@ -1359,8 +1603,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="115" name="royal-blue" tags="" position="1391,28">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the royal-blue yarn on top of the loom.&lt;/span&gt; -&gt;blood-red]]
+<tw-passagedata pid="112" name="royal-blue" tags="" position="1391,28">
+Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt; royal-blue yarn&lt;/span&gt; -&gt;blood-red]] on top of the loom.
 
 
 &lt;%
@@ -1372,8 +1616,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="116" name="blood-red" tags="" position="1391,178">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the blood-red yarn on top of the loom.&lt;/span&gt; -&gt;golden-yellow]]
+<tw-passagedata pid="113" name="blood-red" tags="" position="1391,178">
+Please place the shuttle with the[[&lt;span id=&quot;color&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt; blood-red yarn &lt;/span&gt; -&gt;golden-yellow]]on top of the loom.
 
 
 &lt;%
@@ -1385,8 +1629,8 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="117" name="golden-yellow" tags="" position="1391,328">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Please place the shuttle with the golden-yellow yarn on top of the loom.&lt;/span&gt; -&gt;master]]
+<tw-passagedata pid="114" name="golden-yellow" tags="" position="1391,328">
+Please place the shuttle with the [[&lt;span id=&quot;color&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;golden-yellow yarn &lt;/span&gt; -&gt;master]]on top of the loom.
 
 
 &lt;%
@@ -1398,10 +1642,10 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
-<tw-passagedata pid="118" name="master" tags="" position="1391,478">
-[[&lt;span id=&quot;color&quot; style=&quot;&quot;&gt;Finally, please place the shuttle with the word &quot;MASTER&quot; on top of the loom.&lt;/span&gt; -&gt;Main Menu]]
+<tw-passagedata pid="115" name="master" tags="" position="1391,478">
+Finally, please place the shuttle with[[&lt;span id=&quot;color&quot; style=&quot;font-weight:bold;&quot;&gt; the word &quot;MASTER&quot; &lt;/span&gt; -&gt;Main Menu]]on top of the loom.
 
-Thank you.
+Thank you for calibrating the shuttles! Have fun!
 
 
 &lt;%
@@ -1414,6 +1658,94 @@ $(function () {
 	});
 });
 %&gt;</tw-passagedata>
+<tw-passagedata pid="116" name=" The Riddle" tags="" position="4668,464">
+&lt;% var question = Math.floor(Math.random() * 5) + 1 %&gt;
+&lt;% if (question == 1) { %&gt;
+&quot;What goes on four feet in the morning, two feet at noon, and three feet in the evening?&quot;
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;&quot;...Is it man?&quot;&lt;/span&gt; -&gt;Answer correctly]]
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;&quot;A...dog?&quot;&lt;/span&gt; -&gt;Answer incorrectly]]
+
+&lt;% } else if (question == 2) { %&gt;
+
+&quot;The more you take, the more you leave behind. What am I?&quot;
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;&quot;Definitely trash.&quot;&lt;/span&gt; -&gt;Answer incorrectly]]
+
+[[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;&quot;Surely footsteps.&quot;&lt;/span&gt; -&gt;Answer correctly]]
+
+&lt;% } else if (question == 3) { %&gt;
+
+&quot;What is black when you buy it, red when you use it, and gray when you throw it away?&quot;
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;&quot;Paint, I suppose.&quot;&lt;/span&gt; -&gt;Answer incorrectly]]
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;Charcoal I beleive.&quot;&lt;/span&gt; -&gt;Answer correctly]]
+
+&lt;% } else if (question == 4) { %&gt;
+
+&quot;Tall I am young, Short I am old, While with life I glow, Wind is my foe. What am I?&quot;
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;A candle.&quot;&lt;/span&gt; -&gt;Answer correctly]]
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;&quot;A flower.&quot;&lt;/span&gt; -&gt;Answer incorrectly]]
+
+&lt;% } else if (question == 5) { %&gt;
+
+&quot;I am not alive, but I grow; I don&#39;t have lungs, but I need air; I don&#39;t have a mouth, but water kills me. What am I?&quot;
+
+[[&lt;span id=&quot;blood-red&quot; style=&quot;color:#DC0E0E;font-weight:bold;&quot;&gt;&quot;Fire... Yes, fire.&quot;&lt;/span&gt; -&gt;Answer correctly]]
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;&quot;A song... I&#39;m sure it&#39;s a song.&quot;&lt;/span&gt; -&gt;Answer incorrectly]]
+
+&lt;% } %&gt;</tw-passagedata>
+<tw-passagedata pid="117" name=" Crowning the Sphynx Killer" tags="" position="4632,968">
+&quot;In spite of the tragedy this city has faced, you have given us reason to celebrate,&quot; says Creon. &quot;Thank you, my good man. We owe you a great debt.&quot;
+
+From the gathered crowd someone yells: &quot;Make him the new king! His strength will save our kingdom!&quot;
+
+The crowd cheers. Creon and Queen Jocasta look to each other, and then at Oedipus. Jocasta walks to Oedipus and holds his hands.
+
+&quot;You have done Thebes a great service, and I would be honored to spend my life with you. Will you become king of this great city?&quot;
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;Deny.&lt;/span&gt;-&gt;deny]]
+
+[[&lt;span id=&quot;royal-blue&quot; style=&quot;color:#0D36CF;font-weight:bold;&quot;&gt;Accept.&lt;/span&gt;-&gt;accept]]
+</tw-passagedata>
+<tw-passagedata pid="118" name="Talk with parents" tags="" position="3675,1163.3333333333335">A long talk was had between the royal family of Corinth. The king and queen told Oedipus of his origins. Oedipus told his adoptive parents of the prophecy. And though they were at first taken aback, with the knowledge that Oedipus wasn&#39;t their child by blood they were all able to think things through.
+
+The king and queen embrace their son.
+
+&quot;No matter where you are from, and no matter where you go, you are our child,&quot; says Polybus.
+
+&quot;We love you unconditionally, and we know you will do the right thing,&quot; says Merope.
+
+The prince hugs them close, his heart lighter.
+
+The clouds swirl again, and you see Oedipus waving to his parents. The image blurs and you can see him walking down a road.
+
+&quot;Fate still has a hold on him. We need to push farther,&quot; Tiresias says.
+
+[[&lt;span id=&quot;kelly-green&quot; style=&quot;color:#0BB00B;font-weight:bold;&quot;&gt;Oedipus travels away from Corinth to wherever the Fates may lead him.&lt;/span&gt; -&gt;Arrives at crossroads]]</tw-passagedata>
+<tw-passagedata pid="119" name="Completed story" tags="" position="2833.3333333333335,523.3333333333334">The clouds swirl around you. You feel tears prick your eyes.
+
+You have done it. You have changed Oedipus&#39; fate.
+
+Tiresias turns to you, beaming. &quot;I never thought I would see the day,&quot; he says. &quot;Finally, finally, Oedipus will be rewarded for the good man he was.&quot;
+
+He kneels and embraces you. &quot;You saw his potential, and helped change him. You stood against the gods and bargained and have come away the victor.&quot; Tears roll down his cheeks as he looks you in the eye. 
+
+&quot;What was once a tragic tale of a man who could not best fate has now become a legend about changing it,&quot; he says. &quot;It is you, the Guide of Fates, that this myth is now about. You have become one of the gods.&quot;
+
+He embraces you again, and you let yourself be swept into the clouds, [[&lt;span id=&quot;golden-yellow&quot; style=&quot;color:#FBD00E;font-weight:bold;&quot;&gt;leaving your loom and the tapestry you have woven behind.&lt;/span&gt;-&gt;The end]]
+
+&lt;% s.goToFuneral = false;
+s.killLaius = true;
+s.talkToParents = false;
+s.abandon = true;
+%&gt;
+</tw-passagedata>
 </tw-storydata>
 
 
