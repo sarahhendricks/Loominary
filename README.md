@@ -18,4 +18,7 @@ This project was developed by Windows IoT, which means there are a lot of files 
 - IoTBrowser/IoTBrowser/App.xaml.cs
 - IoTBrowser/IoTBrowser/MainPage.xaml.cs
 
-Developed by Sarah Hendricks and written by Brittany Williams under the guidance of Joshua McCoy and Anne Sullivan.
+## Credits
+Narrative Designer: Brittany Williams
+Lead Programmer: Sarah Hendricks
+Loom and story concept: Dr. Anne Sullivan, Dr. Josh McCoy
