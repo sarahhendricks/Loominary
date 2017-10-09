@@ -23,7 +23,10 @@ This semester focused on defining the project, acquiring the materials, and deve
 **Semester 2: Spring 2017**
 This semester focused on creating the interactive storyline, creating the custom case for the hardware, and testing with users.
 
-## Important files
+## Want to contribute?
+Loominary is an open-source project under the MIT liscence. Feel free to add your own stories to Loominary - we would love to see your work! Head over to the <a href="https://github.com/sarahhendricks/Loominary/wiki">Wiki</a> for instructions on how to get started!
+
+**Important files**
 This project was developed by Windows IoT, which means there are a lot of files that got pushed. Here is a list of the ones that are critical to the project:
 - codingbandit-RfidScanner-90bad51/RfidScanner/StartupTask.cs
 - codingbandit-RfidScanner-90bad51/CottonwoodRfidReader/Cottonwood.cs
